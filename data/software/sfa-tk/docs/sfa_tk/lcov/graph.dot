@@ -1,0 +1,11 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+
+  lcov_clear [URL="lcov_clear.html"];
+  lcov_clearall [URL="lcov_clearall.html"];
+  lcov_create [URL="lcov_create.html"];
+  lcov_fix [URL="lcov_fix.html"];
+  lcov_pca [URL="lcov_pca.html"];
+  lcov_transform [URL="lcov_transform.html"];
+  lcov_update [URL="lcov_update.html"];
+}

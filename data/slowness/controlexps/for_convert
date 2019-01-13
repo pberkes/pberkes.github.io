@@ -1,0 +1,1 @@
+for x in `ls`; do echo $x; export y=`basename $x .eps`; convert $y.eps $y.jpg; done

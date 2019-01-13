@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Pietro Berkes - Software</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<H2 id="soft">Libraries and tools:</H2>
+<OL>
+  <LI VALUE=7>
+  <A HREF="https://github.com/pberkes/mtest"><B>mtest</B></A> is a Python
+	library to perform the robust two-sample test based on model selection that
+	was introduced in <A
+	  HREF="http://www.sciencemag.org/content/331/6013/83.abstract">our
+  spontaneous activity paper</A> and is described in more details <A
+  HREF="http://arxiv.org/abs/1104.2826">this preprint</A>.
+  <BR><I>Author: Pietro Berkes (2011)</I>
+
+  <LI VALUE=6>
+  <A HREF="https://github.com/pberkes/neuro-kl"><B>neuro-kl</B></A> is
+  a collection of Python and Matlab functions to estimate the KL divergence between discrete probability
+	distribution. The method is based on a Bayesian estimator, as
+	described in the supplementary material of <A
+	HREF="http://www.sciencemag.org/content/331/6013/83.abstract">this
+	paper.</A>
+  <BR><I>Authors: Pietro Berkes and Dmitriy Lisitsyn (2011)</I>
+  
+  <LI VALUE=5>
+  <A HREF="https://github.com/pberkes/big_O">
+  <B>big_O</B></A> is a Python module to estimate the time complexity of Python code from its execution time. It can be used to analyze how functions scale with inputs of increasing size.
+  <BR><I>Author: Pietro Berkes (2011)</I>
+
+  <LI VALUE=4>
+  <A href="http://mdp-toolkit.sourceforge.net">
+  <B CLASS="news">Modular toolkit for Data Processing (MDP)</B></A>.
+  <B>MDP</B> is a Python data processing framework. 
+  Implemented algorithms include: Principal Component Analysis (PCA), Independent Component Analysis (ICA), Slow Feature Analysis (SFA), Independent Slow Feature Analysis (ISFA), Growing Neural Gas (GNG), Factor Analysis, Fisher Discriminant Analysis (FDA), Gaussian Classifiers, and Restricted Boltzmann Machines.
+  <BR><I>Authors: Pietro Berkes and Tiziano Zito (2004-2007);
+  <BR>Pietro Berkes, Niko Wilbert, and Tiziano Zito (2008-2010);
+  <BR>Pietro Berkes, Zbigniew Jedrzejewski-Szmek, Rike-Benjamin Schuppner, Niko Wilbert, Tiziano Zito (2011)
+  </I>
+
+  <LI VALUE=3>
+  <A href="https://pberkes.github.io/software/qforms-tk/index.html">
+  <B>qforms-tk</B></A> is a Matlab toolbox that implements the
+  algorithms to analyze quadratic forms described in (Berkes and Wiskott, 2005).
+  <BR><I>Author: Pietro Berkes (2005)</I>
+
+  <LI VALUE=2>
+  <A href="https://pberkes.github.io/software/sfa-tk/index.html">
+  <B>sfa-tk: Slow Feature Analysis Toolkit for Matlab</B></A>.
+  <B>sfa-tk</B> is a Matlab implementation of the Slow Feature Analysis algorithm.
+  <BR><I>Author: Pietro Berkes (2004)</I>
+
+  <LI VALUE=1>
+  <A HREF="http://jrgp.sourceforge.net/"><B>Java Rapid Genetic Programming</B></A>.
+  <B>jrgp</B> is a set of free software Genetic Programming tools written in
+  Java and <A HREF="http://www.jython.org/">jython</A>.
+  It features a graphical interface to setup and run
+  GP-simulations and a tool that simplifies the definition of a
+  GP-problem.
+  <BR><I>Authors: Pietro Berkes and Samuele Pedroni (2002)</I>
+  </LI>
+</OL>
+
+<H2>Simulations and other scientific code:</H2>
+<OL>
+  <LI VALUE=4><a
+  href="http://github.com/pberkes/persistent_locals">Python
+  decorator</a> that allows to examine the internal variables of a
+  Python function after execution, very useful for debugging and to
+  analyze the intermediate results of an algorithm.
+
+  <LI VALUE=3>At NIPS 2008 we proposed a way to analyze neural
+  dependencies <a href="https://pberkes.github.io/copulas/index.html"> using Poisson
+  copulas</a>. Here is some <A
+  href="https://pberkes.github.io/data/software/copulas/copulas_demo.zip">Matlab
+  code</a> demonstrating how is works.
+
+  <LI VALUE=2>
+  I wrote some <A href="https://pberkes.github.io/docs/dbn_tutorial.html">simple Python code
+  to train Deep Belief Networks</A> for the workshop on
+  <A href="http://www.gatsby.ucl.ac.uk/~turner/workshop/workshop.html">advanced
+  probabilistic techniques</A>.
+  </LI>
+
+  <LI VALUE=1>
+  <A href="https://pberkes.github.io/software/slowness_model/index.html">Matlab program</A>
+  to perform simulations with the 
+  <B CLASS="news">temporal slowness model of self-organization of
+  complex-cell receptive fields</B> described in
+  (Berkes and Wiskott 2002, 2003, 2005).
+  <BR><I>Author: Pietro Berkes (2005)</I>
+  </LI>
+</OL>
+
+<H2>Others:</H2>
+<OL>
+  <LI VALUE=1>
+  While at Gatsby, I wrote a small script called <A
+  href="https://pberkes.github.io/data/software/kali/kali.tgz">kali</A>
+  to send a series of task to remote
+  machines with free processors and memory. It is based on previous code
+  by Iain Murray, and uses <A
+  href="http://pexpect.sourceforge.net/pexpect.html">pexect</A>.
+  I fear it is too Gatsby-centric to be used out-of-the-box somewhere else,
+  but it should be easy to adapt to your needs.
+  
+  <P>
+  Gatsby insiders can read detailed instructions in the internal wiki.
+  </LI>
+</OL>
+
+</div>
+
+</body>
+</html>

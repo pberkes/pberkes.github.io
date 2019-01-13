@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sfa_load</title>
+  <meta name="keywords" content="sfa_load">
+  <meta name="description" content="SFA_LOAD Load a SFA object.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">sfa</a> &gt; sfa_load.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/sfa&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>sfa_load
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>SFA_LOAD Load a SFA object.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function hdl=sfa_load(filename) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> SFA_LOAD Load a SFA object.
+   HDL = SFA_LOAD(FILENAME) loads the SFA object saved in the file
+   FILENAME and assign to it the handle HDL. The file must have been
+   saved by SFA_SAVE.
+
+   See also <a href="sfa_save.html" class="code" title="function sfa_save(hdl, filename)">SFA_SAVE</a></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function hdl=sfa_load(filename)</a>
+0002 <span class="comment">% SFA_LOAD Load a SFA object.</span>
+0003 <span class="comment">%   HDL = SFA_LOAD(FILENAME) loads the SFA object saved in the file</span>
+0004 <span class="comment">%   FILENAME and assign to it the handle HDL. The file must have been</span>
+0005 <span class="comment">%   saved by SFA_SAVE.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   See also SFA_SAVE</span>
+0008   
+0009   <span class="keyword">global</span> SFA_STRUCTS
+0010   
+0011   <span class="comment">% init if first call</span>
+0012   <span class="keyword">if</span> isempty(SFA_STRUCTS),
+0013     SFA_STRUCTS=cell(3,1);
+0014   <span class="keyword">end</span>
+0015     
+0016   <span class="comment">% find empty slot</span>
+0017   hdl=-1;
+0018   <span class="keyword">for</span> i=1:size(SFA_STRUCTS,1)
+0019     <span class="keyword">if</span> isempty(SFA_STRUCTS{i}),
+0020       hdl=i;
+0021       <span class="keyword">break</span>;
+0022     <span class="keyword">end</span>
+0023   <span class="keyword">end</span>
+0024   <span class="keyword">if</span> hdl==-1, hdl=size(SFA_STRUCTS,1)+1; <span class="keyword">end</span>
+0025 
+0026   load(filename);
+0027   SFA_STRUCTS{hdl}=strct;</pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

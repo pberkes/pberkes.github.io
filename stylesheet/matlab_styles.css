@@ -1,0 +1,13 @@
+code {
+	color:#000080;
+}
+
+.mcode {
+	color:#000080;
+	margin-left:2em;
+}
+
+.mcomment {
+	color:maroon;
+	font-weight:bold;
+}

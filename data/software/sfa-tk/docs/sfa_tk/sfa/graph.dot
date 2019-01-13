@@ -1,0 +1,44 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  eta -> timediff;
+  expansion -> xp_dim;
+  leta -> timediff;
+  sfa1 -> sfa1_create;
+  sfa1 -> sfa_clear;
+  sfa1 -> sfa_execute;
+  sfa1 -> sfa_step;
+  sfa1_step -> timediff;
+  sfa2 -> sfa2_create;
+  sfa2 -> sfa_clear;
+  sfa2 -> sfa_execute;
+  sfa2 -> sfa_step;
+  sfa2 -> xp_dim;
+  sfa2_create -> xp_dim;
+  sfa2_step -> expansion;
+  sfa2_step -> sfa1_create;
+  sfa2_step -> sfa_clear;
+  sfa2_step -> sfa_step;
+  sfa2_step -> timediff;
+  sfa_execute -> expansion;
+  sfa_step -> sfa1_step;
+  sfa_step -> sfa2_step;
+
+  eta [URL="eta.html"];
+  expansion [URL="expansion.html"];
+  leta [URL="leta.html"];
+  sfa1 [URL="sfa1.html"];
+  sfa1_create [URL="sfa1_create.html"];
+  sfa1_step [URL="sfa1_step.html"];
+  sfa2 [URL="sfa2.html"];
+  sfa2_create [URL="sfa2_create.html"];
+  sfa2_step [URL="sfa2_step.html"];
+  sfa_clear [URL="sfa_clear.html"];
+  sfa_clearall [URL="sfa_clearall.html"];
+  sfa_execute [URL="sfa_execute.html"];
+  sfa_getHf [URL="sfa_getHf.html"];
+  sfa_load [URL="sfa_load.html"];
+  sfa_save [URL="sfa_save.html"];
+  sfa_step [URL="sfa_step.html"];
+  timediff [URL="timediff.html"];
+  xp_dim [URL="xp_dim.html"];
+}

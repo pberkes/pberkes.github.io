@@ -1,0 +1,654 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Pietro Berkes - Publications</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<H1>Publications</H1>
+
+<P>
+<A HREF="#publ">Journal papers</A> - <A HREF="#peer">Peer-reviewed</A> - <A HREF="#conf">Conferences and pre-prints</A>
+
+<DIV class="publications">
+<H2 id="publ">Journal papers</H2>
+
+<OL>
+  <LI VALUE=17>
+  Haefner, R., Berkes, P., and Fiser, J. (2016).<BR>
+  <B>Perceptual Decision-Making as Probabilistic Inference by Neural Sampling.</B><BR>
+  Neuron,  Volume 90 , Issue 3 , 649 - 660.<BR>
+  (<A HREF="http://www.cell.com/neuron/abstract/S0896-6273(16)30011-3">article</A>)
+  </LI>
+  
+  <LI VALUE=16>
+  Berkes, P., Orban, G., Lengyel, M., and Fiser, J. (2011).<BR>
+  <B>Spontaneous cortical activity reveals hallmarks of an optimal internal model of the environment.</B><BR>
+  Science, 331:6013, 83â87.<BR>
+  (<A HREF="http://www.sciencemag.org/cgi/content/abstract/331/6013/83?ijkey=eL6beqEiPP5m2&keytype=ref&siteid=sci">abstract</A>,
+   <A HREF="http://www.sciencemag.org/cgi/rapidpdf/331/6013/83?ijkey=eL6beqEiPP5m2&keytype=ref&siteid=sci">reprint</A>,
+   <A HREF="http://www.sciencemag.org/cgi/content/full/331/6013/83?ijkey=eL6beqEiPP5m2&keytype=ref&siteid=sci">full text</A>,
+   <A HREF="http://www.sciencemag.org/content/331/6013/83/suppl/DC1">supplementary material</A>)
+  </LI>
+
+  <LI VALUE=15>
+    Shelton, J., Bornschein, J., Sheikh, A.S., Berkes, P., Lucke, J. (2011).<BR>
+    <B>Select and Sample - A Model of Efficient Neural Inference and Learning</B><BR>
+    Advances in Neural Information Processing Systems, 24, pp. 2618-2626.<BR>
+    (<A HREF="http://nips.cc/Conferences/2011/Program/event.php?ID=2793">abstract</A>,
+     <A HREF="https://pberkes.github.io/data/papers/SheltEtAl_NIPS2011.pdf">paper.pdf</A>)
+  </LI>
+
+  <LI VALUE=14>
+    Wilbert, N., Zito, T., Schuppner, R.B., Jedrejewski-Szmek, Z.,
+  Wiskott, L., and Berkes, P. (2011)<BR>
+    <B>Building extensible frameworks for data processing: the case of
+  MDP, Modular Toolkit for Data Processing</B><BR>
+    Journal of Computational Science <BR>
+  </LI>
+  
+  <LI VALUE=13>
+    March, M.C., Trotta, R., Berkes P., Starkman, G.D., Vaudrevange, P.M. (2011)<BR>
+    <B>Improved constraints on cosmological parameters from SNIa data.</B><BR>
+     Monthly Notices of the Royal Astronomical Society. (in press)<BR>
+    (<A HREF="http://arxiv.org/abs/1102.3237">link to pre-print</A>)
+  </LI>
+
+  <LI VALUE=12>
+    Wiskott, L., Berkes, P., Franzius, M., Sprekeler, H., and Wilbert, N. (2011)<BR>
+    <A HREF="http://www.scholarpedia.org/article/Slow_feature_analysis"><B>Slow
+    Feature Analysis</B></A>.<BR>
+    Scholarpedia , 6(4):5282.
+  </LI>
+  
+  <LI VALUE=11>
+  Fiser, J., Berkes, P., Orban, G, and Lengyel, M. (2010).<BR>
+  <b>Statistically optimal perception and learning: from behavior to neural representations</b><br>
+  Trends in Cognitive Sciences, 14:3, 119-130. <BR>
+  (<A HREF="http://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613%2810%2900004-5">link to paper</A>)
+  </LI>
+  
+  <LI VALUE=10>
+  Berkes, P., Turner, R.E., and Sahani, M. (2009).<BR>
+  <b>A structured model of video reproduces primary visual 
+cortical organisation</b><br>
+  PLoS Computational Biology,  5(9): e1000495. doi:10.1371/journal.pcbi.1000495 .<BR>
+  (<A HREF="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000495">link to paper</A>)
+  </LI>
+  
+  <LI VALUE=9>
+  Berkes, P., White, B.L., and Fiser, J. (2009)<BR>
+  <B>No evidence for active sparsification in the visual cortex</B><br>
+  Advances in Neural Information Processing Systems, 22.<br>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkWhitFise_NIPS09.pdf">paper.pdf</A>,
+   <A HREF="https://pberkes.github.io/data/papers/BerkWhitFise_NIPS09_suppl.pdf">supplementary material</A>,
+   <A HREF="https://pberkes.github.io/data/papers/BerkWhitFise_NIPS09_poster.pdf">poster.pdf</A>)
+
+  <LI VALUE=8>
+  Berkes, P., Wood, F., and Pillow, J. (2009).<BR>
+  <b>Characterizing neural dependencies with copula models</b><br>
+  Advances in Neural Information Processing Systems, 21:119-136.<br>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkWoodPill_NIPS08_finalcolor.pdf">paper.pdf</A>,
+   <A HREF="https://pberkes.github.io/data/papers/BerkWoodPill_NIPS08_poster.pdf">poster.pdf</A>) - 
+  <a href="https://pberkes.github.io/copulas/index.html">Project page</a>,  <a
+  href="https://pberkes.github.io/data/software/copulas/copulas_demo.zip">Matlab demo</a>
+  </LI>
+
+  <LI VALUE=7>
+  Zito, T., Wilbert, N., Wiskott, L., and Berkes, P. (2009).<BR>
+  <b>Modular toolkit for Data Processing (MDP): a Python data processing framework.</b><br>
+  Frontiers in Neuroinformatics (2008) 2:8. doi:10.3389/neuro.11.008.2008<br>
+  (<A HREF="http://www.frontiersin.org/neuroinformatics/paper/10.3389/neuro.11/008.2008/">link to paper</A>) - 
+   <a href="http://mdp-toolkit.sourceforge.net">MDP homepage</a>
+  </LI>
+
+  <LI VALUE=6>
+  Berkes, P., Turner, R. and Sahani, M. (2008).<BR>
+  <b>On sparsity and overcompleteness in image models.</b><br>
+  Advances in Neural Information Processing Systems, 20.<br>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkTurnSaha2008.pdf">paper.pdf</A>) -
+  <a href="https://pberkes.github.io/overcompleteness/index.html">Project page</a>
+  </LI>
+  
+  <LI VALUE=5>
+  Berkes, P. and Wiskott, L. (2007).<BR>
+  <B>Analysis and interpretation of quadratic models of receptive fields.</B><BR>
+  Nature Protocols, 2:2, 400-407.<BR>
+  (<A
+  HREF="http://www.nature.com/nprot/journal/v2/n2/abs/nprot.2007.27.html">link
+  to paper</A>)
+  <A HREF="https://pberkes.github.io/qforms/additional_material.html">Additional on-line material</A> -
+   <A href="https://pberkes.github.io/software/qforms-tk/"  >Matlab source code</A>
+  </LI>
+
+  <LI VALUE=4>
+  Blaschke, T., Berkes, P. and Wiskott, L. (2006).<BR>
+  <B>What is the relation between slow feature analysis and independent component analysis?</B><BR>
+  Neural Computation, 18:10, 2495-2508.<BR>
+  (<A HREF="http://www.mitpressjournals.org/doi/abs/10.1162/neco.2006.18.10.2495">link to paper</A>, <A HREF="https://pberkes.github.io/data/papers/BlasBerkWisk_NeurComp2006.pdf">paper.pdf</A>)
+  </LI>
+
+  <LI VALUE=3>
+  Berkes, P. and Wiskott, L. (2006).<BR>
+  <B>On the analysis and interpretation of inhomogeneous quadratic forms as receptive fields.</B><BR>
+  Neural Computation, 18:8, 1868-1895.<BR>
+  (<A HREF="http://www.mitpressjournals.org/doi/abs/10.1162/neco.2006.18.8.1868">link to paper</A>)
+   - <A HREF="https://pberkes.github.io/qforms/additional_material.html">Additional on-line material</A> -
+   <A href="https://pberkes.github.io/software/qforms-tk/">Matlab source code</A>
+  </LI>
+
+  <LI VALUE=2>
+  Berkes, P. and Wiskott, L. (2005).<BR>
+  <B>Slow feature analysis yields a rich repertoire of complex cell properties.</B><BR>
+  Journal of Vision, 5(6), 579-602,
+  <A HREF="http://journalofvision.org/5/6/9/"><CODE>http://journalofvision.org/5/6/9/</CODE></A>,
+  doi:10.1167/5.6.9.<BR>
+  (<a href="http://journalofvision.org/5/6/9/article.aspx">link to paper</A>) -   
+   <A HREF="https://pberkes.github.io/slowness/additional_material.html" >Additional on-line material</A> -
+   <A HREF="https://pberkes.github.io/software/slowness_model" >Matlab source code</A>
+  </LI>
+
+  <LI VALUE=1>
+  Wiskott, L. and Berkes, P. (2003).<BR>
+  <B>Is slowness a learning principle of visual cortex?</B><BR>
+  Zoology, 106(4):373-382.<BR>
+  (<A HREF="http://dx.doi.org/10.1078/0944-2006-00132">link to paper</A>)
+  </LI>
+
+</OL>
+
+<H2 id="peer">Other peer-reviewed publications:</H2>
+
+<OL>
+  <LI VALUE=2>
+  Turner, R., Berkes, P., and Sahani, M. (2008).<BR>
+  <b>Two problems with variational Expectation Maximisation for time-series
+  models</b><br>
+  Proc. <i>Inference and Estimation in Probabilistic Time-Series Models
+  Workshop</i>, Cambridge.
+  (<A HREF="https://pberkes.github.io/data/papers/TurnBerkSaha_TBS2008.pdf">paper.pdf</A>)
+  </LI>
+
+  <LI VALUE=1>
+  Berkes, P. and Wiskott, L. (2002).<BR>
+  <B>Applying Slow Feature Analysis to image sequences yields a rich
+     repertoire of complex cell properties.</B><BR>
+     in <EM>Artificial Neural Networks - ICANN 2002</EM>,<BR>
+     ed. Jose R. Dorronsoro, Springer Verlag, pp. 81-86
+     <BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2002a.html">abstract</A>,
+   <A HREF="https://pberkes.github.io/data/papers/BerWis_ICANN02.ps">paper.ps</A>) -   
+   <A HREF="https://pberkes.github.io/slowness/icann02.html" >Additional on-line material to this paper</A>
+  </LI>
+
+</OL>
+
+<H2 id="conf">Conference contributions and preprints</H2>
+
+<OL>
+  <LI VALUE=37>
+     Savin, C., Berkes, P., Chiayu, C., Fiser, J., Lengyel, M. (2012).<BR>
+     <B>Similarity between spontaneous and sensory-evoked activity does suggest learning in the cortex.</B><BR>
+     Computational and Systems Neuroscience, 2013.
+  </LI>
+
+  <LI VALUE=36>
+     Haefner, R., Berkes, P., Fiser, J. (2012).<BR>
+     <B>Perceptual decision-making in a sampling-based neural representation.</B><BR>
+     Computational and Systems Neuroscience, 2013.
+  </LI>
+
+  <LI VALUE=35>
+     Luecke, J., Shelton, J.A., Sterne, P., Bornschein, J., Berkes,
+  P., Sheikh A.-S. (2013).<BR>
+     <B>Combining feed-forward processing and sampling for neurally plausible encoding models</B><BR>
+     Computational and Systems Neuroscience, 2013.
+  </LI>
+
+  <LI VALUE=34>
+     Haefner, R., Berkes, P., Fiser, J. (2012).<BR>
+     <B>Decision-making and attention in a sampling-based neural representation.</B><BR>
+     Computational and Systems Neuroscience, 2012.
+  </LI>
+
+  <LI VALUE=33>
+     Haefner R., Berkes, P., Fiser, J. (2012).<BR>
+     <B>Decision-making in a sampling-based neural representation.</B><BR>
+     Frontiers in Neuroscience. Conference Abstract: Neural Coding, Decision-Making & Integration in Time.<BR>
+     (<A HREF="http://www.frontiersin.org/10.3389/conf.fnins.2012.86.00004/event_abstract">abstract</A>)
+  </LI>
+
+  <LI VALUE=32>
+    Marisa, M.C., Trotta, R., Berkes P., Starkman, G.D., Vaudrevange, P.M. (2011).<BR>
+    <B>A New Method For Cosmological Parameter Estimation From SNIa Data</B><BR>
+    <A HREF="http://adsabs.harvard.edu/abs/2011AAS...21721405M">American Astronomical Society, AAS Meeting #217, #214.05</A><BR>
+    Bulletin of the American Astronomical Society, Vol. 43, 2011
+  </LI>
+
+  <LI VALUE=31>
+    Berkes, P., Fiser, J. (2011)<BR>
+    <B>A frequentist two-sample test based on Bayesian model selection</B><BR>
+    <A HREF="http://arxiv.org/abs/1104.2826">arXiv:1104.2826</A>
+  </LI>
+  
+  <LI VALUE=30>
+    March, M.C., Trotta, R., Berkes P., Starkman, G.D., Vaudrevange, P.M. (2011)<BR>
+    <B>Improved constraints on cosmological parameters from SNIa data</B><BR>
+    <A HREF="http://arxiv.org/abs/1102.3237">	arXiv:1102.3237</A>
+  </LI>
+
+  <LI VALUE=29>
+    Berkes, P., Turner, R., Fiser, J. (2011)<BR>
+    <B>The army of one (sample): the characteristics of sampling-based probabilistic neural representations</B><BR>
+    Frontiers in Neuroscience. Conference Abstract: Computational and Systems Neuroscience 2011.<BR>
+    (<A HREF="https://pberkes.github.io/data/papers/BerkTurnFise_Cosyne2011_poster.pdf">poster.pdf</A>)
+  </LI>
+
+  <LI VALUE=28>
+    Turner, R., Berkes, P., Fiser, J. (2011)<BR>
+    <B>Learning complex tasks with probabilistic population codes</B><BR>
+    Frontiers in Neuroscience. Conference Abstract: Computational and Systems Neuroscience 2011.<BR>
+    (<A HREF="https://pberkes.github.io/data/papers/TurnBerkFise_Cosyne2011_poster.pdf">poster.pdf</A>)
+  </LI>
+
+  <LI VALUE=27>
+  Berkes, P., David, S.V., Fritz, J., Shamma, S.A., and Fiser,
+  J. (2010)<BR>
+  <B>Neural activity as samples from a probabilistic representation:
+  evidence from the auditory cortex</B>
+  Frontiers in Neuroscience. Conference Abstract: Computational and Systems Neuroscience 2010. doi: 10.3389/conf.fnins.2010.03.00140<BR>
+  (<A
+  HREF="http://www.frontiersin.org/conferences/individual_abstract_listing.php?conferid=770&pap=3431&ind_abs=1&pg=2">abstract</A>,
+  <A HREF="https://pberkes.github.io/data/papers/BerkDaviShamFise_Cosyne2010_poster.pdf">poster.pdf</A>) -
+  <a href="https://pberkes.github.io/generative/index.html">Project page</a>
+  </LI>
+
+  <LI VALUE=26>
+  Berkes, P., White, B.L., and Fiser J. (2010)<BR>
+  <B>Sparseness is not actively optimized in V1</B><BR>
+  Frontiers in Neuroscience. Conference Abstract: Computational and Systems Neuroscience 2010. doi: 10.3389/conf.fnins.2010.03.00310<BR>
+  (<A
+  HREF="http://www.frontiersin.org/conferences/individual_abstract_listing.php?conferid=770&pap=3601&ind_abs=1&pg=3">abstract</A>,
+  <A HREF="https://pberkes.github.io/data/papers/BerkWhitFise_Cosyne2010_poster.pdf">poster.pdf</A>)
+  </LI>
+ 
+  <LI VALUE=25>
+  Berkes, P., Orban, G., Lengyel, M., and Fiser, J. (2009)<BR>
+  <B>Statistically optimal learning revealed by the development of spontaneous and evoked activity in the primary visual cortex</B><BR>
+  Society for Neuroscience meeting (SfN), Chicago (abstract).
+
+  <LI VALUE=24>
+  Berkes, P., Orban, G., Lengyel, M., and Fiser, J. (2009)<BR>
+  <B>Neural evidence for statistically optimal inference and learning in primary visual cortex </B><BR>
+  Sloan-Swartz Centers for Theoretical Neurobiology Annual Meeting, Boston (abstract).
+
+  <LI VALUE=23>
+  Cui, M., Orban, G., Berkes, P., and Fiser, J. (2009)<BR>
+  <B>What eye-movements tell us about online learning of the
+  structure of scenes.</B><BR>
+  Vision Science Society meeting 2009 (abstract).
+  
+  <LI VALUE=22>
+  Berkes, P., Orban, G., Lengyel, M., and Fiser, J. (2009).<BR>
+  <b>Matching spontaneous and evoked activity in V1: a hallmark of probabilistic inference.</b><br>
+  Frontiers in Systems Neuroscience. Conference Abstract: Computational and systems neuroscience. doi: 10.3389/conf.neuro.06.2009.03.314<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkOrbaLengFise_Cosyne2009_abstract.pdf">abstract.pdf</A>) -
+  <a href="https://pberkes.github.io/generative/index.html">Project page</a>
+  </LI>  
+  
+  <LI VALUE=21>
+  Berkes, P., Wood, F., and Pillow, J. (2008).<BR>
+  <b>Modeling neural dependencies with Poisson copulas.</b><br>
+  Frontiers in Computational Neuroscience. Conference Abstract: Bernstein Symposium 2008.
+  doi: 10.3389/conf.neuro.10.2008.01.031 -
+  <a href="https://pberkes.github.io/copulas/index.html">Project page</a>, <a
+  href="https://pberkes.github.io/data/software/copulas/copulas_demo.zip">Matlab demo</a>
+  </LI>
+
+  <LI VALUE=20>
+  Orban G., Berkes, P., Lengyel, M., and Fiser J. (2008).<BR>
+  <B>Relating evoked and spontaneous cortical activities in a generative modeling framework.</B><BR>
+  Sloan-Swartz Meeting of Theoretical Neurobiology, Princeton, NJ, USA
+  </LI>
+
+  <LI VALUE=19>
+  Turner, R.E., Berkes, P., and Sahani, M. (2008). <BR>
+  <B>Two problems with variational Expectation Maximisation in timeseries models.</B><BR>
+  Technical Report GCNU-TR-2008-001, Gatsby Computational Neuroscience Unit, UCL.<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/TurnBerkSaha_TechReport2008.pdf">paper.pdf</A>)
+  </LI>
+
+  <LI VALUE=18>
+  Turner, R., Berkes, P., and Sahani, M. (2008).<BR>
+  <b>Finding the optimal sparse, overcomplete model for natural images by model selection.</b><br>
+  Cosyne 2008, Salt Lake City (abstract).<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/TurnBerkSaha_Cosyne2008.pdf">abstract.pdf</A>, 
+  <A HREF="https://pberkes.github.io/data/papers/TurnBerkSaha_Cosyne2008_poster.pdf">poster.pdf</A>) -
+  <a href="https://pberkes.github.io/overcompleteness/index.html">Project page</a>
+  </LI>
+
+  <LI VALUE=17>
+  Orban, G., Berkes, P., Lengyel, M., and Fiser, J. (2008).<BR>
+  <b>Looking for hallmarks of generative models in the visual cortex.</b><br>
+  Cosyne 2008, Salt Lake City (abstract).<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/OrbaBerkLengFise_Cosyne2008.pdf">abstract.pdf</A>, 
+  <A HREF="https://pberkes.github.io/data/papers/OrbaBerkLengFise_Cosyne2008_poster.pdf">poster.pdf</A>) -
+  <a href="https://pberkes.github.io/generative/index.html">Project page</a>
+  </LI>
+
+  <LI VALUE=16>
+  Berkes, P., Pillow, J., and Wood, F. (2008).<BR>
+  <b>Characterizing neural dependencies with Poisson copula models.</b><br>
+  Cosyne 2008, Salt Lake City (abstract).<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkPillWood_Cosyne2008.pdf">abstract.pdf</A>, 
+  <A HREF="https://pberkes.github.io/data/papers/BerkPillWood_Cosyne2008_poster.pdf">poster.pdf</A>) -
+  <a href="https://pberkes.github.io/copulas/index.html">Project page</a>,  <a href="https://pberkes.github.io/data/software/copulas/copulas_demo.zip">code.zip</a>
+  </LI>
+
+  <LI VALUE=15>
+  Berkes, P., Turner, R., and Sahani, M. (2007)<BR>
+  <b>Complex and simple cells are identity and attribute variables in a generative model of natural images.</b><BR>
+  Proc. 39th Annual European Brain and Behaviour Society, Trieste, Italy, eds. Alessandro Treves et al., special issue of Neural Plasticity, Article ID 23250, p. 30 (abstract).<BR>
+  (<a href="http://www.hindawi.com/GetArticle.aspx?doi=10.1155/2007/23250">link to journal</a>)
+  </LI>
+
+  <LI VALUE=14>
+  Wiskott, L., Franzius, M., Berkes, P., and Sprekeler, H. (2007) <BR>
+  <b>Is slowness a learning principle of the visual system?</b><BR>
+  Proc. 39th Annual European Brain and Behaviour Society, Trieste, Italy, eds. Alessandro Treves et al., special issue of Neural Plasticity, Article ID 23250, pp. 14-15 (abstract).<BR>
+  (<a href="http://www.hindawi.com/GetArticle.aspx?doi=10.1155/2007/23250">link to journal</a>)
+  </LI>
+
+  <LI VALUE=13>
+  Berkes, P., Turner, R. and Sahani, M. (2007).<BR>
+  <B>Simple and complex cells as style and content variables in a bilinear model based on temporal stability.</B><BR>
+  Cosyne 2007, Salt Lake City, II-111 (abstract).<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkTurnSaha_Cosyne2007.pdf">abstract.pdf</A>,
+  <A HREF="https://pberkes.github.io/data/papers/BerkTurnSaha_Cosyne2007_poster.pdf">poster.pdf</A>)
+  </LI>
+
+  <LI VALUE=12>
+  Wiskott, L., Sprekeler, H., and Berkes, P. (2007).<BR>
+  <B>Towards an analytical derivation of complex cell receptive field properties.</B><BR>
+  Proc. 7th Meeting of the German Neuroscience Society - 31st Goettingen
+  Neurobiology Conference, Goettingen, S12-2 (abstract).<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/WiskSpreBerk2007a.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/WiskSpreBerk2007a.html">abstract</A>)
+  </LI>
+
+  <LI VALUE=11>
+  Berkes, P. and Zito, T. (2006).<BR>
+  <B>MDP 2.0 - A data processing framework for scientific development and education.</B><BR>
+  Europython 2006, (abstract).<BR>
+  (<a href="http://indico.cern.ch/contributionDisplay.py?contribId=46&sessionId=50&confId=44">abstract</a>) - 
+   <a href="http://mdp-toolkit.sourceforge.net" >MDP homepage</a>
+  </LI>
+
+  <LI VALUE=10>
+  Berkes, P. (2005).<BR>
+  <B>Handwritten digit recognition with Nonlinear Fisher Discriminant Analysis.</B><BR>
+  Proc. of ICANN Vol. 2, Springer, LNCS 3696, 285-287.<BR>
+  (<a HREF="https://pberkes.github.io/data/papers/Berkes_ICANN05.pdf">abstract.pdf</a>,
+  presentation:
+  <a HREF="https://pberkes.github.io/data/presentations/Berkes_ICANN05.sxi">.sxi</a>,
+  <a HREF="https://pberkes.github.io/data/presentations/Berkes_ICANN05.ppt">.ppt.gz</a>,
+  <a HREF="https://pberkes.github.io/data/presentations/Berkes_ICANN05.pdf">.pdf</a>)
+  </LI>
+
+  <LI VALUE=9>
+  Berkes, P. and Zito, T. (2005).<BR>
+  <B>Modular toolkit for Data Processing (MDP).</B><BR>
+  Europython 2005, (abstract).<BR>
+  (<a href="http://www.python-in-business.org/ep2005/alisttrack.chtml?track=768">abstract</a>) - 
+   <a href="http://mdp-toolkit.sourceforge.net" >MDP homepage</a>
+  </LI>
+
+  <LI VALUE=8>
+  Berkes, P. (2005).<BR>
+  <B>Pattern recognition with Slow Feature Analysis.</B><BR>
+  Cognitive Sciences EPrint Archive (CogPrint) 4104,
+  <A HREF="http://cogprints.org/4104/">
+  <CODE>http://cogprints.org/4104/</CODE></A><BR>
+  (&lt;add date of your document download here&gt;).<BR>
+  (<A HREF="http://cogprints.org/4104/">.ps,.pdf</A>)
+  </LI>
+
+  <LI VALUE=7>
+  Berkes, P. and Wiskott, L. (2005).<BR>
+  <B>Analysis of inhomogeneous quadratic forms for physiological and theoretical studies.</B><BR>
+  Proc. <EM>Computational and Systems Neuroscience, COSYNE'05</EM>, Salk Lake City, Utah, March 17-20, (abstract).<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2005b.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2005b.html">abstract</A>)
+  </LI>
+
+  <LI VALUE=6>
+  Berkes, P. and Wiskott, L. (2005).<BR>
+  <B>On the analysis and interpretation of inhomogeneous quadratic forms as receptive fields.</B><BR>
+  Cognitive Sciences EPrint Archive (CogPrint) 4081,
+  <A HREF="http://cogprints.org/4081/">
+  <CODE>http://cogprints.org/4081/</CODE></A><BR>
+  (&lt;add date of your document download here&gt;).<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2005a.bib">bibtex</A>,
+   <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2005a.html">abstract</A>,
+   <A HREF="http://cogprints.org/4081/">.ps,.pdf</A>) -   
+   <A HREF="https://pberkes.github.io/qforms/additional_material.html">Additional on-line material to this paper</A> -
+   <A href="https://pberkes.github.io/software/qforms-tk/"  >Matlab source code</A>
+  </LI>
+
+  <LI VALUE=5>
+  Berkes, P. and Wiskott, L. (2004).<BR>
+  <B>Slow feature analysis yields a rich repertoire of complex-cell properties.</B><BR>
+  Proc. <EM>Early Cognitive Vision Workshop</EM>,
+    Isle Of Skye, Scotland, May 28-June 1.<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2004c.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2004c.html">abstract</A>,
+  <A HREF="https://pberkes.github.io/data/papers/BerWis_Ecovision2004.pdf">.pdf</A>) -   
+   <A HREF="https://pberkes.github.io/slowness/additional_material.html">Additional on-line material to this paper</A>
+  </LI>
+
+  <LI VALUE=4>
+  Berkes, P. and Wiskott, L. (2003).<BR>
+  <B>Slow feature analysis yields a rich repertoire of complex-cell properties.</B><BR>
+  Proc. <EM>29th Goettingen Neurobiology Conference</EM>, Goettingen, June 12-15.<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2003b.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2003b.html">abstract</A>,
+  <A HREF="https://pberkes.github.io/data/papers/BerWis_Goettingen2003.pdf">poster .pdf</A>)
+  </LI>
+
+  <LI VALUE=3>
+  Berkes, P. and Wiskott, L. (2003).<BR>
+  <B>Slow feature analysis yields a rich repertoire of complex-cell properties.</B><BR>
+  Cognitive Sciences EPrint Archive (CogPrint) 2804,
+  <A HREF="http://cogprints.org/2804/">
+  <CODE>http://cogprints.org/2804/</CODE></A><BR>
+  (&lt;add date of your document download here&gt;).<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2003a.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2003a.html">abstract</A>,
+  <A HREF="http://cogprints.ecs.soton.ac.uk/archive/00002804/">.ps,.pdf</A>) -   
+   <A HREF="https://pberkes.github.io/slowness/additional_material.html">Additional on-line material to this paper</A>
+  </LI>
+
+  <LI VALUE=2>
+  Wiskott, L. and Berkes, P. (2002).<BR>
+  <B>Is slowness a principle for the emergence of complex cells in
+     primary visual cortex?</B><BR>
+  Proc. <EM>Berlin Neuroscience Forum 2002</EM>,
+  Liebenwalde, April 18-20, ed. Helmut Kettenmann,
+  publ. Max-Delbrueck-Centrum fuer Molekulare Medizin (MDC), Berlin, p. 43.<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/WiskBerk2002.bib">bibtex</A>,
+   <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/WiskBerk2002.html">abstract</A>)
+  </LI>
+  
+  <LI VALUE=1>
+  A. Unterkircher, P. Berkes and J. Reissner (2001).<BR>
+  <B>An efficient algorithm for parallel stiffness matrix assembling
+    on shared memory machines.</B><BR>
+  Simulation of Materials Processing: Theory, Methods and Applications<BR>
+  Proc. <EM>NUMIFORM 2001</EM>
+  </LI>
+
+</OL>
+
+<H2>Thesis:</H2>
+
+<P>
+  Berkes, P. (2006)<BR>
+  <B>Temporal slowness as an unsupervised learning principle -
+  self-organization of complex-cell receptive fields and application to pattern recognition.</B><BR>
+  PhD Thesis, electronically published at <a href="http://edoc.hu-berlin.de/">http://edoc.hu-berlin.de/</a>,
+  urn:nbn:de:kobv:11-10058759.<BR>
+  Institute for Theoretical Biology (ITB), Berlin.<BR>
+  Supervisor: Laurenz Wiskott<BR>
+  (<a href="http://edoc.hu-berlin.de/docviews/abstract.php?lang=ger&id=26704">abstract and full text</a>)
+
+<P>
+  Berkes, P. (2001)<BR>
+  <B>Learning of disparity selective neurons from natural images.</B><BR>
+  Diploma Thesis, Institute for Neuroinfomatics (INI), Zurich.<BR>
+  Supervisors: Konrad Koerding, Peter Koenig
+
+<h2>Invited presentations:</h2>
+
+<ol>
+  <li value=11>
+  <B>Linking Bayesian models of perception and neural responses with spontaneous activity</B>
+  Center for Brain Science, Harvard University, February 2011.
+
+  <li value=10>
+  <B>Linking Bayesian models of perception and neural responses with spontaneous activity</B>
+  Laboratory of Computational Neuroscience, EPFL, Lausanne, January 2011.
+
+  <li value=9>
+  <B>Spontaneous neural activity reveals optimal internal models of the environment</B>
+  Institute for Theoretical Biology, Humboldt Universitaet zu Berlin,
+  Berlin, July 2010.
+
+  <li value=8>
+  <B>Generative models of vision: from sparse coding toward structured models</B>
+  Redwood Institute for Theoretical Neuroscience, Berkeley, December 2009.
+
+  <li value=7>
+  <B>Neural evidence for optimal inference and learning in primary visual cortex</B>
+  Redwood Institute for Theoretical Neuroscience, Berkeley, December 2009.
+
+  <li value=6>
+  <b>Optimal inference and learning in the visual cortex: Models and neural evidence.</b>
+  EPFL, Lausanne, June 2009.
+
+  <li value=5>
+  <b>Beyond correlations: modeling neural dependencies with copulas</b>
+  NIPS workshop on "Statistical analysis and modeling of response dependencies in neural populations",
+  Whistler, December 2008.
+  
+  <li value=4>
+  <B>Generative models predict the relation between evoked and spontaneous
+  activity.</B> Phd/Postdoc symposium at BCCN conference, Munich,
+  October 2008.
+  </li>
+  
+  <li value=3>
+  <B>On Sparsity and Overcompleteness in Image Models.</B> Inference Group,
+  Cambridge, UK, April 2008.
+  </li>
+
+  <li value=2>
+  <B>Structured representations in the visual cortex.</B> Workshop on generative
+  models in vision, Budapest, June 2007.
+  </li>
+
+  <li value=1>
+  <B>Simple and complex cells in a model of content/style structure.</B> NISA Workshop on Feature Learning, Copenhagen, September 2006.
+  </li>
+</ol>
+
+</DIV>
+
+</div>
+
+</body>
+</html>

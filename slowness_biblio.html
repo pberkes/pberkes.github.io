@@ -1,0 +1,151 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>A bibliography of slowness</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="slowness, bibliography">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<h1>A bibliography of slowness</h1>
+
+<p>
+This is a bibliography of papers concerning the <i>temporal
+slowness</i> principle, sorted by year of publication. This
+principle is also known as <i>temporal stability</i> or
+<i>temporal coherence</i> depending on the authors with largely
+overlapping meaning.
+
+<p>
+I'll try to keep this bibliography as complete as possible, so if you
+happen to know a study which is not included in the list please
+contact me.  When I say "complete" I don't mean "exhaustive": I'm
+going to include conference contributions or technical reports only if
+they present data which is not to be found in journal papers.
+
+<dl>
+<dt>[1]<dd>Hinton, G. Connectionist learning procedures. <em>Artificial Intelligence</em>, 40:185--234, 1989. 
+<dt>[2]<dd>Mitchison, G. Removing time variation with the anti-Hebbian differential synapse. <em>Neural Computation</em>, 3:312--320, 1991. 
+<dt>[3]<dd>F&ouml;ldi&aacute;k, P. Learning invariance from transformation sequences. <em>Neural Computation</em>, 3:194--200, 1991. 
+<dt>[4]<dd>Stone, J. and Bray, A. A learning rule for extracting spatio-temporal invariances. <em>Network: Computation in Neural Systems</em>, 6(3):429--436, 1995. 
+<dt>[5]<dd>Stone, J. V. Learning perceptually salient visual parameters using spatiotemporal smoothness constraints. <em>Neural Computation</em>, 8:1463--1492, 1996. 
+<dt>[6]<dd>Wallis, G. and Rolls, E. Invariant face and object recognition in the visual system. <em>Progress in Neurobiology</em>, 51(2):167--194, 1997. 
+<dt>[7]<dd>Peng, H. C., Sha, L. F., Gan, Q. and Wei, Y. Energy function for learning invariance in multilayer perceptron. <em>Electronics Letters</em>, 34(3), 1998. 
+<dt>[8]<dd>Wiskott, L. Learning invariance manifolds. In L. Niklasson, M. Bod&eacute;n and T. Ziemke, editors, <em>Proc. intl. conf. on Artificial Neural Networks, ICANN'98, Sk&ouml;vde</em>, <em>Perspectives in Neural Computing</em>, pages 555--560. 1998. Springer. 
+<dt>[9]<dd>Stone, J. V. Blind source separation using temporal predictability. <em>Neural Computation</em>, 13:1559--1574, 2001. 
+<dt>[10]<dd>Kayser, C., Einh&auml;user, W., D&uuml;mmer, O., K&ouml;nig, P. and K&ouml;rding, K. Extracting slow subspaces from natural videos leads to complex cells. <em>Artificial Neural Networks - ICANN 2001 Proceedings</em>, pages 1075--1080. 2001. Springer. 
+<dt>[11]<dd>Wiskott, L. and Sejnowski, T. Slow feature analysis: unsupervised learning of invariances. <em>Neural Computation</em>, 14(4):715--770, 2002. 
+<dt>[12]<dd>Berkes, P. and Wiskott, L. Applying slow feature analysis to image sequences yields a rich repertoire of complex cell properties.. In J. R. Dorronsoro, editor, <em>Artificial neural networks - ICANN 2002 proceedings</em>, <em>Lecture Notes in Computer Science</em>, pages 81--86. 2002. Springer. 
+<dt>[13]<dd>Bray, A. and Martinez, D. Kernel-based extraction of Slow Features: Complex cells learn disparity and translation invariance from natural images. <em>NIPS 2002 proceedings</em>. 2002. 
+<dt>[14]<dd>Kayser, C., K&ouml;rding, K. P. and K&ouml;nig, P. Learning the nonlinearity of neurons from natural visual stimuli. <em>Neural Computation</em>, 15(8):1751--1759, 2003. 
+<dt>[15]<dd>Hurri, J. and Hyv&auml;rinen, A. Simple-cell-like receptive fields maximize temporal coherence in natural video. <em>Neural Computation</em>, 15(3):663--691, 2003. 
+<dt>[16]<dd>Hurri, J. and Hyv&auml;rinen, A. Temporal and spatiotemporal coherence in simple-cell responses: a generative model of natural image sequences. <em>Network: Computation in Neural Systems</em>, 14(3):527--551, 2003. 
+<dt>[17]<dd>Hyv&auml;rinen, A., Hurri, J. and V&auml;yrynen, J. Bubbles: a unifying framework for low-level statistical properties of natural image sequences. <em>Journal of the Optical Society of America A</em>, 20(7):1237--1252, 2003. 
+<dt>[18]<dd>Hashimoto, W. Quadratic forms in natural images. <em>Network: Computation in Neural Systems</em>, 14(4):765--788, 2003. 
+<dt>[19]<dd>Wiskott, L. Slow feature analysis: A theoretical analysis of optimal free responses. <em>Neural Computation</em>, 15(9):2147--2177, 9/2003. 
+<dt>[20]<dd>Wiskott, L. Estimating driving forces of nonstationary time series with slow feature analysis. arXiv.org e-Print archive, http://arxiv.org/abs/cond-mat/0312317/, 12/2003. 
+<dt>[21]<dd>K&ouml;rding, K., Kayser, C., Einh&auml;user, W. and K&ouml;nig, P. How are complex cell properties adapted to the statistics of natural scenes?. <em>Journal of Neurophysiology</em>, 91(1):206--212, 2004. 
+<dt>[22]<dd>Berkes, P. and Wiskott, L. Slow feature analysis yields a rich repertoire of complex cell properties. <em>Journal of Vision</em>, 5(6):579--602, 2005. 
+<dt>[23]<dd>Cox, D., Meier, P., Oertelt, N. and DiCarlo, J. 'Breaking' position-invariant object recognition. <em>Nature Neuroscience</em>, 8:1145--1147, 2005. 
+<dt>[24]<dd>Einh&auml;user, W., Hipp, J., Eggert, J., K&ouml;rner, E. and K&ouml;nig, P. Learning viewpoint invariant object representations using a temporal coherence principle. <em>Biological Cybernetics</em>, 93:79--90, 2005. 
+<dt>[25]<dd>Hipp, J., Einh&auml;user, W., Conradt, J. and K&ouml;nig, P. Learning of somatosensory representations for texture discrimination using a temporal coherence principle. <em>Network: Computation in Neural Systems</em>, 16(2--3):223--238, 2005. 
+<dt>[26]<dd>Wyss, R., K&ouml;nig, P. and Verschure, P. A model of the ventral visual system based on temporal stability and local memory. <em>PLoS Biology</em>, 4(5):e120, 2006. 
+<dt>[27]<dd>Blaschke, T., Berkes, P. and Laurenz, W. What is the relationship between slow feature analysis and independent component analysis?. <em>Neural Computation</em>, 18(10), 2006. 
+<dt>[28]<dd>Franzius, M., Sprekeler, H. and Wiskott, L. Slowness leads to place cells. <em>Proc. 15th Annual Computational Neuroscience Meeting, CNS 2006, Edinburgh, Scotland</em>. 2006. 
+<dt>[29]<dd>Sprekeler, H. and Wiskott, L. Analytical derivation of complex cell properties from the slowness principle. <em>Proc. 15th Annual Computational Neuroscience Meeting, CNS 2006, Edinburgh, Scotland</em>. 2006. 
+<dt>[30]<dd>K&ouml;nig, P. and Kr&uuml;ger, N. Symbols as self-emergent entities in an optimization process of feature extraction and predictions. <em>Biological Cybernetics</em>, 94(4):325--334, 2006. 
+<dt>[31]<dd>Maurer, A. Unsupervised slow subspace learning from stationary processes. <em>Proceedings of the 17th international conference of algorithmic learning theory</em>, pages 363--377. 2006. 
+<dt>[32]<dd>Turner, R. and Sahani, M. A maximum-likelihood interpretation for slow feature analysis. <em>Neural Computation</em>, 19(4):1022--1038, 2007. 
+<dt>[33]<dd>Blaschke, T., Zito, T. and Wiskott, L. Independent slow feature analysis and nonlinear blind source separation. <em>Neural Computation</em>, 19(4):994--1021, 2007. 
+<dt>[34]<dd>Sprekeler, H., Michaelis, C. and Wiskott, L. Slowness: An objective for spike-timing-dependent plasticity?. <em>PLoS Computational Biology</em>, 3(6):112, 2007. 
+</dl>
+<p align="right"><small>Generated by Pybliographer</small></p>
+
+
+</div>
+
+</body>
+</html>

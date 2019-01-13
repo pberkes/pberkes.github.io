@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of optimal_stimulus</title>
+  <meta name="keywords" content="optimal_stimulus">
+  <meta name="description" content="OPTIMAL_STIMULUS computes the optimal stimulus of a quadratic form.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../menu.html">Home</a> &gt;  <a href="#">qforms_tk</a> &gt; <a href="#">qforms</a> &gt; optimal_stimulus.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../menu.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="menu.html">Index for ./qforms_tk/qforms&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>optimal_stimulus
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>OPTIMAL_STIMULUS computes the optimal stimulus of a quadratic form.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function x = optimal_stimulus(H,f, r, eps), </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> OPTIMAL_STIMULUS computes the optimal stimulus of a quadratic form.
+   X = OPTIMAL_STIMULUS(H,F, R, EPS) computes the optimal excitatory stimulus
+   of the quadratic form 0.5*x'*H*x + f'*x + c, i.e. the input vector X
+   that maximizes the quadratic form given a fixed norm R.
+
+   EPS tolerance of norm(X) from R.
+
+   This function can be used to compute the optimal inhibitory stimulus
+   by calling it with the negative of the quadratic form -H, -F .
+
+   Reference: Pietro Berkes and Laurenz Wiskott (2005) On the analysis
+   and interpretation of quadratic forms as receptive fields.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function x = optimal_stimulus(H,f, r, eps),</a>
+0002 <span class="comment">% OPTIMAL_STIMULUS computes the optimal stimulus of a quadratic form.</span>
+0003 <span class="comment">%   X = OPTIMAL_STIMULUS(H,F, R, EPS) computes the optimal excitatory stimulus</span>
+0004 <span class="comment">%   of the quadratic form 0.5*x'*H*x + f'*x + c, i.e. the input vector X</span>
+0005 <span class="comment">%   that maximizes the quadratic form given a fixed norm R.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   EPS tolerance of norm(X) from R.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   This function can be used to compute the optimal inhibitory stimulus</span>
+0010 <span class="comment">%   by calling it with the negative of the quadratic form -H, -F .</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   Reference: Pietro Berkes and Laurenz Wiskott (2005) On the analysis</span>
+0013 <span class="comment">%   and interpretation of quadratic forms as receptive fields.</span>
+0014   
+0015   <span class="comment">% input dimension</span>
+0016   dim = size(H,1);
+0017 
+0018   <span class="comment">% compute the eigenvalues mu and eigenvectors V</span>
+0019   [V,D] = eig(H);
+0020   mu = diag(D)';
+0021   <span class="comment">% compute the coefficients of the eigenvectors decomposition of f</span>
+0022   alpha = V'*f;
+0023 
+0024   <span class="comment">% compute the range of the parameter lambda</span>
+0025   <span class="comment">%  left bound for lambda</span>
+0026   <span class="comment">%   added 'real' to avoid numerical problems if you maximize a</span>
+0027   <span class="comment">%   ill-conditioned quadraitc form</span>
+0028   lambda_left = max(real(mu));
+0029   <span class="comment">% right bound for lambda</span>
+0030   lambda_right = norm(f)/r + lambda_left;
+0031   
+0032   <span class="comment">% search by bisection until norm(x)^2 = r^2</span>
+0033   r_2 = r^2;
+0034   <span class="comment">% norm_x_2 holds the value of norm(x)^2 at the current lambda</span>
+0035   norm_x_2 = 0;
+0036   <span class="keyword">while</span> abs(sqrt(norm_x_2)-r) &gt; eps,
+0037     <span class="comment">% bisect the lambda interval</span>
+0038     lambda = (lambda_right-lambda_left)/2 + lambda_left;
+0039     <span class="comment">% compute the eigenvalues of (lambda*Id - H)^-1</span>
+0040     beta = (lambda-mu).^(-1);
+0041       
+0042     <span class="comment">% compute norm(x)^2 at lambda</span>
+0043     norm_x_2 = sum(beta'.^2.*alpha.^2);
+0044 
+0045     <span class="comment">% update the interval limits</span>
+0046     <span class="keyword">if</span> norm_x_2 &gt; r_2,
+0047       lambda_left = lambda;
+0048     <span class="keyword">else</span>
+0049       lambda_right = lambda;
+0050     <span class="keyword">end</span>
+0051   <span class="keyword">end</span>
+0052   
+0053   <span class="comment">% lambda found, compute the solution</span>
+0054   x = sum(repmat(beta,dim,1).*V.*repmat(alpha',dim,1),2);</pre></div>
+<hr><address>Generated on Thu 24-Mar-2005 12:05:36 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

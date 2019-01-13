@@ -1,1 +1,212 @@
-Pietro Berkes - Personal homepage WIP
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Pietro Berkes - Homepage</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="Pietro, Berkes, primary visual cortex, V1, jrgp, sfa-tk, mdp, slow feature analysis, slowness">
+<META NAME="Description" CONTENT="Homepage of Pietro Berkes">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<p>
+<TABLE CELLPADDING=15px WIDTH=100% FRAME="void" BORDER="0">
+  <TR>
+  <TD WIDTH=60%>
+    <H2>Pietro Berkes</H2>
+    
+    <span>
+    Principal Data Scientis at Nagra, Kudelski
+    Lausanne, Switzerland
+    </span>
+  </TD>
+
+  <TD ALIGN="right">
+    <IMG SRC="images/Pietro2010b.jpg" ALT="photo" HEIGHT=150px>
+  </TD>
+  </TR>
+</TABLE>
+
+<DIV ID="news-box">
+<B>News</B>
+<TABLE>
+  <TR><TD>13.01.2019:
+      <TD>I moved this home page to Github. The content is outdated, but
+	I'll fix that one step at the time
+  <TR><TD>04.05.2016:
+      <TD>Our paper about an interpretation of neural observations
+        during decision making, based on the
+        "neural sampling" hypothesis, has been
+        <A HREF="https://pberkes.github.io/publications.html#publ">published in Neuron.</A>
+  <TR><TD>22.01.2013:
+      <TD>At <A
+        HREF="http://www.cosyne.org/c/index.php?title=Cosyne_13">Cosyne
+        2013</A> we will present <A HREF="https://pberkes.github.io/publications.html#conf">three
+        new results</A> regarding the sampling hypothesis. In
+        particular, Cristina Savin will present new data and new
+        analyses extending our previous results on the interpretation of
+        spontaneous activity as samples from a prior distribution
+  <TR><TD>07.02.2012:
+      <TD>I updated the <A HREF="https://pberkes.github.io/publications.html">publications page</A> with the NIPS paper, and some new conference contributions.</TD>
+  <TR><TD>18.01.2012:
+      <TD>Ralf Haefner will be at Cosyne 2012 presenting some really cool results about the meaning of attention in a sampling-based framework of the sensory system.
+  <TR><TD>30.11.2011:
+      <TD>As part of my new job at <A HREF="http://www.enthought.com/">Enthought</A>, I developed an open source library to analyze data annotated by multiple users. <A HREF="http://github.enthought.com/uchicago-pyanno/">Check it out!</A>
+</TABLE>
+</DIV>
+
+<p>In September 2011 I started a new career as scientific software developer at <A href="http://www.enthought.com/">Enthought</A> in Cambridge, UK. This pages contain my past (and present) academic work.
+
+<p>My main research interest concerns the way the brain forms a
+high-level representation of the environment from raw sensory input
+and without supervision. I approach this problem at a computational
+level in the framework of Bayesian statistical inference and learning. I like
+to work from different perspectives, using machine learning models and
+analysis of electrophysiological data. My goal is to understand how
+neuronal populations support these probabilistic computations, what
+are the principles that guide their adaptation to the statistics of
+the environment, and how their final representation of the world is
+organized.
+
+    
+<P align=center>
+<IMG SRC="images/word_cloud.png" ALT="photo" HEIGHT=200px>
+
+<HR>
+
+<BR>
+<H2 align=center><a href="https://pberkes.github.io/publications.html">Publications</a> - <a href="https://pberkes.github.io/software.html">Software</a> - <A HREF="cv.html">Curriculum Vitae<A></H2>
+
+<BR>
+<H2>Upcoming meetings</H2>
+<span class="smaller_font">(<a href="https://pberkes.github.io/meetings.html">Past meetings</a>)</span>
+
+<ol>
+<li value=4> <A href="https://python.g-node.org/wiki/">Advanced
+  Scientific Programming in Python</A> summer school in Zurich, Switzerland (September, 2013).
+
+<li value=3> <A href="https://python.g-node.org/wiki/">Advanced
+  Scientific Programming in Python</A> summer school in Kiel, Germany (September 2-7, 2012).
+  
+<li value=2> <A href="https://python.g-node.org/wiki/">Advanced Scientific Programming in Python</A> summer school in St Andrews, UK (September 11-16, 2011).
+
+<li value=1> <A
+	HREF="https://portal.g-node.org/python-autumnschool/">Advanced
+	scientific programming in Python</A> autumn school in Trento, Italy.
+</ol>
+
+<H2>Research projects</H2>
+
+<ol>
+<li value=8>No evidence for active sparsification in primary visual cortex
+  
+<li value=7><a href="https://pberkes.github.io/generative/index.html">Evidence for statistically optimal inference and learning in the visual cortex</a>
+
+<li value=6><a href="https://pberkes.github.io/copulas/index.html">Characterizing neural dependencies with Poisson copula models</a>
+
+<li value=5><a href="https://pberkes.github.io/overcompleteness/index.html">On sparsity and overcompleteness in image models</a>
+
+<li value=4><a href="https://pberkes.github.io/structured/index.html">Structured representations in the
+visual cortex</a>
+
+<li value=3><a href="http://itb.biologie.hu-berlin.de/~wiskott/Projects/SFA-ICA.html">Relation between Slow Feature Analysis and Independent Component Analysis </a>
+
+<li value=2><a href="https://pberkes.github.io/qforms/index.html">Analysis and interpretation of inhomogeneous quadratic forms as receptive fields</a>
+
+<li value=1><a href="https://pberkes.github.io/slowness/index.html">Slowness as a computational principle for the visual cortex</a>
+</ol>
+
+<P>
+<H2>Bonus tracks</H2>
+
+<ol>
+  <li value=3><a href="oss/resources.html">Promoting transparency in science</a>
+  <li value=2><a href="slowness_biblio.html">A bibliography of slowness</a>
+  <li value=1><a href="http://www.masterbaboon.com">masterbaboon.com</a>: Artificial Life, Artificial Intelligence, and games
+</ol>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+<TABLE>
+  <TR><TD><IMG SRC="https://pberkes.github.io/images/slowness/xp_example.jpg" WIDTH="120">
+  <TD align="right"><H1>Matlab source code for the temporal slowness model of complex cells</H1>
+</TABLE>
+<HR>
+
+<h3 class="news">Update (24.7.2007)</h3>
+
+I fixed a small bug in the <CODE>show_optimal.m</CODE> function, which
+caused some of the wavelets shown in the optimal inhibitory stimuli
+figure to actually be optimal excitatory stimuli. Many thanks to Saskia
+Helbling for pointing that out!
+
+<h1>Introduction</h1>
+
+This package contains a user-friendly version of the Matlab source
+code of the model of self-organization of receptive fields based on
+temporal slowness described in (Berkes and Wiskott <A
+href="#1">2002</A>, <A href="#2">2003</A>, <A href="#3">2005</A>).
+
+<P>
+The Matlab code includes the functions necessary to create image
+sequences out of static images, to run a SFA simulation, and to
+compute the optimal stimuli of the resulting units. The functions are
+fully customizable such that it is possible to experiment with
+different parameters settings.
+
+A demo script is available to run a default simulation.
+
+<P>
+This program has been written by
+<A HREF="https://pberkes.github.io">Pietro Berkes</A>.
+
+<H2>Download and Installation</H2>
+
+<B>To use this package you need the
+<A HREF="https://pberkes.github.io/software/sfa-tk">sfa-tk v.1.0.1</A>
+library.</B>
+<BR>The program has been tested on Matlab 7.0.0.19901 (R14).
+
+<P>
+<DIV style="background-color:#E0E0E0">
+Download the <B>temporal slowness model of complex cells</B>:
+<BR> .tgz (ca. 1.5 Mb):
+<A href="https://pberkes.github.io/data/software/slowness_model/slowness_model.tgz">
+slowness_model.tgz
+</A>
+</DIV>
+
+<P>
+To install it, simply unpack the archive into your favorite Matlab
+directory. This is going to create a <CODE>slowness_model</CODE>
+directory.  Before you begin to use the functions, make sure that the
+<CODE>sfa_tk/sfa</CODE> and the <CODE>sfa_tk/lcov</CODE> directories
+of the sfa-tk library are in your Matlab path.
+<P>
+Online documentation generated with
+<A HREF="http://www.artefact.tk/software/matlab/m2html/">m2html</A> is available 
+<A HREF="https://pberkes.github.io/data/software/slowness_model/docs/menu.html">here</A>.
+
+
+<H2>Quick start</H2>
+
+<P>
+The script <CODE>start.m</CODE> runs a simulation with default settings
+and displays the optimal stimuli of the resulting functions. You might
+want to edit it in order to change some of the parameters. It takes
+on my machine approximately 45 minutes to complete the script.
+
+
+<H2>Contact</H2>
+
+<P>
+If you find a bug or have any kind of feedback <b>please</b> contact
+me at <IMG ALT="p.berkes _AT_ biologie.hu-berlin.de"
+SRC="https://pberkes.github.io/images/email_address.png" HEIGHT=17pt>.
+
+
+<BR><BR><HR>
+
+<DIV CLASS="smaller_font">
+
+<H3>References</H3>
+
+<P ID="1">
+<STRONG>[1]</STRONG> Berkes, P. and Wiskott, L. (2002).
+<B>Applying Slow Feature Analysis to Image Sequences Yields a Rich
+     Repertoire of Complex Cell Properties.</B>
+in <EM>Artificial Neural Networks - ICANN 2002</EM>,
+     ed. José R. Dorronsoro, Springer Verlag, pp. 81-86.
+
+<P ID="2">
+<STRONG>[2]</STRONG> Berkes, P. and Wiskott, L. (2003).
+<B>Slow feature analysis yields a rich repertoire of complex-cell properties.</B>
+Cognitive Sciences EPrint Archive (CogPrint) 2804.
+
+<P ID="3">
+<STRONG>[3]</STRONG> Berkes, P. and Wiskott, L. (2005).
+<B>Slow feature analysis yields a rich repertoire of complex cell properties.</B>
+Journal of Vision,  5(6), 579-602.
+</DIV>
+
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+</div>
+
+</body>
+</html>

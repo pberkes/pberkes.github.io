@@ -1,0 +1,435 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Additional_Material</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+<P>
+<TABLE>
+<TR><TD><img SRC="https://pberkes.github.io/data/slowness/units/unit_5/orfreq_color_pos.jpg" WIDTH="180" ></TD>
+<TD><h1 align="right">Slow feature analysis yields a rich repertoire of complex-cell properties - Additional Material</h1></TD>
+</TR></TABLE>
+<HR>
+
+<P>
+
+  This page contains additional material to the papers
+
+  <P>
+  Berkes, P. and Wiskott, L. (2005).<BR>
+  <B>Slow feature analysis yields a rich repertoire of complex cell properties.</B><BR>
+  Journal of Vision, 5(6), 579-602,
+  <A HREF="http://journalofvision.org/5/6/9/"><CODE>http://journalofvision.org/5/6/9/</CODE></A>,
+  doi:10.1167/5.6.9.<BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2005c.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2005c.html">abstract</A>,
+  <a href="http://journalofvision.org/5/6/9/article.aspx">paper</A>)
+
+  <P>and
+  
+  <p> Berkes, P. and Wiskott, L. (2003).<BR>
+  <B>Slow feature analysis yields a rich repertoire of complex-cell properties.</B><BR>
+  Cognitive Sciences EPrint Archive (CogPrint) 2804,
+  <A HREF="http://cogprints.ecs.soton.ac.uk/archive/00002804/"><BR>
+  <CODE>http://cogprints.ecs.soton.ac.uk/archive/00002804/</CODE></A><BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2003a.bib">bibtex</A>,
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2003a.html">abstract</A>,
+  <A HREF="http://cogprints.ecs.soton.ac.uk/archive/00002804/">.ps,.pdf</A>)
+  
+  <p>
+  <h3>Table of contents</h3>
+  <UL>
+  <LI><a href="#abstract">Abstract</a>
+  <LI><a href="#analysis">Analysis pages of some units</a>
+  <LI><a href="#overview">Overview of the optimal excitatory stimuli</a>
+  <LI><a href="https://pberkes.github.io/data/slowness/units/orfreqindex1.shtml">Overview of the circular response images</a><BR>
+    (<a href="https://pberkes.github.io/data/slowness/units/orfreqindex1.shtml">Units #1-9</a>,
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex2.shtml">Units #10-18</a>,
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex3.shtml">Units #19-27</a>,
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex4.shtml">Units #28-30</a>)
+  <LI><a href="https://pberkes.github.io/data/slowness/units/hexindex1.shtml">Overview of the hexagonal response images</a><BR>
+    (<a href="https://pberkes.github.io/data/slowness/units/hexindex1.shtml">Units #1-9</a>,
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex2.shtml">Units #10-18</a>,
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex3.shtml">Units #19-27</a>,
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex4.shtml">Units #28-30</a>)
+  <LI><a href="#statistics">Population statistics</a>
+  <LI><a href="#norms">Relative contribution of the quadratic, linear and constant terms</a>
+  <LI><a href="#control">Optimal excitatory stimuli of the control experiments</a>
+  <LI><SPAN CLASS="news"><A href="https://pberkes.github.io/software/slowness_model">
+  Matlab program</A></SPAN> to perform simulations with the 
+  temporal slowness model of self-organization of
+  complex-cell receptive fields.
+  </UL>
+  
+  <p>
+  <h3>Related pages</h3>
+  <UL>
+  <LI><a href="https://pberkes.github.io/slowness/slowness_index.shtml">
+  Index page ot the research project "Slowness as a computational principle for the visual cortex"</a>
+  <LI><a href="http://itb.biologie.hu-berlin.de/~wiskott/Projects/LearningInvariances.html">
+  Slow Feature Analysis: Unsupervised Learning of Invariances</a> (by Laurenz Wiskott)
+  <LI><a href="https://pberkes.github.io/slowness/icann02.html">
+  Applying Slow Feature Analysis to Image Sequences Yields a Rich Repertoire of Complex Cell Properties - Additional Material</a>
+  </UL> <BR>
+
+  <P> For further information please refer to the cited papers or mail to
+  <img alt="berkes_AT_gatsby_DOT_ucl_DOT_ac_DOT_uk" src="https://pberkes.github.io/images/email_address.png">
+  
+<HR>
+  <h2 id="abstract">Abstract</h2>
+
+  In this study, we investigate <B>temporal slowness</B> as a learning
+  principle for receptive fields using slow feature analysis, a new
+  algorithm to determine functions that extract slowly varying signals
+  from the input data. We find that the learned functions trained on
+  image sequences develop many properties found also experimentally in
+  <B>complex cells</B> of primary visual cortex, such as <B>direction
+  selectivity, non-orthogonal inhibition, end-inhibition and
+  side-inhibition</B>. Our results demonstrate that a single
+  unsupervised learning principle can account for such a rich
+  repertoire of receptive field properties.
+
+  <P>
+  
+  <h2 id="analysis">Analysis pages of some units</h2>
+
+  The analysis pages are automatically generated at the end of a
+  simulation and contain several informations about the learned units.
+
+  <P>
+  <A HREF="https://pberkes.github.io/data/slowness/units/description/description.shtml">Description of an analysis page</A>
+  <P>
+  <TABLE BORDER=1>
+  <TR ALIGN="center" height="30">
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_1/index.shtml">(Unit #1)</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_2/index.shtml">(Unit #2)</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_3/index.shtml">Unit #3</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_4/index.shtml">Unit #4</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_5/index.shtml">Unit #5</A></TD>
+  </TR>
+  <TR ALIGN="center" height="30">
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_6/index.shtml">Unit #6</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_7/index.shtml">Unit #7</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_8/index.shtml">Unit #8</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_9/index.shtml">Unit #9</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_10/index.shtml">Unit #10</A></TD>
+  </TR>
+  <TR ALIGN="center" height="30">
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_11/index.shtml">Unit #11</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_12/index.shtml">Unit #12</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_13/index.shtml">Unit #13</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_14/index.shtml">Unit #14</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_15/index.shtml">Unit #15</A></TD>
+  </TR>
+  <TR ALIGN="center" height="30">
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_16/index.shtml">Unit #16</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_17/index.shtml">Unit #17</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_18/index.shtml">Unit #18</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_19/index.shtml">Unit #19</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_20/index.shtml">Unit #20</A></TD>
+  </TR>
+  <TR ALIGN="center" height="30">
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_21/index.shtml">Unit #21</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_22/index.shtml">Unit #22</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_23/index.shtml">Unit #23</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_24/index.shtml">Unit #24</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_25/index.shtml">Unit #25</A></TD>
+  </TR>
+  <TR ALIGN="center" height="30">
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_26/index.shtml">Unit #26</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_27/index.shtml">Unit #27</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_28/index.shtml">Unit #28</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_29/index.shtml">Unit #29</A></TD>
+  <TD width="100"><A HREF="https://pberkes.github.io/data/slowness/units/unit_30/index.shtml">Unit #30</A></TD>
+  </TR>
+  </TABLE>
+
+  <h2 id="overview">Overview of the optimal excitatory stimuli</h2>
+
+  <TABLE ALIGN="CENTER" BGCOLOR="#E0E0E0">
+  <TR><TD ALIGN="CENTER">
+  <IMG ALT="Overview of the optimal stimuli" WIDTH="750" SRC="https://pberkes.github.io/images/slowness/overview_1_66.jpg">
+  </TD></TR>
+  <TR><TD>
+
+  <STRONG>Figure 1, Overview of the optimal excitatory stimuli.</STRONG>
+  The above image gives an overview of the optimal excitatory stimuli
+  (S+) for the first (the slowest) 66 units resulting from the
+  simulation described in the paper. For each S+, the left patch shows
+  the stimulus at time t, and the right one the stimulus at time t+dt. A
+  difference in the two patches thus hints at the time behavior of a
+  unit. Most S+ look like Gabor wavelets (in agreement with physiological
+  data), i.e. the units respond best to oriented edges. All the units
+  shown in the image but the first two have been classified as complex
+  cells from their response characteristics.
+
+  </TD></TR>
+  </TABLE>
+
+  <h2 id="overview">Overview of the circular response images</h2>
+  <P>
+  <A HREF="https://pberkes.github.io/data/slowness/units/description/description.shtml#response_images">Description of the response images</A>
+  <P>
+  <TABLE BORDER=1>
+  <TR ALIGN="center" height="30">
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex1.shtml">Units #1-9</a>
+  </TD>
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex2.shtml">Units #10-18</a>
+  </TD>
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex3.shtml">Units #19-27</a>
+  </TD>
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/orfreqindex4.shtml">Units #28-30</a>
+  </TD>
+  </TD></TR>
+  </TABLE>
+
+
+  <h2 id="overview">Overview of the hexagonal response images</h2>
+  <P>
+  <A HREF="https://pberkes.github.io/data/slowness/units/description/description.shtml#response_images">Description of the response images</A>
+  <P>
+  <TABLE BORDER=1>
+  <TR ALIGN="center" height="30">
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex1.shtml">Units #1-9</a>
+  </TD>
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex2.shtml">Units #10-18</a>
+  </TD>
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex3.shtml">Units #19-27</a>
+  </TD>
+  <TD width="100">
+    <a href="https://pberkes.github.io/data/slowness/units/hexindex4.shtml">Units #28-30</a>
+  </TD>
+  </TD></TR>
+  </TABLE>
+
+  <h2 id="statistics">Population statistics</h2>
+  <P>
+
+  <TABLE ALIGN="CENTER" BGCOLOR="#E0E0E0" CELLSPACING="10">
+  <TR>
+  <TD ALIGN="CENTER">
+    <A HREF="https://pberkes.github.io/data/slowness/units/statistics/eta_values_test_annotated.jpg">
+    <IMG ALT="Beta values" WIDTH="350" SRC="https://pberkes.github.io/data/slowness/units/statistics/eta_values_test_annotated.jpg">
+    </A>
+    <BR>a)
+  </TD>
+
+  <TD ALIGN="CENTER">
+    <A HREF="https://pberkes.github.io/data/slowness/units/statistics/kurtosis_distr_annotated.jpg">
+    <IMG ALT="Kurtosis" WIDTH="350" SRC="https://pberkes.github.io/data/slowness/units/statistics/kurtosis_distr_annotated.jpg">
+    </A>
+    <BR>b)
+  </TD>
+  </TR>
+
+  <TR>
+  <TD ALIGN="CENTER">
+    <A HREF="https://pberkes.github.io/data/slowness/units/statistics/sparseness_distr_annotated.jpg">
+    <IMG ALT="Sparseness" WIDTH="350" SRC="https://pberkes.github.io/data/slowness/units/statistics/sparseness_distr_annotated.jpg">
+    </A>
+    <BR>c)
+  </TD>
+  </TR>
+
+  <TR><TD COLSPAN=3>
+
+  <STRONG>Figure 2, Output statistics.</STRONG> We collected the responses of the
+  units to ca. 400,000 previously unseen frames and computed some statistics:
+  <STRONG>a)</STRONG> The <A HREF="https://pberkes.github.io/data/slowness/units/description/description.shtml#output">beta values</A>
+  of the first 100 units in the simulation. The red dashed line is the
+  beta value of the visual input sequences. The units maintain a slowly varying
+  output also with respect to novel data. Also their order remain fixed up to
+  some fluctuations.
+  <STRONG>b)</STRONG> The <A HREF="https://pberkes.github.io/data/slowness/units/description/description.shtml#output">kurtosis</A> 
+  of the first 100 units in the simulation.
+  <STRONG>c)</STRONG> The <A HREF="https://pberkes.github.io/data/slowness/units/description/description.shtml#output">sparseness
+  index</A> of the first 100 units in the simulation.
+
+  (<EM>Click on the images to enlarge them.</EM>)
+
+  </TD></TR>
+  </TABLE>
+
+  <h2 id="norms">Relative contribution of the quadratic, linear and constant terms</h2>
+
+  Our units are polynoms of degree 2 in the visual input, and are
+  composed of a quadratic term (monoms of degree 2), a linear term
+  (monoms of degree 1) and a constant term. We are interested in their
+  relative contribution to the output.
+
+  Intuitively, the linear term would dominate for input vectors with a
+  small norm, while the quadratic term would dominate for large input
+  vectors.  We characterize the relative contribution of the quadratic
+  and of the linear term by the <STRONG>critical norm</STRONG>,
+  i.e. the norm at which the quadratic term first dominates. The
+  critical norm is thus the norm lambda that satisfies the following
+  equation:
+  <P>
+  <IMG ALT="Critical norm definition" WIDTH="250" SRC="https://pberkes.github.io/images/slowness/critical_norm_def.jpg">
+  <P>
+  where q(x) and l(x) are the quadratic and the linear term of the
+  polynom, respectively. Under the critical norm the linear term
+  dominates while above it the quadratic term dominates. Figure 3a)
+  shows the distribution of the critical norm and the distribution of
+  the norm of the input vectors in our simulation. The critical norms
+  are usually small in comparison to the typical input, which means
+  that the quadratic term dominates in the typical regime.
+  
+  <P> Figure 3b) shows the distribution of the absolute value of the
+  constant term and the distribution of the norm of the input vectors
+  in our simulation. The constant term is very small in almost all
+  units and thus gives only a small contribution to the output.
+
+  <P>
+  <TABLE ALIGN="CENTER" BGCOLOR="#E0E0E0" CELLSPACING="10">
+  <TR>
+  <TD ALIGN="CENTER">
+    <A HREF="https://pberkes.github.io/images/slowness/critical_norm.jpg">
+    <IMG ALT="Critical norm histogram" WIDTH="350" SRC="https://pberkes.github.io/images/slowness/critical_norm.jpg">
+    </A>
+    <BR>a)
+  </TD>
+
+  <TD ALIGN="CENTER">
+    <A HREF="https://pberkes.github.io/images/slowness/constant_term.jpg">
+    <IMG ALT="Kurtosis" WIDTH="350" SRC="https://pberkes.github.io/images/slowness/constant_term.jpg">
+    </A>
+    <BR>b)
+  </TD>
+  </TR>
+
+  <TR><TD COLSPAN=3>
+
+  <STRONG>Figure 3, Relative contribution of the quadratic, linear and
+  constant term.</STRONG>
+  <STRONG>a)</STRONG> Distribution of the critical norm and of the norm of
+  the input vectors in our simulation.
+  <STRONG>b)</STRONG> Distribution of the absolute values of the constant term and
+  of the norm of the input vectors in our simulation.
+
+  (<EM>Click on the images to enlarge them.</EM>)
+
+  </TD></TR>
+  </TABLE>
+
+  <h2 id="control">Optimal excitatory stimuli of the control experiments</h2>
+
+  <TABLE BORDER=1>
+  <TR ALIGN="center" height="30">
+  <TD>
+    <A HREF="https://pberkes.github.io/data/slowness/controlexps/optimalstimuli1.html">
+    Control Experiment 1
+    </A>
+  <TD>
+    <A HREF="https://pberkes.github.io/data/slowness/controlexps/optimalstimuli2.html">
+    Control Experiment 2
+    </A>
+  </TABLE>
+
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+</div>
+
+</body>
+</html>

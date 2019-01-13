@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of lcov_transform</title>
+  <meta name="keywords" content="lcov_transform">
+  <meta name="description" content="LCOV_TRANSFORM Transform a covariance object.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">lcov</a> &gt; lcov_transform.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/lcov&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>lcov_transform
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>LCOV_TRANSFORM Transform a covariance object.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function lcov_transform(handle, A) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> LCOV_TRANSFORM Transform a covariance object.
+   LCOV_TRANSFORM(HANDLE, A)  Transforms the covariance object
+   referenced by HANDLE according to the linear function A.
+
+   ! LCOV_FIX must have been called _before_ you call this function.
+
+   See also <a href="lcov_fix.html" class="code" title="function lcov_fix(handle)">LCOV_FIX</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function lcov_transform(handle, A)</a>
+0002 <span class="comment">% LCOV_TRANSFORM Transform a covariance object.</span>
+0003 <span class="comment">%   LCOV_TRANSFORM(HANDLE, A)  Transforms the covariance object</span>
+0004 <span class="comment">%   referenced by HANDLE according to the linear function A.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   ! LCOV_FIX must have been called _before_ you call this function.</span>
+0007  <span class="comment">%</span>
+0008 <span class="comment">%   See also LCOV_FIX.</span>
+0009 
+0010   <span class="keyword">global</span> LCOV_STRUCTS
+0011 
+0012   LCOV_STRUCTS{handle}.avg=LCOV_STRUCTS{handle}.avg*A';
+0013   LCOV_STRUCTS{handle}.COV_MTX = A*LCOV_STRUCTS{handle}.COV_MTX*A';</pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

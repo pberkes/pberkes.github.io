@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of imgsequence</title>
+  <meta name="keywords" content="imgsequence">
+  <meta name="description" content="IMGSEQUENCE returns a random image sequence.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../menu.html">Home</a> &gt;  <a href="#">slowness_model</a> &gt; imgsequence.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../menu.html"><img alt="<" border="0" src="../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="menu.html">Index for ./slowness_model&nbsp;<img alt=">" border="0" src="../right.png"></a></td></tr></table>-->
+
+<h1>imgsequence
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>IMGSEQUENCE returns a random image sequence.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [DATA,x_signal,y_signal,rt_signal,zm_signal]=imgsequence(im, h, w, nframes, trrg, trfact, rtfact, zmrg,zmfact) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> IMGSEQUENCE returns a random image sequence.
+
+   [DATA] = IMG_SEQUENCE(IM, H,W, NFRAMES, ...
+                         TRRG,TRFACT, RTFACT, ZMRG,ZMFACT)
+
+   Create an image sequence of NFRAMES frames of size H x W pixels out
+   of the image IM. The sequence is created by choosing an initial
+   position at random, cutting a square window and moving it around by
+   translation, rotation, and zoom.
+
+   Translation, rotation and zoom are created by the function
+   RANDOM_SIGNAL, which returns a random signal that varies smoothly in
+   time. The amount of variation in time is controlled by the integer
+   numbers TRFACT, RTFACT, and ZMFACT (the higher they are, the faster it
+   varies). If one of this arguments is set to zero, the corresponding
+   transformation is not performed. TRRG is the maximal distance from the
+   initial random point reached by translation. ZMRG is a list of length 2
+   that gives the minimum and the maximum possible magnification reached by
+   zoom.
+
+   [DATA,X_SIGNAL,Y_SIGNAL,RT_SIGNAL,ZM_SIGNAL]=IMGSEQUENCE(...) returns
+   the position signals for the x and y coordinates, the rotation signal
+   and the zoom signal. This is sometimes useful to collect statistics
+   on the transformations.
+
+   See also <a href="random_signal.html" class="code" title="function x=random_signal(len, n, mn, mx),">RANDOM_SIGNAL</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="random_signal.html" class="code" title="function x=random_signal(len, n, mn, mx),">random_signal</a>	RANDOM_SIGNAL creates a random signal</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="simulation.html" class="code" title="function hdl = simulation(input_dim, imgs, varargin),">simulation</a>	SIMULATION performs a simulation</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [DATA,x_signal,y_signal,rt_signal,zm_signal]=imgsequence(im, h, w, nframes, trrg, trfact, rtfact, zmrg,zmfact)</a>
+0002 <span class="comment">% IMGSEQUENCE returns a random image sequence.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%   [DATA] = IMG_SEQUENCE(IM, H,W, NFRAMES, ...</span>
+0005 <span class="comment">%                         TRRG,TRFACT, RTFACT, ZMRG,ZMFACT)</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Create an image sequence of NFRAMES frames of size H x W pixels out</span>
+0008 <span class="comment">%   of the image IM. The sequence is created by choosing an initial</span>
+0009 <span class="comment">%   position at random, cutting a square window and moving it around by</span>
+0010 <span class="comment">%   translation, rotation, and zoom.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   Translation, rotation and zoom are created by the function</span>
+0013 <span class="comment">%   RANDOM_SIGNAL, which returns a random signal that varies smoothly in</span>
+0014 <span class="comment">%   time. The amount of variation in time is controlled by the integer</span>
+0015 <span class="comment">%   numbers TRFACT, RTFACT, and ZMFACT (the higher they are, the faster it</span>
+0016 <span class="comment">%   varies). If one of this arguments is set to zero, the corresponding</span>
+0017 <span class="comment">%   transformation is not performed. TRRG is the maximal distance from the</span>
+0018 <span class="comment">%   initial random point reached by translation. ZMRG is a list of length 2</span>
+0019 <span class="comment">%   that gives the minimum and the maximum possible magnification reached by</span>
+0020 <span class="comment">%   zoom.</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">%   [DATA,X_SIGNAL,Y_SIGNAL,RT_SIGNAL,ZM_SIGNAL]=IMGSEQUENCE(...) returns</span>
+0023 <span class="comment">%   the position signals for the x and y coordinates, the rotation signal</span>
+0024 <span class="comment">%   and the zoom signal. This is sometimes useful to collect statistics</span>
+0025 <span class="comment">%   on the transformations.</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">%   See also RANDOM_SIGNAL.</span>
+0028     
+0029     
+0030 <span class="comment">% ver 3.0</span>
+0031   
+0032   <span class="comment">% size of the image</span>
+0033   sz=[size(im,1) size(im,2)];
+0034   
+0035   <span class="comment">% repeat until the whole sequence lies inside the image</span>
+0036   repeat=1;
+0037   <span class="keyword">while</span> repeat,
+0038     repeat=0;
+0039 
+0040     <span class="comment">%% create translation signal (center of the patch)</span>
+0041     <span class="comment">% random initial position (keep a margin of 3*w along the borders)</span>
+0042     x0=floor(rand(1,2).*(sz-6*w))+3*w;
+0043     <span class="comment">% random translation signal (if trfact==0, no translation)</span>
+0044     <span class="keyword">if</span> trfact==0,
+0045       x_signal=zeros(nframes,1)+x0(2);
+0046       y_signal=zeros(nframes,1)+x0(1);
+0047     <span class="keyword">else</span>,
+0048       x_signal=<a href="random_signal.html" class="code" title="function x=random_signal(len, n, mn, mx),">random_signal</a>(nframes, trfact, -trrg, trrg)+x0(2);
+0049       y_signal=<a href="random_signal.html" class="code" title="function x=random_signal(len, n, mn, mx),">random_signal</a>(nframes, trfact, -trrg, trrg)+x0(1);
+0050     <span class="keyword">end</span>
+0051     
+0052     <span class="comment">% create rotation signal (if rrfact==0, no rotation)</span>
+0053     <span class="keyword">if</span> rtfact==0,
+0054       rt_signal=zeros(nframes,1);
+0055     <span class="keyword">else</span>,
+0056       rt_signal=<a href="random_signal.html" class="code" title="function x=random_signal(len, n, mn, mx),">random_signal</a>(nframes, rtfact, 0, 2*pi);
+0057     <span class="keyword">end</span>
+0058   
+0059     <span class="comment">% create zoom signal (if zmfact==0, no zoom)</span>
+0060     <span class="keyword">if</span> zmfact==0,
+0061       zm_signal=ones(nframes,1);
+0062     <span class="keyword">else</span>,
+0063       zm_signal=<a href="random_signal.html" class="code" title="function x=random_signal(len, n, mn, mx),">random_signal</a>(nframes, zmfact, zmrg(1), zmrg(2));
+0064     <span class="keyword">end</span>
+0065     
+0066     <span class="comment">% allocate space for the sequence</span>
+0067     DATA=zeros(nframes,h*w);
+0068       
+0069     <span class="comment">% loop over all frames</span>
+0070     <span class="keyword">for</span> t=1:nframes,
+0071       <span class="comment">%%%% translation</span>
+0072       <span class="comment">% current position</span>
+0073       x=[x_signal(t);y_signal(t)];
+0074     
+0075       <span class="comment">%%%% zoom</span>
+0076       <span class="comment">% compute the corners of the window after zoom</span>
+0077       xi(1)=x(1)-zm_signal(t)*w/2;
+0078       xx(1)=x(1)+zm_signal(t)*w/2;
+0079       xi(2)=x(2)-zm_signal(t)*h/2;
+0080       xx(2)=x(2)+zm_signal(t)*h/2;
+0081       <span class="comment">% size of the window</span>
+0082       dx(1)=(xx(1)-xi(1))/(w-1);
+0083       dx(2)=(xx(2)-xi(2))/(h-1);
+0084       
+0085       <span class="comment">% position of all points in the window</span>
+0086       [XI,YI]=meshgrid(xi(1):dx(1):xx(1), xi(2):dx(2):xx(2));
+0087       
+0088       <span class="comment">%%%% rotation</span>
+0089       <span class="comment">% rotate the window's points</span>
+0090       alfa=rt_signal(t);
+0091       XI=XI-x(1); YI=YI-x(2);
+0092       XR=XI.*cos(alfa)+YI.*sin(alfa);
+0093       YR=-XI.*sin(alfa)+YI.*cos(alfa);
+0094       XI=XR+x(1); YI=YR+x(2);
+0095 
+0096       <span class="comment">% compute the content of the frame by linear interpolation</span>
+0097       <span class="comment">% this is a workaround for a bug in Matlab 7.0.0.19901 (R14)</span>
+0098       [M,N] = size(im);
+0099       PATCH=interp2(1:N,1:M, im, XI, YI, <span class="string">'*linear'</span>);
+0100       <span class="comment">% it is also possible to perform cubic interpolation,</span>
+0101       <span class="comment">% but it's much slower:</span>
+0102       <span class="comment">%PATCH=interp2(im, XI, YI, '*cubic');</span>
+0103 
+0104       <span class="comment">% if the frame went out of the image, discard the sequence and</span>
+0105       <span class="comment">% start from scratch</span>
+0106       <span class="keyword">if</span> max(isnan(PATCH(:))),
+0107     repeat=1; <span class="keyword">break</span>;
+0108       <span class="keyword">end</span>
+0109     
+0110       <span class="comment">% save the current frame</span>
+0111       DATA(t,:)=PATCH(:)';
+0112     <span class="keyword">end</span>
+0113   <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 24-Mar-2005 09:54:48 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

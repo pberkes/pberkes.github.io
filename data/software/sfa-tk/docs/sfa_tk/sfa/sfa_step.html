@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sfa_step</title>
+  <meta name="keywords" content="sfa_step">
+  <meta name="description" content="SFA_STEP Update a step of the SFA algorithm.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">sfa_tk</a> &gt; <a href="#">sfa</a> &gt; sfa_step.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./sfa_tk/sfa&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>sfa_step
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>SFA_STEP Update a step of the SFA algorithm.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function sfa_step(hdl, arg, step) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> SFA_STEP Update a step of the SFA algorithm.
+   SFA_STEP(HLD, DATA[, STEP]) updates the current step of the SFA
+   algorithm. HDL is the handle of an SFA object, DATA contains a chunk of
+   input data (each column a different variable).
+
+   STEP specifies the current SFA step. If not specified, the current
+   step is used. The steps must be given in the right sequence:
+     for SFA1 objects:  'preprocessing', 'sfa'
+     for SFA2 objects:  'preprocessing', 'expansion', 'sfa'
+   Each time a new step is invoked, the previous one is closed, which
+   might take some time.
+
+   Example: suppose you have divided your training data into two chunks,
+   DATA1 and DATA2. Let the number of input dimensions be N. To apply
+   SFA on them write:
+   
+   hdl = sfa2_create(N,xp_dim(N))
+   sfa_step(hdl, DATA1, 'preprocessing')
+   sfa_step(hdl, DATA2)
+   sfa_step(hdl, DATA1, 'expansion')
+   sfa_step(hdl, DATA2)
+   sfa_step(hdl, [], 'sfa')
+   output1 = sfa_execute(hdl, DATA1)
+   output2 = sfa_execute(hdl, DATA2)
+
+   See also <a href="sfa1_create.html" class="code" title="function handle=sfa1_create(sfa_range, ax_type, reg_ct)">SFA1_CREATE</a>, <a href="sfa2_create.html" class="code" title="function handle=sfa2_create(pp_range, sfa_range, pp_type, ax_type, reg_ct)">SFA2_CREATE</a>, <a href="sfa_execute.html" class="code" title="function DATA=sfa_execute(hdl, DATA, prj, ncomp)">SFA_EXECUTE</a></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="sfa1_step.html" class="code" title="function sfa1_step(hdl, arg, step)">sfa1_step</a>	SFA1_STEP a step in the SFA1 algorithm.</li><li><a href="sfa2_step.html" class="code" title="function sfa2_step(hdl, arg, step)">sfa2_step</a>	SFA2_STEP a step in the SFA2 algorithm.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="sfa1.html" class="code" title="function [y, hdl] = sfa1(x),">sfa1</a>	SFA1 Linear Slow Feature Analysis.</li><li><a href="sfa2.html" class="code" title="function [y, hdl] = sfa2(x),">sfa2</a>	SFA2 Expanded Slow Feature Analysis.</li><li><a href="sfa2_step.html" class="code" title="function sfa2_step(hdl, arg, step)">sfa2_step</a>	SFA2_STEP a step in the SFA2 algorithm.</li></ul>
+<!-- crossreference -->
+
+
+
+<hr><address>Generated on Tue 10-Feb-2004 16:00:52 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

@@ -1,0 +1,191 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<CENTER>
+  <H2>Characterizing neural dependencies with Poisson copula models</H2>
+
+  <A HREF="https://pberkes.github.io">Pietro Berkes</A>,
+  <A HREF="http://www.gatsby.ucl.ac.uk/~fwood/">Frank Wood</A>, and
+  <A HREF="http://www.gatsby.ucl.ac.uk/~pillow/">Jonathan Pillow</A>
+</CENTER>
+<HR>
+
+<p>
+<b>Docs:</b>
+<ul>
+<li>
+<b>NIPS08 paper and poster:</b> Berkes, P., Wood, F., and Pillow, J. (2009).<BR>
+  <i>Characterizing neural dependencies with copula models.</i>
+  To appear in Advances in Neural Information Processing Systems, 21.<br>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkWoodPill_NIPS08_finalcolor.pdf">paper.pdf</A>,
+   <A HREF="https://pberkes.github.io/data/papers/BerkWoodPill_NIPS08_poster.pdf">poster.pdf</A>)
+<li>
+<b>Cosyne08 abstract and poster:</b> Berkes, P., Pillow, J., and Wood, F. (2008).<BR>
+  <i>Characterizing neural dependencies with Poisson copula models.</i>
+  Cosyne 2008, Salt Lake City (abstract).<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/BerkPillWood_Cosyne2008.pdf">abstract.pdf</A>, 
+  <A HREF="https://pberkes.github.io/data/papers/BerkPillWood_Cosyne2008_poster.pdf">poster.pdf</A>)
+</ul>
+
+<p>
+<b>Demo code:</b>  <a
+href="https://pberkes.github.io/data/software/copulas/copulas_demo.zip">copulas_demo.zip</a><br>
+
+The demo generates artificial data from a Clayton copula with
+Poisson marginals, and then fits a set a copulas to it. It then prints
+the cross-validation log likelihood for all copulas; the highest
+values should be the one for the Clayton copula, as it was the one
+used to generate the data. At the end the script displays the
+empirical copula and the Clayton fit, as in Fig. 5 of the
+paper. Execute <tt>demo.m</tt> with Matlab to start the demo.
+
+<p>
+<b>Abstract:</b>
+<p>
+The activities of individual neurons in cortex and many other areas of
+the brain are often well described by Poisson distributions.
+Unfortunately, there is no simple joint Poisson distribution that can
+incorporate statistical dependencies (i.e., correlations) between
+neurons.  For this reason, neural population coding models often
+either assume that the individual neurons are independent, or
+transform the joint activity mathematically and model it using a
+multivariate distribution that naturally encodes dependency, such as
+the multivariate Gaussian.  However, these solutions are sometimes
+poorly suited to describing neural population responses, failing to
+match either the marginal distributions of individual neurons or the
+detailed form of their dependencies.  Here we develop a joint model
+for neural population responses using copulas, which allow Poisson
+marginal distributions to be combined into a joint distribution that
+captures dependencies between multiple neurons.
+
+<p>
+<i>Copulas</i> are mathematical objects that specify a joint
+distribution's dependency structure separately from its marginal
+structure [1].  More formally, copulas are joint probability
+distributions defined on the unit cube [0,1]^N. Copula models are
+constructed by projecting the original variables through their
+cumulative density functions onto the unit cube.
+
+This is a central result for copula models and is formalized in Sklar's theorem
+[2].
+
+Copulas also provide a principled way to quantify non-linear
+dependencies that go beyond correlation coefficients (which are only
+appropriate for elliptical distributions), in a manner that is
+independent of rescaling of individual variables [1], and are
+applicable to the problem of estimating the mutual information between
+stimulus and response, as discussed in [3].
+
+<p>
+Here we present preliminary results on constructing a multivariate
+joint distribution for neural activity by choosing the marginals to be
+Poisson distributed, selecting an appropriate parametric family of
+copulas, and fitting the model parameters (of both the marginals and
+the copula) using Maximum Likelihood estimation.  Different copula
+families are able to capture dependencies of different kinds (e.g.,
+dependencies limited to the lower or upper tails of the distribution,
+or negative dependencies).  The selection of an appropriate parametric
+family for the copula distribution can be addressed by
+cross-validation, and is the focus of current research.
+
+<p>
+<b>References</b>
+<br>[1] R.B. Nelson (1999) <i>An introduction to copulas.</i> Lecture notes in statistics 139, Springer Verlag, New York.
+
+<br>[2] A. Sklar (1959) <i>Fonctions de repartition a n dimensions et leurs marges.</i> Publications de l'Institut de Statistique de L'Universite de Paris 8, 229--231.
+
+<br>[3] R.L. Jenison and R.A. Reale (2004) The shape of neural dependence. <i>Neural Comp.</i>, 16(4), 665--672.
+
+</div>
+
+</body>
+</html>

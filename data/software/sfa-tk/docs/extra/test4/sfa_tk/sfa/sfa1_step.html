@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sfa1_step</title>
+  <meta name="keywords" content="sfa1_step">
+  <meta name="description" content="SFA1_STEP a step in the SFA1 algorithm.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">sfa</a> &gt; sfa1_step.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/sfa&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>sfa1_step
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>SFA1_STEP a step in the SFA1 algorithm.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function sfa1_step(hdl, arg, step) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> SFA1_STEP a step in the SFA1 algorithm.
+   SFA1_STEP(HDL, ARG, STEPNAME)
+   Do not use this function directly, use SFA_STEP instead.
+
+   See also <a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">SFA_STEP</a></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="timediff.html" class="code" title="function DATA=timediff(DATA, ax_type)">timediff</a>	TIMEDIFF Compute the derivative of a signal</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">sfa_step</a>	SFA_STEP Update a step of the SFA algorithm.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function sfa1_step(hdl, arg, step)</a>
+0002 <span class="comment">% SFA1_STEP a step in the SFA1 algorithm.</span>
+0003 <span class="comment">%   SFA1_STEP(HDL, ARG, STEPNAME)</span>
+0004 <span class="comment">%   Do not use this function directly, use SFA_STEP instead.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   See also SFA_STEP</span>
+0007   
+0008   <span class="keyword">global</span> SFA_STRUCTS
+0009   
+0010   <span class="keyword">if</span> nargin&gt;2,
+0011     old_step=SFA_STRUCTS{hdl}.step;
+0012     <span class="comment">%%% strategy:</span>
+0013     <span class="comment">%%%   check step is init-&gt;preprocessing-&gt;sfa</span>
+0014     <span class="comment">%%%   clear step variables</span>
+0015        
+0016     <span class="comment">%%% init-&gt;preprocessing</span>
+0017     <span class="keyword">if</span> strcmp(old_step,<span class="string">'init'</span>) &amp; strcmp(step,<span class="string">'preprocessing'</span>),
+0018       fprintf(<span class="string">'start preprocessing\n'</span>);
+0019       SFA_STRUCTS{hdl}.lcov_hdl=lcov_create(size(arg,2));
+0020       SFA_STRUCTS{hdl}.diff_hdl=lcov_create(size(arg,2));
+0021 
+0022     <span class="comment">%%% preprocessing-&gt;sfa</span>
+0023     <span class="keyword">elseif</span> strcmp(old_step,<span class="string">'preprocessing'</span>) &amp; strcmp(step,<span class="string">'sfa'</span>),
+0024       <span class="keyword">global</span> LCOV_STRUCTS
+0025       
+0026       fprintf(<span class="string">'close preprocessing\n'</span>);
+0027       lcovhdl=SFA_STRUCTS{hdl}.lcov_hdl;
+0028       lcov_fix(lcovhdl);
+0029       SFA_STRUCTS{hdl}.avg0=LCOV_STRUCTS{lcovhdl}.avg;
+0030       SFA_STRUCTS{hdl}.tlen0=LCOV_STRUCTS{lcovhdl}.tlen;
+0031       
+0032       dfhdl=SFA_STRUCTS{hdl}.diff_hdl;
+0033 
+0034       <span class="comment">% perform sfa step</span>
+0035       fprintf(<span class="string">'perform slow feature analysis\n'</span>);
+0036 
+0037       sfa_range=SFA_STRUCTS{hdl}.sfa_range;
+0038       <span class="keyword">if</span> length(sfa_range)==1, sfa_int=1:sfa_range;
+0039       <span class="keyword">else</span> sfa_int=sfa_range(1):sfa_range(2); <span class="keyword">end</span>
+0040     
+0041       [SFA_STRUCTS{hdl}.SF,D]= <span class="keyword">...</span>
+0042       eig(LCOV_STRUCTS{dfhdl}.COV_MTX,LCOV_STRUCTS{lcovhdl}.COV_MTX);
+0043       
+0044       D=diag(D);
+0045       [tmp,idx]=sort(D);
+0046       SFA_STRUCTS{hdl}.DSF=D(idx(sfa_int));
+0047       SFA_STRUCTS{hdl}.SF=SFA_STRUCTS{hdl}.SF(:,idx(sfa_int))';
+0048 
+0049 
+0050       <span class="comment">% clean up</span>
+0051       lcov_clear(lcovhdl);
+0052       SFA_STRUCTS{hdl}=rmfield(SFA_STRUCTS{hdl},<span class="string">'lcov_hdl'</span>);
+0053       lcov_clear(dfhdl);
+0054       SFA_STRUCTS{hdl}=rmfield(SFA_STRUCTS{hdl},<span class="string">'diff_hdl'</span>);
+0055 
+0056       fprintf(<span class="string">'SFA1 closed\n'</span>);
+0057     <span class="keyword">elseif</span> ~strcmp(step,old_step),
+0058       warning <span class="string">'unknown step sequence'</span>
+0059       <span class="keyword">return</span>
+0060     <span class="keyword">end</span>
+0061       
+0062     SFA_STRUCTS{hdl}.step=step;
+0063   <span class="keyword">end</span>
+0064 
+0065   <span class="keyword">switch</span> SFA_STRUCTS{hdl}.step,
+0066    <span class="keyword">case</span> <span class="string">'preprocessing'</span>,
+0067       lcov_update(SFA_STRUCTS{hdl}.lcov_hdl, arg);
+0068       lcov_update(SFA_STRUCTS{hdl}.diff_hdl, <a href="timediff.html" class="code" title="function DATA=timediff(DATA, ax_type)">timediff</a>(arg, SFA_STRUCTS{hdl}.ax_type));
+0069   <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

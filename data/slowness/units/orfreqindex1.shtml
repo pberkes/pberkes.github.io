@@ -1,0 +1,60 @@
+<!--#include virtual="/~berkes/cgi-bin/axs/ax.cgi" -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html" CHARSET="iso-8859-1">
+<META NAME="GENERATOR" CONTENT="html_tk (c) Pietro Berkes">
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="V1, primary visual cortex, complex cells, simulation, results, response images">
+<LINK REL=STYLESHEET TYPE="text/css" 
+      HREF="~berkes/main_styles.css" TITLE="Main Styles">
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+
+<H1>Circular response images, Units #1 - #9</H1>
+<A HREF="orfreqindex2.shtml">Next --></A>
+
+<P>
+
+These pages contain an overview of the
+<A HREF="description/description.shtml#response_images">circular response images</A>
+of the first 30 units.
+
+<P>
+
+<TABLE ALIGN="CENTER">
+<TR>
+<TD ALIGN="CENTER"><IMG SRC="unit_1/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_1/index.shtml"><STRONG>Unit #1</STRONG></A>
+</TD>
+<TD ALIGN="CENTER"><IMG SRC="unit_2/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_2/index.shtml"><STRONG>Unit #2</STRONG></A>
+</TD>
+<TD ALIGN="CENTER"><IMG SRC="unit_3/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_3/index.shtml"><STRONG>Unit #3</STRONG></A>
+</TD>
+</TR><TR>
+<TD ALIGN="CENTER"><IMG SRC="unit_4/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_4/index.shtml"><STRONG>Unit #4</STRONG></A>
+</TD>
+<TD ALIGN="CENTER"><IMG SRC="unit_5/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_5/index.shtml"><STRONG>Unit #5</STRONG></A>
+</TD>
+<TD ALIGN="CENTER"><IMG SRC="unit_6/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_6/index.shtml"><STRONG>Unit #6</STRONG></A>
+</TD>
+</TR><TR>
+<TD ALIGN="CENTER"><IMG SRC="unit_7/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_7/index.shtml"><STRONG>Unit #7</STRONG></A>
+</TD>
+<TD ALIGN="CENTER"><IMG SRC="unit_8/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_8/index.shtml"><STRONG>Unit #8</STRONG></A>
+</TD>
+<TD ALIGN="CENTER"><IMG SRC="unit_9/orfreq_color_pos.jpg" WIDTH="310" HEIGHT="250"> <BR>
+ <A HREF="unit_9/index.shtml"><STRONG>Unit #9</STRONG></A>
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

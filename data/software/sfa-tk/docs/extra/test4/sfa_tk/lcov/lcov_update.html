@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of lcov_update</title>
+  <meta name="keywords" content="lcov_update">
+  <meta name="description" content="LCOV_UPDATE Update a covariance object.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">lcov</a> &gt; lcov_update.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/lcov&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>lcov_update
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>LCOV_UPDATE Update a covariance object.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function lcov_update(handle, DATA) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> LCOV_UPDATE Update a covariance object.
+   LCOV_UPDATE(HANDLE, DATA) updates the covariance object
+   referenced by HANDLE with a new chunk of data DATA. DATA
+   must be oriented so that each column is a variable and
+   each row a new measurement.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function lcov_update(handle, DATA)</a>
+0002 <span class="comment">% LCOV_UPDATE Update a covariance object.</span>
+0003 <span class="comment">%   LCOV_UPDATE(HANDLE, DATA) updates the covariance object</span>
+0004 <span class="comment">%   referenced by HANDLE with a new chunk of data DATA. DATA</span>
+0005 <span class="comment">%   must be oriented so that each column is a variable and</span>
+0006 <span class="comment">%   each row a new measurement.</span>
+0007   
+0008   <span class="keyword">global</span> LCOV_STRUCTS
+0009 
+0010   LCOV_STRUCTS{handle}.COV_MTX=LCOV_STRUCTS{handle}.COV_MTX+DATA'*DATA;
+0011   
+0012   LCOV_STRUCTS{handle}.avg=LCOV_STRUCTS{handle}.avg+sum(DATA);
+0013   
+0014   LCOV_STRUCTS{handle}.tlen=LCOV_STRUCTS{handle}.tlen+size(DATA,1);</pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

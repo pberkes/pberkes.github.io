@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Open source science</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+
+<h1>Promoting transparency in science</h1>
+
+<h2>Some notes</h2>
+
+<ul>
+
+<li value=2> Berkes, P. (2006). <BR>
+<B>Test suites in scientific research.</B><BR>
+Tea talk given at Gatsby. <BR>
+(<a href="https://pberkes.github.io/data/presentations/unit_testing_27_03_2006.sxi">.sxi</a>, <a href="https://pberkes.github.io/data/presentations/unit_testing_27_03_2006.pdf">.pdf</a>)
+
+<li value=1> Berkes, P. (2005). <BR>
+<B>Risks and benefits of an open-source science: is it possible to make research freely available?</B><BR>
+Talk given at the Institute for Theoretical Biology, Berlin. <BR>
+(<a href="https://pberkes.github.io/data/presentations/open_source_science_13_07_2005.sxi">.sxi</a>, <a href="https://pberkes.github.io/data/presentations/open_source_science_13_07_2005.pdf">.pdf</a>)
+
+</ul>
+
+<h2>Press</h2>
+
+<ul>
+<li> Sonnenburg <i>et al.</i> (2007). <a
+href="http://jmlr.csail.mit.edu/papers/v8/sonnenburg07a.html"><b>The Need for
+Open Source Software in Machine Learning</b></a>, Journal of Machine Learning
+Research, 8, 2443-2466.
+<li> A recent issue of <i>Nature</i> has an <a href="http://www.nature.com/nature/journal/v438/n7068/full/438531a.html">editorial</a> and <a href="http://www.nature.com/nature/journal/v438/n7068/index.html#News-Feature">four articles</a> in the <i>News Feature</i> section that comment on the future role of web tools (blogs, wikis) and data sharing in science. The editorial suggests to make scientific data publicly available under the Creative Commons licence. <a href="http://www.nature.com/nature/journal/v438/n7068/index.html">Nature 438 (7068)</a>
+</ul>
+
+<h2>Official guidelines</h2>
+
+<ul>
+<li>
+<a href="http://www.dfg.de/aktuelles_presse/reden_stellungnahmen/archiv/index.html">"Recommendations of the Commission on Professional Self Regulation in Science - Proposals for Safeguarding Good Scientific Practice"</a>, Januar 1998, Deutsche Forschungsgemeinschaft. (<a href="http://www.dfg.de/aktuelles_presse/reden_stellungnahmen/download/self_regulation_98.pdf">pdf</a>)
+
+<li>
+<a href="http://forsk.dk/portal/page?_pageid=407,889357&_dad=portal&_schema=PORTAL">
+"Guidelines for good scientific practice"</a>, Danish Committees on Scientific Dishonesty, 1998.
+
+<li>
+<a href="http://forsk.dk/portal/page?_pageid=407,941376&_dad=portal&_schema=PORTAL">Guidelines for Data Documentation</a>, "Annual report 1994", Appendix 4, Danish Committees on Scientific Dishonesty, 1994.
+
+<li>
+The <a href="http://pages.towson.edu/ladon/ethics/ethicbib.htm">annotated bibliography on professional ethics for scientists</a> has a section dedicated to <a href="http://pages.towson.edu/ladon/ethics/ethicbib.htm#G3a.ComputerScience">computer science and software</a>.
+
+<li>
+<a href="http://www.nap.edu/readingroom/books/obas/">"On begin a scientist"</a> is a booklet for graduate students and beginning researchers published by the National Academy of Sciences (1989). It contains some basic reflections about publishing and sharing scientific data.
+</ul>
+
+<h2>Numerics</h2>
+
+<ul>
+<li>David Goldberg (1991). <a href="http://portal.acm.org/citation.cfm?id=103163">"What Every Computer Scientist Should Know About Floating-Point Arithmetic"</a>, ACM Computing Surveys (CSUR), 23(1), pp. 5-48.
+
+<li>Appendix on <a href="http://docs.python.org/tut/node16.html">Floating Point Arithmetic: Issues and Limitations</a> from a Python perspective.
+
+<li><a href="http://www.nr.com/">Numerical Recipes</a> homepage.
+</ul>
+
+<h2>Data and code management</h2>
+
+<ul>
+<li><a href="http://www.cscs.ch/~mvalle/sdm/scientific-data-management.html">Introduction</a> to scientific data management, with many useful links.
+
+<li><a href="http://en.wikipedia.org/wiki/XML">Wikipedia article</a> on the Extensible Markup Language (XML).
+
+<li><a href="http://hdf.ncsa.uiuc.edu/HDF5/">HDF5</a> is a file format for storing scientific data. <a href="http://pytables.sourceforge.net/html/WelcomePage.html">PyTables</a> is a Python interface to the HDF5 libraries.
+
+<li><a href="https://www.cvshome.org/docs/manual/">CVS</a> and <a href="http://subversion.tigris.org/">Subversion</a> are widely used version control systems.
+</ul>
+
+<h2>Unit testing</h2>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Unit_testing">Wikipedia article</a> on unit testing.
+
+<li>List of <a href="http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks">unit testing frameworks</a> for most programming languages.
+
+<li><a href="http://codespeak.net/py/dist/test/test.html">py.test</a> is a new python unit testing framework. It seems to be more flexible than unittest.
+</ul>
+
+<h2>Programming practices</h2>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Pair_programming">Pair programming</a> is one of the twelve Extreme Programming practices. It has been shown to lead to code with less errors and more structure. It's a lot of fun as well, although quite uncommon in a scientific environment.
+</ul>
+
+<h2>Open-source scientific software tools</h2>
+
+<ul>
+<li><a href="http://www.scipy.org/">SciPy</a> is an open source library of scientific tools for Python.
+
+<li><a href="http://www.octave.org/">Octave</a> is an open-source clone of Matlab.
+</ul>
+
+<h2>Repositories</h2>
+
+<ul>
+<li> The <a href="http://platform.visiome.org/index.html">VISIOME</a> platform is an ambitious project focusing on neuroscience and the visual system. The repository contains reprints, software, and data. 
+</ul>
+
+</div>
+
+</body>
+</html>

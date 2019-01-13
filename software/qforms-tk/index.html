@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<P align="right">
+<A HREF="https://pberkes.github.io/qforms/index.html" CLASS="news">quadratic forms project index page</A>
+<BR>
+
+
+<TABLE>
+  <TR><TD><IMG SRC="https://pberkes.github.io/images/qforms/visualize_invs.jpg" WIDTH="120">
+  <TD align="right"><H1>qforms-tk: Matlab toolbox to analyze quadratic forms</H1>
+</TABLE>
+
+<HR>
+
+<h3 class="news">Update (3.4.2006)</h3>
+
+It turns out that a previous version of <B>qforms-tk</B> was missing
+the routine that implements the Gram-Schmidt orthogonalization algorithm.
+This has been fixed in the current version!
+
+<h1>Introduction</h1>
+
+<B>qforms-tk</B> is a Matlab toolbox to analyze quadratic forms. It
+contains the algorithms described in
+
+<P>
+Berkes, P. and Wiskott, L. (2005).<BR>
+<B>On the analysis and interpretation
+of inhomogeneous quadratic forms as receptive fields.</B><BR>
+Neural Computation, accepted.
+
+<P>
+In the toolbox you'll finda demo script that shows how to compute
+and visualize the optimal stimuli and the invariances of a quadratic
+form.
+
+<P>
+This program has been written by
+<A HREF="https://pberkes.github.io">Pietro Berkes</A>.
+
+<H2>Download and Installation</H2>
+
+The package has been tested on Matlab 7.0.0.19901 (R14).
+
+<P>
+<DIV style="background-color:#E0E0E0">
+Download <B>qforms-tk</B>:
+<BR> .tgz (ca. 0.5 Mb):
+<A href="https://pberkes.github.io/data/software/qforms-tk/qforms_tk.tgz">
+qforms_tk.tgz
+</A>
+</DIV>
+
+<P>
+To install it, simply unpack the archive into your favorite Matlab
+directory. This is going to create a <CODE>qforms-tk</CODE>
+directory. Before you begin to use the functions, make sure that the
+<CODE>qforms_tk/qform</CODE> directory is in your Matlab path.
+
+<P>
+Online documentation generated with
+<A HREF="http://www.artefact.tk/software/matlab/m2html/">m2html</A> is available 
+<A HREF="https://pberkes.github.io/data/software/qforms-tk/docs/menu.html">here</A>.
+
+<H2>Demo script</H2>
+
+<P>
+In the <CODE>qforms-tk/demo</CODE> directory you will find an example
+quadratic form and a script that shows hot to compute and visualize
+the optimal stimuli and the invariances.
+
+<H2>Contact</H2>
+
+If you find a bug or have any kind of feedback <b>please</b> contact
+me at <IMG ALT="p.berkes _AT_ biologie.hu-berlin.de"
+SRC="https://pberkes.github.io/images/email_address.png" HEIGHT=1em>.
+
+<P align="right">
+<A HREF="https://pberkes.github.io/qforms/index.html" CLASS="news">quadratic forms project index page</A>
+<BR>
+
+
+</div>
+
+</body>
+</html>

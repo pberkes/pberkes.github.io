@@ -1,0 +1,133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<CENTER>
+  <H1>Research Project - On the analysis and interpretation of
+  inhomogeneous quadratic forms as receptive fields</H1>
+
+  <A HREF="https://pberkes.github.io">Pietro Berkes</A>
+  and
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/homepage.html">Laurenz Wiskott</A>
+</CENTER>
+<HR>
+
+
+
+<H2>Index</H2>
+
+<UL>
+  <LI>
+  <a href="https://pberkes.github.io/qforms/project_description.html">
+  A description of the research project</a>.
+  
+  <LI>
+  <a href="http://itb.biologie.hu-berlin.de/~wiskott/Projects/QuadraticFormRFs.html">
+  Laurenz Wiskott's project page</a> (it includes the complete bibliography of the project).
+
+  <LI>
+  <A HREF="https://pberkes.github.io/qforms/additional_material.html">
+  Additional material</A> to the paper
+  Berkes, P. and Wiskott, L. (2006).
+  <B>On the analysis and interpretation of inhomogeneous quadratic forms as receptive fields.</B>
+  Neural Computation, 18:8, 1868-1895.
+  (Animations and source code).
+
+  <LI>
+  <A href="https://pberkes.github.io/software/qforms-tk">
+  <SPAN CLASS="news">qforms-tk</SPAN></A> is a Matlab toolbox that implements the
+  algorithms to analyze quadratic forms described in (Berkes and Wiskott, 2005).
+</UL>
+
+</div>
+
+</body>
+</html>

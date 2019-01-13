@@ -1,0 +1,179 @@
+As in the paper, I only analyzed the central 200x200 part. I did not
+low pass filter the images.
+
+<h3>Pixel intensities</h3>
+
+Histogram of pixel intensities:
+
+<p>
+<a href="images/pixel_intensities.png">
+<img src="images/pixel_intensities.png" width=500px>
+</a>
+
+<p>
+Histograms of the individual movies:
+
+<TABLE>
+<TR>
+<TD><A HREF="images/pixint_labelb000530a.png">labelb000530a</A></TD>
+<TD><A HREF="images/pixint_labelb000530a2.png">labelb000530a2</A></TD>
+<TD><A HREF="images/pixint_labelb0811lux.png">labelb0811lux</A></TD>
+</TR><TR>
+<TD><A HREF="images/pixint_labelb12ariell.png">labelb12ariell</A></TD>
+<TD><A HREF="images/pixint_labelb12ariellagain.png">labelb12ariellagain</A></TD>
+<TD><A HREF="images/pixint_labelb15caesar1.png">labelb15caesar1</A></TD>
+</TR><TR>
+<TD><A HREF="images/pixint_labelb16caesarsigg1.png">labelb16caesarsigg1</A></TD>
+<TD><A HREF="images/pixint_labelb21ariellforest.png">labelb21ariellforest</A></TD>
+<TD><A HREF="images/pixint_labelb21ariellforest2.png">labelb21ariellforest2</A></TD>
+</TR><TR>
+<TD><A HREF="images/pixint_labelb21ariellforest3.png">labelb21ariellforest3</A></TD>
+<TD><A HREF="images/pixint_labelb31caesar.png">labelb31caesar</A></TD>
+<TD><A HREF="images/pixint_labelb600102a.png">labelb600102a</A></TD>
+</TR><TR>
+<TD><A HREF="images/pixint_labelb600102a2.png">labelb600102a2</A></TD>
+<TD><A HREF="images/pixint_labelb6bank.png">labelb6bank</A></TD>
+<TD><A HREF="images/pixint_labelINIshero.png">labelINIshero</A></TD>
+</TR><TR>
+<TD><A HREF="images/pixint_labelluxout1211.png">labelluxout1211</A></TD>
+<TD><A HREF="images/pixint_labelmovieb000223L.png">labelmovieb000223L</A></TD>
+</TR>
+</TABLE>
+
+
+<h3>Fourier analysis</h3>
+
+All inputs multiplied with a Bartlett window (circular, filled with
+zeros for radius>100). The 2d plot shows the log of the power of the
+frequency (should put a colorbar there), while the 1d plot shows the
+magnitude (i.e., the slope of the curve should be -1 to have 1/f^2
+spectrum).
+
+<table>
+<tr><td><a href="images/fourier_2d.jpg">
+        <img src="images/fourier_2d.jpg" width=400px>
+        </a>
+    <td><a href="images/fourier_horizvert.jpg">
+        <img src="images/fourier_horizvert.jpg" width=400px>
+        </a>
+</table>
+
+<p>
+There is more power at high frequencies in the vertical direction than
+in the horizontal dir. Might this be related to blurring during fast
+horizontal movements?
+
+<p>
+High power in the exact horizontal and vertical orientations. This
+could be related to the block artifacts.
+
+<h3>Autocorrelation</h3>
+
+Mean autocorrelation:
+
+<p>
+<a href="images/autocorr.jpg">
+<img src="images/autocorr.jpg" width=500px>
+</a>
+
+
+<p>
+Autocorrelation of the central pixel (101, 101) with all other pixels at various dt's:
+
+<TABLE>
+<TR>
+<TD><A HREF="images/cov_center_dt0.png"><IMG SRC="images/cov_center_dt0.png" WIDTH="300px"></A></TD>
+<TD><A HREF="images/cov_center_dt1.png"><IMG SRC="images/cov_center_dt1.png" WIDTH="300px"></A></TD>
+<TD><A HREF="images/cov_center_dt2.png"><IMG SRC="images/cov_center_dt2.png" WIDTH="300px"></A></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD><A HREF="images/cov_center_dt0.png">dt = 0</A></TD>
+<TD><A HREF="images/cov_center_dt1.png">dt = 1</A></TD>
+<TD><A HREF="images/cov_center_dt2.png">dt = 2</A></TD>
+<TD><A HREF="images/cov_center_dt3.png">dt = 3</A></TD>
+<TD><A HREF="images/cov_center_dt4.png">dt = 4</A></TD>
+</TR><TR>
+<TD><A HREF="images/cov_center_dt5.png">dt = 5</A></TD>
+<TD><A HREF="images/cov_center_dt10.png">dt = 10</A></TD>
+<TD><A HREF="images/cov_center_dt15.png">dt = 15</A></TD>
+<TD><A HREF="images/cov_center_dt20.png">dt = 20</A></TD>
+<TD><A HREF="images/cov_center_dt25.png">dt = 25</A></TD>
+</TR>
+</TABLE>
+
+<p>
+Autocorrelation of pixel (51, 101) with all other pixels at various dt's:
+
+<TABLE>
+<TR>
+<TD><A HREF="images/cov_top_dt0.png"><IMG SRC="images/cov_top_dt0.png" WIDTH="300px"></A></TD>
+<TD><A HREF="images/cov_top_dt1.png"><IMG SRC="images/cov_top_dt1.png" WIDTH="300px"></A></TD>
+<TD><A HREF="images/cov_top_dt2.png"><IMG SRC="images/cov_top_dt2.png" WIDTH="300px"></A></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD><A HREF="images/cov_top_dt0.png">dt = 0</A></TD>
+<TD><A HREF="images/cov_top_dt1.png">dt = 1</A></TD>
+<TD><A HREF="images/cov_top_dt2.png">dt = 2</A></TD>
+<TD><A HREF="images/cov_top_dt3.png">dt = 3</A></TD>
+<TD><A HREF="images/cov_top_dt4.png">dt = 4</A></TD>
+</TR><TR>
+<TD><A HREF="images/cov_top_dt5.png">dt = 5</A></TD>
+<TD><A HREF="images/cov_top_dt10.png">dt = 10</A></TD>
+<TD><A HREF="images/cov_top_dt15.png">dt = 15</A></TD>
+<TD><A HREF="images/cov_top_dt20.png">dt = 20</A></TD>
+<TD><A HREF="images/cov_top_dt25.png">dt = 25</A></TD>
+</TR>
+</TABLE>
+
+<p>
+Autocorrelation of pixel (151, 101) with all other pixels at various dt's:
+
+<TABLE>
+<TR>
+<TD><A HREF="images/cov_bottom_dt0.png"><IMG SRC="images/cov_bottom_dt0.png" WIDTH="300px"></A></TD>
+<TD><A HREF="images/cov_bottom_dt1.png"><IMG SRC="images/cov_bottom_dt1.png" WIDTH="300px"></A></TD>
+<TD><A HREF="images/cov_bottom_dt2.png"><IMG SRC="images/cov_bottom_dt2.png" WIDTH="300px"></A></TD>
+</TR>
+</TABLE>
+<TABLE>
+<TR>
+<TD><A HREF="images/cov_bottom_dt0.png">dt = 0</A></TD>
+<TD><A HREF="images/cov_bottom_dt1.png">dt = 1</A></TD>
+<TD><A HREF="images/cov_bottom_dt2.png">dt = 2</A></TD>
+<TD><A HREF="images/cov_bottom_dt3.png">dt = 3</A></TD>
+<TD><A HREF="images/cov_bottom_dt4.png">dt = 4</A></TD>
+</TR><TR>
+<TD><A HREF="images/cov_bottom_dt5.png">dt = 5</A></TD>
+<TD><A HREF="images/cov_bottom_dt10.png">dt = 10</A></TD>
+<TD><A HREF="images/cov_bottom_dt15.png">dt = 15</A></TD>
+<TD><A HREF="images/cov_bottom_dt20.png">dt = 20</A></TD>
+<TD><A HREF="images/cov_bottom_dt25.png">dt = 25</A></TD>
+</TR>
+</TABLE>
+
+
+<p>
+Autocorrelation of the central pixel (101, 101) with pixels (101, :)
+at various dt's:<br>
+<a href="images/cov1d_center.jpg">
+<img src="images/cov1d_center.jpg" width=500px>
+</a>
+<p>
+Autocorrelation of pixel (51, 101) with pixels (51, :)
+at various dt's:<br>
+<a href="images/cov1d_center.jpg">
+<img src="images/cov1d_center.jpg" width=500px>
+</a>
+<p>
+Autocorrelation of pixel (151, 101) with pixels (151, :)
+at various dt's:<br>
+<a href="images/cov1d_center.jpg">
+<img src="images/cov1d_center.jpg" width=500px>
+</a>
+
+
+<p><p>

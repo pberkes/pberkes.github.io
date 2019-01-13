@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sfa_execute</title>
+  <meta name="keywords" content="sfa_execute">
+  <meta name="description" content="SFA_EXECUTE Apply the learned functions to input data.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">sfa</a> &gt; sfa_execute.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/sfa&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>sfa_execute
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>SFA_EXECUTE Apply the learned functions to input data.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function DATA=sfa_execute(hdl, DATA, prj, ncomp) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> SFA_EXECUTE Apply the learned functions to input data.
+   OUT = SFA_EXECUTE(HDL, DATA[, PRJ, NCOMP]) applies the SFA
+   functions learned by the SFA obejct referenced by HDL to the input
+   data DATA and returns their output. (The learning phase has of
+   course to be finished, i.e. the SFA-step 'sfa' has to be completed).
+
+   The execution is completed in 4 steps:
+    1. projection on the input principal components (dimensionality
+    reduction)
+    2. expansion (if necessary)
+    3. projection on the whitened (expanded) space
+    4. projection on the slow functions
+
+   If PRJ is defined and nonzero, the preprocessing step 1 is skipped
+   (for SFA2 objects only).
+
+   If NCOMP is defined, it specifies the number of functions to be used.
+
+   See also <a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">SFA_STEP</a></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="expansion.html" class="code" title="function DATA=expansion(hdl, DATA)">expansion</a>	EXPANSION Expand a signal in the space of polynomials of degree 2.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="sfa1.html" class="code" title="function [y, hdl] = sfa1(x),">sfa1</a>	SFA1 Linear Slow Feature Analysis.</li><li><a href="sfa2.html" class="code" title="function [y, hdl] = sfa2(x),">sfa2</a>	SFA2 Expanded Slow Feature Analysis.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function DATA=sfa_execute(hdl, DATA, prj, ncomp)</a>
+0002 <span class="comment">% SFA_EXECUTE Apply the learned functions to input data.</span>
+0003 <span class="comment">%   OUT = SFA_EXECUTE(HDL, DATA[, PRJ, NCOMP]) applies the SFA</span>
+0004 <span class="comment">%   functions learned by the SFA obejct referenced by HDL to the input</span>
+0005 <span class="comment">%   data DATA and returns their output. (The learning phase has of</span>
+0006 <span class="comment">%   course to be finished, i.e. the SFA-step 'sfa' has to be completed).</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   The execution is completed in 4 steps:</span>
+0009 <span class="comment">%    1. projection on the input principal components (dimensionality</span>
+0010 <span class="comment">%    reduction)</span>
+0011 <span class="comment">%    2. expansion (if necessary)</span>
+0012 <span class="comment">%    3. projection on the whitened (expanded) space</span>
+0013 <span class="comment">%    4. projection on the slow functions</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%   If PRJ is defined and nonzero, the preprocessing step 1 is skipped</span>
+0016 <span class="comment">%   (for SFA2 objects only).</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">%   If NCOMP is defined, it specifies the number of functions to be used.</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">%   See also SFA_STEP</span>
+0021   
+0022   
+0023   <span class="keyword">global</span> SFA_STRUCTS
+0024   
+0025   <span class="keyword">if</span> SFA_STRUCTS{hdl}.deg&gt;=2,
+0026     <span class="keyword">if</span> ~exist(<span class="string">'prj'</span>) | prj==0,
+0027       DATA=(DATA-repmat(SFA_STRUCTS{hdl}.avg0,size(DATA,1),1))*SFA_STRUCTS{hdl}.W0';
+0028     <span class="keyword">end</span>
+0029 
+0030     DATA=<a href="expansion.html" class="code" title="function DATA=expansion(hdl, DATA)">expansion</a>(hdl, DATA);
+0031     DATA=DATA-repmat(SFA_STRUCTS{hdl}.avg1,size(DATA,1),1);
+0032     <span class="keyword">if</span> ~exist(<span class="string">'ncomp'</span>),
+0033       DATA=DATA*SFA_STRUCTS{hdl}.SF';
+0034     <span class="keyword">else</span>,
+0035       DATA=DATA*SFA_STRUCTS{hdl}.SF(1:ncomp,:)';
+0036     <span class="keyword">end</span>
+0037     
+0038   <span class="keyword">else</span> <span class="comment">% deg==1</span>
+0039     DATA=(DATA-repmat(SFA_STRUCTS{hdl}.avg0,size(DATA,1),1));
+0040 
+0041     <span class="keyword">if</span> isfield(SFA_STRUCTS{hdl},<span class="string">'SFWt'</span>),
+0042       DATA=DATA*SFA_STRUCTS{hdl}.SFWt;
+0043     <span class="keyword">else</span>
+0044       <span class="keyword">if</span> ~exist(<span class="string">'ncomp'</span>),
+0045     DATA=DATA*SFA_STRUCTS{hdl}.SF';
+0046       <span class="keyword">else</span>,
+0047     DATA=DATA*SFA_STRUCTS{hdl}.SF(1:ncomp,:)';
+0048       <span class="keyword">end</span>
+0049     <span class="keyword">end</span>
+0050   <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

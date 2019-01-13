@@ -1,0 +1,282 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Ebbs_Symposium_2007</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<H2>Neural representation of objects in the inferior temporal cortex</H2>
+
+<H3>Symposium held at the <a href="http://people.sissa.it/~ale/EBBS2007/index.html">European Brain and Behaviour Society meeting</a>,
+September 17, 2007</H3>
+
+<P>
+<b>Organizers:</b> Pietro Berkes & Yasser Roudi
+
+<P>
+Inferior Temporal (IT) cortex plays a major role in visual object
+recognition, and thus is crucial for visual processing in the brain. A
+critical first step in understanding the underlying computational
+principles in IT is understanding how visual information is coded by
+neuronal activity. Outstanding questions include: How are multiple
+objects represented? What is the relationship between neural activity
+and perception? Are shapes that are perceived to be similar encoded by
+similar activity patterns? To what extent are neuronal responses
+invariant to changes in object attributes and shape? How is
+invariant representation learned?
+
+<P>
+These questions are difficult to answer because they depend crucially
+on hard to control factors such as previous visual experience and
+degree of attention. Nevertheless, over the past several years there
+has been considerable progress in answering them. In this
+symposium we present and review recent experimental and theoretical advances in
+thie area.
+
+
+
+
+<P>
+<b>Programme:</b>
+
+<table cellspacing=15px border=0>
+<tr valign="top">
+<td>9-9:30
+<td><b>Edmund Rolls</b>
+<td><A href="#RollsAbstract">Invariant object recognition in the ventral visual system</A>
+</tr>
+
+<tr valign="top">
+<td>9:30-10
+<td><b>Rufin Vogels</b>
+<td><A href="#VogelsAbstract">Representation of perceived shape similarity in macaque
+           inferior temporal cortex</A>
+</tr>
+
+<tr valign="top">
+<td>10-10:30
+<td><b>James DiCarlo</b>
+<td><A href="#DiCarloAbstract">The role of visual experience in supporting
+                invariant visual object representations in primate
+                Inferior Temporal cortex</A>
+</tr>
+
+<tr valign="top">
+<td>10:30-11
+<td><b>Laurenz Wiskott</b>
+<td><A href="#WiskottAbstract">Is slowness a learning principle of the visual system?</A>
+</tr>
+</table>
+
+
+<P>
+<b>Abstracts:</b>
+
+<P ID="RollsAbstract">
+<b>Edmund T. Rolls</b><br>
+University of Oxford, Department of Experimental Psychology.<br>
+Papers available at <a href="http://www.cns.ox.ac.uk">www.cns.ox.ac.uk</a>
+
+<P>
+<i>Invariant object recognition in the ventral visual system</i>
+
+<P>
+In the primate temporal cortical visual areas, the representation of objects is
+frequently invariant with respect to position, size and even view. The
+distributed neuronal representation of object identity uses encoding based on
+the number of spikes, with little contribution of stimulus-dependent synchrony,
+and with almost independent information conveyed by different single neurons,
+so that the encoding capacity of the system is very high. A multistage
+feed-forward architecture with convergence and competition at each stage is
+able to learn invariant representations of objects including faces by use of a
+Hebbian synaptic modification rule which incorporates a short memory trace (0.5
+s) of preceding activity. This trace rule enables the network to learn the
+properties of objects which are spatio-temporally invariant over this time
+scale. A new learning principle utilises continuous spatial transformations to
+compute invariant representations. It has been found that in complex natural
+scenes, the receptive fields of inferior temporal cortex neurons shrink to
+approximately the size of an object, and are centred on or close to the
+fovea. It is proposed that this provides a solution to reading the output of
+the ventral visual system, for primarily the object that is close to the fovea
+is represented by inferior temporal visual cortex neuronal activity. The effect
+is captured in models that use competition to weight the representation towards
+what is at the fovea. Some inferior temporal cortex neurons in these conditions
+have asymmetric receptive fields about the fovea, so that the location of the
+face with respect to the fovea, and multiple faces, can be represented in a
+scene. The model has been extended to account for covert attentional effects
+such as finding the location of a target object in a complex scene, by
+incorporating modules to represent the dorsal visual system, backprojections,
+and short term memory networks in the prefrontal cortex to keep active the
+representation of the object of attention, and does not require temporal
+synchronization to implement binding. The model has also been extended to a
+theory of how invariant global motion such as rotation is computed in the
+dorsal visual system.
+<br>
+Rolls,E.T. (2008) <i>Memory, Attention, and Decision-Making: A Unifying Computational neuroscience Approach.</i> Oxford University Press: Oxford.
+
+<hr>
+
+<P ID="VogelsAbstract">
+<b>Rufin Vogels</b><br>
+Neuro- and psychophysiology lab, K.U.Leuven Medical School
+
+<P>
+<i>Representation of perceived shape similarity in macaque inferior temporal
+cortex</i>
+
+<hr>
+
+<P ID="DiCarloAbstract">
+<b>James J. DiCarlo</b><br>
+McGovern Institute for Brain Research, Dept. of Brain and Cognitive Sciences, MIT,
+<a href="http://web.mit.edu/dicarlo-lab/">http://web.mit.edu/dicarlo-lab/</a>
+
+<P>
+<i>The role of visual experience in supporting invariant visual object
+representations in primate Inferior Temporal cortex</i>
+
+<P>
+Although object recognition is fundamental to our behavior and seemingly
+effortless, it is a remarkably challenging computational problem.  Our goal is
+a mechanistic understanding of how the primate brain accomplished this
+remarkable feat. Specifically we seek to understand how sensory input is
+transformed from an initial neuronal population representation (essentially a
+photograph on the retina), to a new, remarkably powerful form of population
+representation - one that can directly support object recognition.  We are
+currently focused on patterns of neuronal activity in the highest levels of the
+ventral visual stream (primate inferior temporal cortex, IT) that may directly
+underlie recognition. Understanding the creation of the IT representation by
+transformations carried out along the ventral visual processing stream is the
+key to understanding visual recognition. In this talk, I will review our
+results on the spatial and temporal ability of the IT population representation
+for supporting position- and scale-tolerant recognition.  Although several
+mechanistic hypotheses may explain the remarkable tolerance properties of the
+IT representation, one of the most intriguing and unexplored is the possibility
+that visual experience plays an important role in developing such tolerance.  I
+will present results from our ongoing studies aimed at testing this hypothesis
+using neurophysiology, human psychophysics, and monkey fMRI. These studies
+illuminate the role of the IT representation in supporting visual object
+recognition, and provide new constraints on the mechanisms that might produce
+that representation.  Our goal is to use this understanding to inspire
+artificial vision systems, to aid the development of visual prosthetics, to
+provide guidance to molecular approaches to repair lost brain function, and to
+obtain deep insight into how the brain represents sensory information in a way
+that is highly suited for cognition and action.
+
+
+<hr>
+
+<P ID="WiskottAbstract">
+<b>Laurenz Wiskott</b><br>
+Institute for Theoretical Biology, Humboldt-University Berlin,
+<a href="http://itb.biologie.hu-berlin.de/~wiskott/">http://itb.biologie.hu-berlin.de/~wiskott/</a>
+
+
+<P>
+<i>Is slowness a learning principle of the visual system?</i>
+
+<P>
+Different representations of our visual environment vary on different time
+scales.  Retinal responses vary quickly because they are very sensitive to
+saccades or object motion while representations in the inferior temporal
+cortex (IT) display a large degree of invariance and therefore vary more
+slowly.  Turning this argument around leads to slowness as a learning
+principle.  By learning input-output functions that generate slowly varying
+output signals, units become invariant to frequently occurring
+transformations, such as translation, rotation, or illumination changes.
+We argue that this is an effective mechanism by which IT could learn its
+invariant representations.  Interestingly the same principle also leads to
+a number of complex-cell receptive-field properties even though invariance
+does not seem to be such an issue so early in the visual system.  Some of
+the simulation results presented here are complemented by analytical
+results obtained with variational calculus.
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sfa2_create</title>
+  <meta name="keywords" content="sfa2_create">
+  <meta name="description" content="SFA2_CREATE Create an expanded SFA object.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">sfa</a> &gt; sfa2_create.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/sfa&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>sfa2_create
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>SFA2_CREATE Create an expanded SFA object.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function handle=sfa2_create(pp_range, sfa_range, pp_type, ax_type, reg_ct) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> SFA2_CREATE Create an expanded SFA object.
+   HDL = SFA2_CREATE(PP_RANGE, SFA_RANGE[, PP_TYPE, AX_TYPE]) creates an
+   expanded SFA object, referenced by the handle HDL.
+
+   PP_RANGE is the number of dimensions to be kept after the
+   preprocessing step. Two preprocessing types can be chosen by setting
+   PP_TYPE to either 'PCA' (principal components analysis) or 'SFA1'
+   (linear SFA, default).
+
+   SFA_RANGE is the number of slowly-varying functions to be kept.
+
+   AX_TYPE is the type of derivative approximation to be used. It can be
+   wither 'ORD1' (linear approx.) or 'ORD3a' (cubic approx.) (default: 'ORD1')
+
+   See also <a href="sfa1_create.html" class="code" title="function handle=sfa1_create(sfa_range, ax_type, reg_ct)">SFA1_CREATE</a>, <a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">SFA_STEP</a></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="xp_dim.html" class="code" title="function dim=xp_dim( in_dim ),">xp_dim</a>	XP_DIM Compute the dimension of a vector expanded in the space of</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="sfa2.html" class="code" title="function [y, hdl] = sfa2(x),">sfa2</a>	SFA2 Expanded Slow Feature Analysis.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function handle=sfa2_create(pp_range, sfa_range, pp_type, ax_type, reg_ct)</a>
+0002 <span class="comment">% SFA2_CREATE Create an expanded SFA object.</span>
+0003 <span class="comment">%   HDL = SFA2_CREATE(PP_RANGE, SFA_RANGE[, PP_TYPE, AX_TYPE]) creates an</span>
+0004 <span class="comment">%   expanded SFA object, referenced by the handle HDL.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   PP_RANGE is the number of dimensions to be kept after the</span>
+0007 <span class="comment">%   preprocessing step. Two preprocessing types can be chosen by setting</span>
+0008 <span class="comment">%   PP_TYPE to either 'PCA' (principal components analysis) or 'SFA1'</span>
+0009 <span class="comment">%   (linear SFA, default).</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">%   SFA_RANGE is the number of slowly-varying functions to be kept.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   AX_TYPE is the type of derivative approximation to be used. It can be</span>
+0014 <span class="comment">%   wither 'ORD1' (linear approx.) or 'ORD3a' (cubic approx.) (default: 'ORD1')</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%   See also SFA1_CREATE, SFA_STEP</span>
+0017   
+0018   <span class="keyword">global</span> SFA_STRUCTS
+0019   
+0020   <span class="comment">% init if first call</span>
+0021   <span class="keyword">if</span> isempty(SFA_STRUCTS),
+0022     SFA_STRUCTS=cell(3,1);
+0023   <span class="keyword">end</span>
+0024     
+0025   <span class="comment">% find empty slot</span>
+0026   handle=-1;
+0027   <span class="keyword">for</span> i=1:size(SFA_STRUCTS,1)
+0028     <span class="keyword">if</span> isempty(SFA_STRUCTS{i}),
+0029       handle=i;
+0030       <span class="keyword">break</span>;
+0031     <span class="keyword">end</span>
+0032   <span class="keyword">end</span>
+0033   <span class="keyword">if</span> handle==-1, handle=size(SFA_STRUCTS,1)+1; <span class="keyword">end</span>
+0034   
+0035   SFA_STRUCTS{handle}.pp_range=pp_range;
+0036 
+0037   <span class="keyword">if</span> length(pp_range)==2,
+0038     pp_dim=pp_range(2)-pp_range(1)+1;
+0039   <span class="keyword">else</span>
+0040     pp_dim=pp_range;
+0041   <span class="keyword">end</span>
+0042   SFA_STRUCTS{handle}.xp_range=<a href="xp_dim.html" class="code" title="function dim=xp_dim( in_dim ),">xp_dim</a>(pp_dim);
+0043 
+0044   SFA_STRUCTS{handle}.sfa_range=sfa_range;
+0045 
+0046   <span class="keyword">if</span> nargin&gt;=3 &amp; (strcmpi(pp_type,<span class="string">'SFA1'</span>) | strcmpi(pp_type,<span class="string">'PCA'</span>)),
+0047     SFA_STRUCTS{handle}.pp_type=pp_type;
+0048   <span class="keyword">else</span>
+0049     SFA_STRUCTS{handle}.pp_type=<span class="string">'SFA1'</span>;
+0050   <span class="keyword">end</span>
+0051 
+0052   <span class="keyword">if</span> nargin&gt;=4, <span class="comment">% &amp; (strcmpi(ax_type,'ORD1') | strcmpi(ax_type,'ORD3a')),</span>
+0053     SFA_STRUCTS{handle}.ax_type=ax_type;
+0054   <span class="keyword">else</span>
+0055     SFA_STRUCTS{handle}.ax_type=<span class="string">'ORD1'</span>;
+0056   <span class="keyword">end</span>
+0057 
+0058   <span class="comment">%  reg_ct is the regularization constant (default: 0)</span>
+0059   <span class="keyword">if</span> nargin&gt;=5,
+0060     SFA_STRUCTS{handle}.reg_ct=reg_ct;
+0061   <span class="keyword">else</span>
+0062     SFA_STRUCTS{handle}.reg_ct=0;
+0063   <span class="keyword">end</span>
+0064 
+0065   SFA_STRUCTS{handle}.step=<span class="string">'init'</span>;
+0066   SFA_STRUCTS{handle}.deg=2;
+0067 
+0068</pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

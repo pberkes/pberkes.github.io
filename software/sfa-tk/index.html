@@ -1,0 +1,456 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<CENTER>
+  <H1>sfa-tk :  Slow Feature Analysis Toolkit for Matlab</H1>
+  <img SRC="https://pberkes.github.io/images/slowness/optimization_problem.png" WIDTH="350">
+</CENTER><HR>
+
+<h1>Introduction</h1>
+
+The Slow Feature Analysis Toolkit for Matlab <b>sfa-tk v.1.0.1</b>
+is a set of Matlab functions to perform slow feature analysis (SFA).
+<b>sfa-tk</b> has been designed especially for experiments involving
+long and relatively high dimensional data sets.
+
+<P>
+SFA is an unsupervised algorithm that learns
+(nonlinear) functions that extract slowly-varying signals from their
+input data. The learned functions tend to be invariant to frequent
+transformations of the input and the extracted slowly-varying signals
+can be interpreted as generative sources of the observed input data.
+These properties make SFA suitable for many data processing
+applications and as a
+<a href="https://pberkes.github.io/slowness/project_description.html">model</a> 
+for sensory processing in the brain.
+SFA is a one-shot algorithm, and it is guaranteed to find the optimal
+solution (within the considered function space) in a single step.
+
+For a detailed description see 
+<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/homepage.html">Wiskott, L.</A>
+and Sejnowski, T.J. (2002).
+Slow Feature Analysis: Unsupervised Learning of Invariances.
+Neural Computation, 14(4):715-770.
+
+or refer to this
+<a href="http://itb.biologie.hu-berlin.de/~wiskott/Projects/LearningInvariances.html">online introduction</a>
+by Laurenz Wiskott.
+
+<P>
+ <b>sfa-tk</b> has been written by <A
+HREF="https://pberkes.github.io">Pietro Berkes</A>.
+
+<h2>Download and Installation</h2>
+
+Download <b>sfa-tk v.1.0.1</b>:
+<BR> .tar.gz (ca. 8 kb):
+<a href="https://pberkes.github.io/data/software/sfa-tk/sfa_tk101.tar.gz">
+sfa_tk101.tar.gz
+</a>
+
+<P>
+To install it, simply unpack the file into your favorite Matlab
+directory. This is going to create a <code>sfa_tk</code> directory.
+The two subdirectories <code>sfa_tk/lcov</code> and
+<code>sfa_tk/sfa</code> have to be added to the Matlab path variable
+MATLABPATH.
+
+The subdirectory <code>sfa_tk/demo</code> contains some <a
+href="#demo">demo functions</a>, which you might want to run to make
+sure that everything is installed in the right way.
+
+<h3>Changes from v.1.0beta:</h3>
+
+<UL>
+  <LI> The function <code>leta</code> has been improved such that the
+  input signal doesn't need to be normalized anymore.
+  <LI> The function <code>lcov_pca</code> has one additional output argument
+  that returns the total variance keeped after PCA.
+  <LI> <SPAN CLASS="news">One bug fixed</SPAN>: the <code>H</code>
+  and <code>f</code> values returned by the function <code>sfa_getHf</code>
+  were wrong if the <code>where</code> argument was set to 1.
+</UL>
+
+<h2>Contact</h2>
+
+<P>
+<b>sfa-tk</b> has been tested in a variety of situations and I used it
+to perform some of my simulations. However, I had to make some changes
+in order to make it available online, mostly for esthetical reasons,
+and this might have introduced some bugs. Moreover, there are features which
+I rarely used (e.g. I hardly ever performed linear SFA).  Finally,
+I'm sure that the endless imagination of the end-users is going to
+discover some untested, buggy corners of the toolkit.
+
+<P>
+If you find a bug or have any kind of feedback <b>please</b> contact
+me at <IMG ALT="p.berkes _AT_ biologie.hu-berlin.de"
+SRC="https://pberkes.github.io/images/email_address.png" HEIGHT=17pt>.
+
+<h2>Documentation</h2>
+
+<UL>
+  <LI><a href="https://pberkes.github.io/data/software/sfa-tk/docs/index.html">Online Matlab documentation of <b>sfa-tk</b></a>
+
+  <LI>How to use <b>sfa-tk</b>:
+  <UL>
+    <LI><a href="#level1">Level 1: I just need to put my data in and get the slow signals out</a>
+    <LI><a href="#level2">Level 2: I have a large data set and need to have more control over the algorithm</a>
+    <LI><a href="#level3">Level 3: I want to perform expanded SFA and define my own function space</a>
+  </UL>
+
+  <LI><a href="#structure">Structure of an SFA object</a>
+
+  <LI><a href="#demo">Brief description of the demo scripts</a>
+
+  <LI><a href="#citation">How to cite sfa-tk</a>
+</UL>
+
+<BR><BR><BR>
+<HR>
+
+
+<h1>How to use sfa-tk</h1>
+
+<h2 id="level1">Level 1: I just need to put my data in and get the slow signals out</h2>
+
+That's easy! Put your data in an array <code>x</code>, each variable
+on a different column and each data point on a different row (i.e.
+<code>x(t,i)</code> is the value of the i-th variable at time t).
+Then write
+
+<P align="center">
+<code>y = sfa1(x);</code> <BR>for linear SFA
+
+<BR>or
+
+<BR>
+<code>y = sfa2(x);</code> <BR>for expanded (nonlinear) SFA.
+
+<P>The <code>y</code> array will contain the output signals produced
+by the functions learned by SFA, organized column by column just like
+the input signals  and ordered by decreasing slowness, i.e.
+<code>y(:,1)</code> is the output signal of the slowest varying
+function, <code>y(:,2)</code> the output of the next slowest varying
+function, and so on up to <code>y(:,size(y,2))</code>, which
+corresponds to the output of the fastest varying function.
+
+<P>
+<B>The default function space for expanded SFA is the space of
+polynoms of degree 2.</B> To change it, refer to
+<A href="#level3">Level 3</A>.
+
+<P>If you specify a second output argument with <code>[y,hdl] =
+sfa1(x);</code> or <code>[y,hdl] = sfa2(x);</code> you will get a
+reference to the SFA object containing the slowly varying functions
+themselves, which might be useful for example to apply them on test
+data:
+
+<P>
+<PRE><code>
+<B STYLE = "color: maroon">   % execute SFA on X_TRAIN</B>
+   [y_train, hdl] = sfa2(x_train);
+<B STYLE = "color: maroon">   % apply the functions learned by SFA to the test data X_TEST</B>
+   y_test = sfa_execute(hdl, x_test);
+<B STYLE = "color: maroon">   % clear the SFA object referred by the handle HDL</B>
+   sfa_clear(hdl);
+</code></PRE>
+
+<P>
+This is probably the simplest way to use <b>sfa-tk</b>, but it limits
+the maximum size of your data set. The maximum number of input
+dimensions you can have in the linear case is more or less 5000 while
+in the quadratic case it is 100 (on a computer with 1.0 Gb RAM).  The
+number of data points is also limited by the amount of memory of your
+system. To overcome these problems, you have to go up to <a
+href="#level2">Level 2</a>.
+
+<h2 id="level2">Level 2: I have a large data set and need to have more control on the algorithm</h2>
+
+The toolkit is designed such that the SFA algorithm can be divided in
+different steps: initialization, preprocessing, expansion and sfa.
+The single steps can be called more than once to update them, for
+example in the case your data set is too long or if you need to
+generate input data on-the-fly. A typical <b>sfa-tk</b> script has
+this structure (for a detailed description of the single functions and
+their options refer to the Matlab help or to the 
+<A  href="https://pberkes.github.io/data/software/sfa-tk/docs/index.html">
+online documentation</A>):
+
+<P>
+<PRE><code>
+   <B STYLE = "color: maroon">% create an SFA object and get a reference to it</B>
+   hdl = sfa2_create(pp_dim, sfa_range, 'PCA');
+
+   <B STYLE = "color: maroon">% loop over your data</B>
+   while data_available(),
+      <B STYLE = "color: maroon">% load or generate the next data set</B>
+      x = get_data();
+      <B STYLE = "color: maroon">% update the preprocessing step</B>
+      sfa_step(hdl, x, 'preprocessing');
+   end
+
+   <B STYLE = "color: maroon">% loop over your data</B>
+   while data_available(),
+      <B STYLE = "color: maroon">% load or generate the next data set</B>
+      x = get_data();
+      <B STYLE = "color: maroon">% update the expansion step</B>
+      sfa_step(hdl, x, 'expansion');
+   end
+
+   <B STYLE = "color: maroon">% close the algorithm</B>
+   sfa_step(hdl, [], 'sfa');
+
+   <B STYLE = "color: maroon">% save the results</B>
+   sfa_save(hdl, 'filename');
+
+   <B STYLE = "color: maroon">% ... do something with your data ...</B>
+
+   <B STYLE = "color: maroon">% clear the SFA object referred by the handle HDL</B>
+   sfa_clear(hdl);
+</code></PRE>
+
+<P>
+Of course you can do better than this:
+
+<PRE><code>
+   <B STYLE = "color: maroon">% create an SFA object and get a reference to it</B>
+   hdl = sfa2_create(pp_dim, sfa_range, 'PCA');
+
+   <B STYLE = "color: maroon">% loop over the two SFA steps</B>
+   for step_name = {'preprocessing', 'expansion'},
+
+      <B STYLE = "color: maroon">% loop over your data</B>
+      while data_available(),
+         <B STYLE = "color: maroon">% load or generate the next data set</B>
+         x = get_data();
+         <B STYLE = "color: maroon">% update the current step</B>
+         sfa_step(hdl, x, step_name{1});
+      end
+
+   end
+   <B STYLE = "color: maroon">% close the algorithm</B>
+   sfa_step(hdl, [], 'sfa');
+
+   <B STYLE = "color: maroon">% save the results</B>
+   sfa_save(hdl, 'filename');
+
+   <B STYLE = "color: maroon">% ... do something with your data ...</B>
+
+   <B STYLE = "color: maroon">% clear the SFA object referred by the handle HDL</B>
+   sfa_clear(hdl);
+</code></PRE>
+
+
+<h2 id="level3">Level 3: I want to perform expanded SFA and define my own function space</h2>
+
+In its general (nonlinear) formulation, SFA has to expand the input
+data using a basis of the function space you want to use. In
+<b>sfa-tk</b> this is done by the function <CODE>expansion</CODE>. The
+default function implements an expansion in the space of all polynoms
+of degree two (which explains the prefix <CODE>sfa2</CODE> before some
+of the functions).
+
+If you want to implement your own function space, you have to
+overwrite the function <CODE>expansion</CODE> and the function
+<CODE>xp_dim</CODE>, which returns the dimension of the expanded space
+given the number of input variables.
+
+<h3>Example</h3>
+
+Assume you want to find the slowest varying functions in the space
+formed by all linear combinations of the signals and of the signal to
+the fourth. If the input space has dimension N, the expanded space
+will have dimension 2*N.
+
+<P>
+The expansion function is going to look like this:
+
+<PRE><code>
+   function x = expansion(hdl, x),
+      x = cat(2, x, x.^4);
+</code></PRE>
+
+The first argument (<code>hdl</code>) is ignored in this case. It
+might be useful if you want the expanded space to be controlled by
+some parameters. E.g. if you want it to be spanned by random radial
+basis functions, you can generate random mean vectors and variances
+and add them to the structure <code>SFA_STRUCTS{hdl}</code> (see <a
+href="#structure">below</a>), and then use them in your
+<code>expansion</code> function.
+
+<P>
+You also need to overwrite the <code>xp_dim</code> function:
+
+<PRE><code>
+   function dim = xp_dim( input_dim ),
+      dim = 2*input_dim;
+</code></PRE>
+
+<P>
+Make sure that the new functions are in the current directory or
+appear in your path list <b>before</b> the default versions!
+
+<h1 id="structure">Structure of an SFA object</h1>
+
+The SFA objects are stored in the global cell array
+<CODE>SFA_STRUCTS</CODE>. Their handle is equal to their index in this
+array. The SFA objects are structures with following fields:
+
+<UL>
+  <LI> <B>pp_range</B>: the number of dimensions kept after preprocessing.
+  <LI> <B>xp_range</B>: the number of dimensions of the expanded space
+                        (this is equal to <CODE>
+			xp_dim(pp_range)
+			</CODE>	).
+  <LI> <B>sfa_range</B>: the number of slow-varying functions kept by SFA.
+  <LI> <B>pp_type</B>: type of preprocessing (either 'SFA1' or 'PCA').
+  <LI> <B>ax_type</B>: type of approximation of the derivative (either 'ORD1' or 'ORD3a').
+  <LI> <B>reg_ct</B>: the regularization constant, it is always equal zero. This field
+                      is present for forward compatilibity only.
+  <LI> <B>step</B>: the current algorithm step. If the algorithm has been completed
+                    it has to be equal to 'sfa'.
+  <LI> <B>deg</B>: 1 if this is a linear SFA object, 2 otherwise.
+  <LI> <B>W0</B>: the withening matrix.
+  <LI> <B>DW0</B>: the dewhitening matrix.
+  <LI> <B>D0</B>: the eigenvalues corresponding to the whitening vectors.
+  <LI> <B>avg0</B>: the mean of the input vectors.
+  <LI> <B>tlen0</B>: the number of input vectors that have been received in the
+                     'preprocessing' step.
+  <LI> <B>avg1</B>: the mean of the expanded vectors (missing in linear SFA objects).
+  <LI> <B>tlen1</B>: the number of input vectors that have been received in the
+                     'expansion' step (missing in linear SFA objects).
+  <LI> <B>SF</B>: the matrix of the functions learned by SFA (one for each row).
+  <LI> <B>DSF</B>: the generalized eigenvalues corresponding to the functions.
+</UL>
+
+
+<P>
+You can of course insert additional fields to this structure if
+necessary (for example to add some data that has to be used by the
+<CODE>expansion</CODE> function, see <A href="#level3">above</A>).
+
+<h1 id="demo">Brief description of the demo scripts</h1>
+
+In the directory <code>sfa_tk/demo</code> you can find four demo scripts:
+
+<UL>
+<LI> <code>sfatk_demo.m</code> reproduces an example from Wiskott,
+  L. and Sejnowski, T.J. (2002), "Slow Feature Analysis: Unsupervised
+  Learning of Invariances", Neural Computation, 14(4):715-770, Figure 2
+  and illustrates the basic <B>sfa-tk</B> functions.
+
+<LI> <code>long_dataset_demo.m</code> illustrates how to perform SFA
+on long data sets (cf. <a href="#level2">Level 2</a>).
+
+<LI> <code>expansion_demo.m</code> shows how to perform SFA on
+  user-defined function spaces (cf. <a href="#level3">Level 3</a>).
+
+<LI> <code>getHf_demo.m</code> illustrates how to use the
+<a href="https://pberkes.github.io/data/software/sfa-tk/docs/sfa_tk/sfa/sfa_getHf.html"><code>sfa_getHf</code></a> function.
+
+</UL>
+
+<h1 id="citation">How to cite sfa-tk</h1>
+
+If you use <b>sfa-tk</b> for scientific reasons you might need to cite it.
+Here is the official way to do it:
+
+<P>
+P.Berkes (2003)<BR>
+sfa-tk: Slow Feature Analysis Toolkit for Matlab (v.1.0.1).<br>
+<code>http://itb.biologie.hu-berlin.de/~berkes/software/sfa-tk/sfa-tk.shtml</code>
+
+</div>
+
+</body>
+</html>

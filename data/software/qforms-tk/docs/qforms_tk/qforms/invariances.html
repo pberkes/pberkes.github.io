@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of invariances</title>
+  <meta name="keywords" content="invariances">
+  <meta name="description" content="INVARIANCES computes the invariances of a quadratic form.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../menu.html">Home</a> &gt;  <a href="#">qforms_tk</a> &gt; <a href="#">qforms</a> &gt; invariances.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../menu.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="menu.html">Index for ./qforms_tk/qforms&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>invariances
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>INVARIANCES computes the invariances of a quadratic form.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [V,d] = invariances(H,f, xp), </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> INVARIANCES computes the invariances of a quadratic form.
+   [V,D] = INVARIANCES(H,F, XP) computes the invariances V of the
+   quadratic form 0.5*x'*H*x + f'*x + c in the optimal stimulus XP.
+   Return in V the direction of the invariances, sorted by increasing
+   magnitude of the second derivative and in D the corresponding second
+   derivative.
+
+   Reference: Pietro Berkes and Laurenz Wiskott (2005) On the analysis
+   and interpretation of quadratic forms as receptive fields.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [V,d] = invariances(H,f, xp),</a>
+0002 <span class="comment">% INVARIANCES computes the invariances of a quadratic form.</span>
+0003 <span class="comment">%   [V,D] = INVARIANCES(H,F, XP) computes the invariances V of the</span>
+0004 <span class="comment">%   quadratic form 0.5*x'*H*x + f'*x + c in the optimal stimulus XP.</span>
+0005 <span class="comment">%   Return in V the direction of the invariances, sorted by increasing</span>
+0006 <span class="comment">%   magnitude of the second derivative and in D the corresponding second</span>
+0007 <span class="comment">%   derivative.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   Reference: Pietro Berkes and Laurenz Wiskott (2005) On the analysis</span>
+0010 <span class="comment">%   and interpretation of quadratic forms as receptive fields.</span>
+0011 
+0012   <span class="comment">% input dimension</span>
+0013   dim = size(H,1);
+0014 
+0015   <span class="comment">% radius of the sphere</span>
+0016   r = norm(xp);
+0017   <span class="comment">% constant term in the second derivative</span>
+0018   cte = -r^(-2)*( xp'*H*xp + f'*xp );
+0019 
+0020   <span class="comment">%% get a basis of the tangential plane in xp</span>
+0021   one = eye(dim);
+0022   basis = [xp, one(:,2:dim)];
+0023   B = gram_schmidt(basis);
+0024   B = B(:,2:dim);
+0025   <span class="comment">% restrict H to the tangential plane</span>
+0026   Ht = B'*H*B;
+0027   [V,D] = eig(Ht);
+0028   <span class="comment">% second derivative in the direction of the eigenvectors</span>
+0029   d = diag(D)+cte;
+0030   [tmp,idx] = sort(abs(d));
+0031   <span class="comment">% sort by increasing absolute value of the second derivative</span>
+0032   d = d(idx);
+0033   V = V(:,idx);
+0034   <span class="comment">% project the eigenvectors back in R^N</span>
+0035   V = B*V;</pre></div>
+<hr><address>Generated on Thu 24-Mar-2005 12:05:36 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

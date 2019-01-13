@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of lcov_pca</title>
+  <meta name="keywords" content="lcov_pca">
+  <meta name="description" content="LCOV_PCA Principal Component Analysis on a covariance object.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">sfa_tk</a> &gt; <a href="#">lcov</a> &gt; lcov_pca.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./sfa_tk/lcov&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>lcov_pca
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>LCOV_PCA Principal Component Analysis on a covariance object.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [W,DW,D]=lcov_pca(handle, dim_range) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> LCOV_PCA Principal Component Analysis on a covariance object.
+   [W,DW,D] = LCOV_PCA(HANDLE[, DIM_RANGE]) performs PCA _and_ whitening
+   on the covariance object referenced by HANDLE.
+   W is the whitening matrix, DW the dewhitening matrix and D an array
+   containing a list of the eigenvalues.
+
+   ! LCOV_FIX must have been called _before_ you call this function.
+  
+   If DIM_RANGE is specified, only the first DIM_RANGE components are keeped
+   or the components in the range DIM_RANGE(1)..DIM_RANGE(2).
+
+   See also <a href="lcov_fix.html" class="code" title="function lcov_fix(handle)">LCOV_FIX</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../.././sfa_tk/sfa/sfa2_step.html" class="code" title="function sfa2_step(hdl, arg, step)">sfa2_step</a>	SFA2_STEP a step in the SFA2 algorithm.</li></ul>
+<!-- crossreference -->
+
+
+
+<hr><address>Generated on Tue 10-Feb-2004 16:00:52 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

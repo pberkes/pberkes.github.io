@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<CENTER>
+  <H2>Structured representations in the visual cortex</H2>
+
+  <A HREF="https://pberkes.github.io">Pietro Berkes</A>,
+  <A HREF="http://www.gatsby.ucl.ac.uk/~turner/">Richard Turner</A>, and
+  <A HREF="http://www.gatsby.ucl.ac.uk/~maneesh/">Maneesh Sahani</A>
+</CENTER>
+<HR>
+
+
+<p>
+<b>Draft paper:</b> Berkes, P., Richard, T. and Sahani, M. (2007). <i>Complex
+and simple cells form a structured representation of identities and attributes</i>.
+(<a href="https://pberkes.github.io/data/papers/BerkTurnSaha2007_draft.pdf">.pdf</a>)
+
+<br>
+<b>Poster</b> presented at Cosyne 2007: <a
+href="https://pberkes.github.io/data/papers/BerkTurnSaha_Cosyne2007_poster.pdf">.pdf</a>
+
+<p>
+<b>Abstract:</b>
+<p>
+  Many computational models have offered functional accounts of the
+  organization of the sensory cortex.  However, most have lacked
+  the structure needed to extract the high-order causes of the sensory
+  input.
+  Here we present a generative model of visual input based on the
+  duality between the identity of image features and their attributes.
+  The presence of a feature is encoded by a binary identity variable,
+  while its appearance is modeled by a multidimensional manifold,
+  parametrized by a set of attribute variables.  
+  When applied to natural image sequences, the model finds attribute
+  manifolds spanned by localized Gabor wavelets with similar
+  positions, orientations, and frequencies, but different phases.
+  Thus the inferred activity of attribute variables after
+  learning resembles that of simple cells in the primary visual
+  cortex.  Identity variables indicate the presence of a feature
+  irrespective of its position on the underlying manifold, making
+  them phase-insensitive, like complex cells.
+  The dimensionality of the learnt manifolds and the relationships
+  between the wavelets correspond closely to anatomical and functional
+  observations regarding simple and complex cells.
+  Thus, this generative model makes explicit an interpretation of
+  complex and simple cells as elements in the segmentation of a visual
+  scene into independent features, with a parametrization of their
+  episodic appearance.  It also suggest a possible role for them in a
+  hierarchical system that extracts progressively higher-level
+  entities, starting from simpler, low-level features.
+
+<p>
+<TABLE ALIGN="CENTER" BGCOLOR="#E0E0E0"  CELLPADDING=20px>
+<TR  CELLPADDING=20px ALIGN="CENTER">
+<td><a href="https://pberkes.github.io/images/structured/obs_from_manifolds.png"><IMG
+ALT="Sketch of the generative model" HEIGHT="250" SRC="https://pberkes.github.io/images/structured/obs_from_manifolds.png"></a>
+</tr>
+<TR CELLPADDING=20px>
+<td><b>Figure 1:</b> Illustration of the basic structure of the model. Each object
+        or feature is represented by a binary variable c_{t,i} that
+        indicates its presence or absence and is modeled by a manifold
+        formed by the set of its episodic poses, defined by a mapping
+        \Phi_i and parametrized by variables s_{t,ij} that are
+        interpreted as attributes of the object or feature.  The episodic
+        poses are multiplied by the state of the identity variables, so
+        that absent objects give no contribution, and then combined
+        through a function f to generate the observations y_{t}.
+        <i>(Click on the image to see it in original size)</i>
+</tr>
+</TABLE>
+
+</div>
+
+</body>
+</html>

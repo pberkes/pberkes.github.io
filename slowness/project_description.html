@@ -1,0 +1,350 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Slowness and the visual cortex</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+<CENTER>
+  <H1>Research Project - Slowness as a computational principle for the visual cortex</H1>
+  <A HREF="https://pberkes.github.io">Pietro Berkes</A>
+  and
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/homepage.html">Laurenz Wiskott</A>
+</CENTER>
+<HR>
+
+
+<H2>The slowness principle</H2>
+
+How does the brain process the sensory information?  Is it possible to
+explain the activity and self-organization of the cortex by a single
+computational principle?
+
+<P>
+The work hypothesis of this project assumes that the cortex adapts
+itself in order to make the response of the neurons vary slowly in
+time. This is motivated by a simple observation: while the environment
+vary on a relatively slow timescale, the sensory input, e.g. in our
+case the response of receptors on the retina, consists of raw direct
+measurements that are very sensitive even to small transformations of
+the environment or the state of the observer. For example, a small
+translation or rotation of an object in the visual scene can lead to a
+dramatic change of the light intensity at a particular position of the
+retina. The sensory signal vary thus on a faster timescale than the
+environment. The work hypothesis implies that the cortex is actively
+extracting slow signals out of its fast input in order to recover the
+information about the environment and to build up a consistent
+internal representation.  This principle is called the
+<STRONG>slowness</STRONG> principle.
+
+<H2>Methods and results</H2>
+
+We have chosen to approach this principle in a very direct way: we
+consider a large abstract set of functions and extract the ones that
+applied to sequences of natural images have the most slowly varying
+output (as measured by the mean of the squared derivative). This
+problem can be solved using <STRONG>Slow Feature
+Analysis</STRONG> (SFA) [<a href="#1">1</a>], an unsupervised algorithm
+based on an eigenvector approach
+(<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Projects/LearningInvariances.html">click here</A> for a short description and literature about SFA).
+
+<P>
+This approach has the advantage of being independent from the actual
+neural architecture (since each extracted function can in principle be
+computed by many different neural circuits), so that we don't have to
+make additional assumptions about how the cortex work. Of course, we
+still have to choose an appropriate function space. Ideally, one would
+choose a very large function space. This is however not always
+possible in practice due to computational constraints. In our
+simulations we consider usually the set of all polynomials of degree
+two, which is still much larger than the function space spanned by the
+neural networks considered in related works [<a href="#2">2</a>,<a
+href="#3">3</a>] (simulations using other function spaces are work in
+progress).
+
+<P>
+If the slowness hypothesis holds, cortical neurons compute slowly
+varying function. Their behavior should thus be equivalent to that of
+the functions extracted in our simulations. We study the
+characteristics of the functions in a way similar to the physiological
+experiments on V1, and compute the preferred input stimuli, their
+invariances and their response in a wide range of situations (<a
+href="#figure1">Figure 1</a>).
+
+<P>
+The results show that the extracted functions have many properties in
+common with <STRONG>complex cells</STRONG> in V1, including
+<STRONG>phase shift invariance, direction selectivity, non-orthogonal
+inhibition, end-inhibition and side-inhibition</STRONG> [<a
+href="#4">4</a>,<a href="#5">5</a>].
+
+
+<H2>Additional material</H2>
+
+The following pages contain additional informations, results
+and statistics relative to some simulations:
+
+<UL>
+  <LI>
+  <A HREF="https://pberkes.github.io/slowness">
+  Index page of the research project.</A>
+
+  <LI>
+  <A HREF="https://pberkes.github.io/slowness/additional_material.html">
+  Additional material</A> to
+  P.Berkes, L.Wiskott (2005),
+  "Slow feature analysis yields a rich repertoire of complex cell properties",
+  Journal of Vision 5(6), 579-602,
+  <A HREF="http://journalofvision.org/5/6/9/"><CODE>http://journalofvision.org/5/6/9/</CODE></A>.
+
+  <LI>
+  <A href="https://pberkes.github.io/slowness/icann02.html">
+  Additional material</A> to
+  P.Berkes, L.Wiskott (2002), "Applying Slow Feature Analysis to image
+  sequences yields a rich repertoire of complex cells properties", in
+  "Artificial Neural Networks", Proceedings ICANN 2002, pp. 81-86 ,
+  Springer.
+</UL>
+
+<BR><BR>
+<P id="figure1">
+<TABLE ALIGN="CENTER" BGCOLOR="#E0E0E0">
+<TR>
+
+<TD>
+<TABLE CELLSPACING=10 ALIGN="CENTER">
+<TR>
+<TD><IMG ALT="Optimal excitatory stimulus" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/example_sp.jpg"></TD>
+</TR>
+<TR>
+<TD><IMG ALT="Optimal inhibitory stimulus" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/example_sm.jpg"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER">a)</TD>
+</TR>
+</TABLE>
+</TD>
+
+<TD>
+<TABLE CELLSPACING=10 ALIGN="CENTER">
+<TR>
+<TD><IMG ALT="Example invariance 1" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/example_inv1.gif"></TD>
+</TR>
+<TR>
+<TD><IMG ALT="Example invariance 2" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/example_inv2.gif"></TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER">b)</TD>
+</TR>
+</TABLE>
+</TD>
+
+<TD>
+<TABLE CELLSPACING=10 ALIGN="CENTER">
+<TR>
+<TD ALIGN = "CENTER">
+  <IMG ALT="Test image 1" WIDTH="170" HEIGHT="170" SRC="https://pberkes.github.io/images/slowness/test_image1.jpg">
+</TD>
+</TR>
+<TR>
+<TD ALIGN = "CENTER">
+  <IMG ALT="Test image 2" WIDTH="170" HEIGHT="170" SRC="https://pberkes.github.io/images/slowness/test_image2.jpg">
+</TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER">c)</TD>
+</TR>
+</TABLE>
+</TD>
+
+<TD>
+<TABLE CELLSPACING=10 ALIGN="CENTER">
+<TR>
+<TD ALIGN = "CENTER">
+  <A HREF="https://pberkes.github.io/images/slowness/response_image1.jpg">
+  <IMG ALT="Response image 1" WIDTH="200" HEIGHT="170" SRC="https://pberkes.github.io/images/slowness/response_image1.jpg">
+  </A>
+</TD>
+</TR>
+<TR>
+<TD ALIGN = "CENTER">
+  <A HREF="https://pberkes.github.io/images/slowness/response_image2.jpg">
+  <IMG ALT="Response image 2" WIDTH="200" HEIGHT="170" SRC="https://pberkes.github.io/images/slowness/response_image2.jpg">
+  </A>
+</TD>
+</TR>
+<TR>
+<TD ALIGN="CENTER">d)</TD>
+</TR>
+</TABLE>
+</TD>
+
+
+</TR>
+
+<TR><TD COLSPAN="4"> <STRONG>Figure 1, Example analysis of a slow
+function</STRONG>:
+
+<STRONG>a)</STRONG> Optimal excitatory stimulus (S+) (top) and optimal
+inhibitory stimulus (S-) (bottom). They correspond to the stimuli that
+elicit in the considered function the highest and the lowest response,
+respectively.
+
+<STRONG>b)</STRONG> Two invariances of the optimal excitatory stimulus
+shown in a) (top: phase-shift invariance, bottom: curvature
+invariance). Each frame shown is a nearly-optimal input stimulus to
+which the function responds with more than 80% of the optimal response
+<EM>(*)</EM>.
+
+<STRONG>c)</STRONG> Test images. We use the top image to test the
+response of the functions to all orientation and to a range of
+frequencies. We use test images similar to the bottom one to study
+end- and side-inhibition: a function selective for the length- or
+width-extension of the input stimulus has a higher response on the
+borders of the hexagon than in its inner. The hexagonal shape is set
+to the preferred orientation and frequency of the considered function.
+
+<STRONG>d)</STRONG> Response images. The response images display the
+output of the function applied to each point of the corresponding test
+image. In the top image one can thus read to which range of
+orientation and frequencies the function respond strongly (red) or is
+inhibited (blue).
+
+The bottom image shows the response of a strongly end-inhibited function to
+the hexagonal test image shown in c). (As the function considered in the
+previous subfigures is not end-inhibited, we used here another one.)
+<EM>(Click on the response images to enlarge them.)</EM>
+
+
+<P><EM>(*) If your browser fails to show the invariances in column b) as
+looping animations, please reload the page or open the images one by
+one (e.g. in "Netscape" or "Mozilla" right-click and select "View Image").</EM>
+</TD></TR>
+</TABLE>
+
+<P id="1">
+<STRONG>[1]</STRONG> L.Wiskott, T.Sejnowski, "Slow feature analysis: Unsupervised
+learning of invariances.", Neural computation, 14(4):715-770,
+2002. <BR> 
+
+<P id="2">
+<STRONG>[2]</STRONG> C.Kayser, W.Einhäuser, O.Dümmer, P.König and K.P.Körding,
+"Extracting slow subspaces from natural videos leads to complex
+cells.", in "Artificial Neural Networks", Proceedings ICANN 2001,
+pp. 1075-1080, Springer 2001. <BR>
+
+<P id="3">
+<STRONG>[3]</STRONG> A.Hyvärinen, P.Hoyer, "Emergence of phase and shift invariant
+features by decomposition of natural images into independent features
+subspaces", Neural Computation, 12(7): 1705-1720, 2000. <BR>
+
+<P id="4">
+<STRONG>[4]</STRONG> P.Berkes, L.Wiskott, "Applying Slow Feature Analysis to image
+sequences yields a rich repertoire of complex cells properties", in
+"Artificial Neural Networks", Proceedings ICANN 2002, pp. 81-86 ,
+Springer 2002. <BR>
+
+<P id="5">
+<STRONG>[5]</STRONG> P.Berkes, L.Wiskott,
+"Slow feature analysis yields a rich repertoire of complex cell properties",
+Journal of Vision 5(6), 579-602,
+ <A HREF="http://journalofvision.org/5/6/9/"><CODE>http://journalofvision.org/5/6/9/</CODE></A>, 2005.
+
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+</div>
+
+</body>
+</html>

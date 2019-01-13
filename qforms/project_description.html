@@ -1,0 +1,186 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Project_Description</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<P align="right">
+<A HREF="https://pberkes.github.io/qforms/index.html" CLASS="news">quadratic forms project index page</A>
+<BR>
+
+<CENTER>
+  <H1>Research Project - On the analysis and interpretation of
+  inhomogeneous quadratic forms as receptive fields</H1>
+
+  <A HREF="https://pberkes.github.io">Pietro Berkes</A>
+  and
+  <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/homepage.html">Laurenz Wiskott</A>
+</CENTER>
+<HR>
+
+
+
+ <p>Recent research in neuroscience has seen an increasing number of extensions
+of established linear techniques to their nonlinear equivalent, in both
+experimental and theoretical studies.  This is the case, for example, for
+spatio-temporal receptive-field estimates in physiological studies and
+information theoretical models like principal component analysis (PCA) and
+independent component analysis (ICA).  Additionally, new nonlinear
+algorithms have been introduced, like slow feature analysis (SFA).  The
+study of the resulting nonlinear functions can be a difficult task because
+of the lack of appropriate tools to characterize them qualitatively and
+quantitatively.</p>
+ <p>In this work we introduce some mathematical and numerical methods to
+analyze and interpret generic inhomogeneous quadratic forms.  The resulting
+characterization is in some aspects similar to that given by physiological
+studies of the receptive fields of cortical cells, making it particularly
+suitable for application to second-order approximations and theoretical
+models of physiological receptive fields.  We illustrate the proposed
+algorithms using the quadratic forms computed in a theoretical model of
+self-organization of complex-cell receptive field (Berkes and Wiskott,
+2002).</p>
+ <p>We first discuss two standard ways of analyzing a quadratic form by
+directly visualizing the coefficients of its quadratic and linear terms and
+by considering the eigenvectors of its quadratic term.  This method often
+allows to gain some intuition of the behavior of the quadratic form, but a
+direct interpretation is sometimes difficult and the interaction between
+linear and quadratic term is not considered.</p>
+ <p>We then present an algorithm to compute the optimal excitatory and
+inhibitory stimuli, i.e. the stimuli that maximize and minimize the
+considered quadratic form, respectively, given a fixed energy constraint.
+This is similar to the physiological practice of characterizing a neuron by
+the stimulus to which it responds best.  The solution to this problem is
+unique and its mathematical formulation can be reduced to an efficient
+linear search over one parameter on a bounded range.</p>
+ <p>Since we are considering non-linear functions, the optimal stimuli do not
+provide a complete description of their properties.  We therefore next
+consider the invariances of the optimal stimuli, which are the
+transformations to which the quadratic form is most insensitive.  This is
+similar to the common interpretation of neurons as detectors of a specific
+feature of the input with an invariance to certain local transformations of
+that feature.  For example, complex cells in the primary visual cortex are
+thought to respond to oriented bars and to be invariant to a local
+translation.  To do this, we compute the second derivative of the quadratic
+form at the optimal stimulus but restricted to the sphere of input patterns
+of constant energy.  This can be done by considering special paths on the
+sphere known as geodetics and computing the second derivative of the
+function along them.  We derive in this way an explicit formula for the
+quadratic form that describes the second derivative.  The invariances are found to be
+the eigenvectors corresponding to the eigenvalues of largest magnitude.
+The invariances can then be visualized by moving on the sphere in the
+direction of the eigenvectors and stopping as soon as the output of the
+function drops under a given threshold.  For each quadratic form with N
+variables we can find in this way N-1 invariances.  We propose a test to
+determine which of these invariances are statistically significant.  This
+can be done by comparing the second derivatives in the direction of the
+invariances with those of random quadratic forms that are equally adapted
+to the statistics of the input data.</p>
+ <p>We further derive simpler versions of the above results in the special case
+of a quadratic form without linear term and discuss the analysis of such
+homogeneous quadratic forms in some theoretical and experimental studies.</p>
+ <p>Finally, we show that for each quadratic form one can build an equivalent
+two-layer neural network, formed by a first layer of linear subunits
+followed by a quadratic nonlinearity and a multiplication with weighting
+coefficients.  The output neuron also receives a direct linear contribution
+from the input layer.  Since the weighting coefficients can be negative,
+some of the subunits give an inhibitory contribution to the output.  Such a
+network is compatible with (but more general than) related networks used in
+some recent papers and the energy model of complex cells.  We show that the
+subunits are unique only up to two arbitrary orthogonal transformations of
+the positive and negative subunits, respectively.</p>
+
+<P align="right">
+<A HREF="https://pberkes.github.io/qforms/index.html" CLASS="news">quadratic forms project index page</A>
+<BR>
+
+
+</div>
+
+</body>
+</html>

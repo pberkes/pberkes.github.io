@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sfa2_step</title>
+  <meta name="keywords" content="sfa2_step">
+  <meta name="description" content="SFA2_STEP a step in the SFA2 algorithm.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">sfa</a> &gt; sfa2_step.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/sfa&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>sfa2_step
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>SFA2_STEP a step in the SFA2 algorithm.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function sfa2_step(hdl, arg, step) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> SFA2_STEP a step in the SFA2 algorithm.
+   SFA2_STEP(HDL, ARG, STEPNAME)
+   Do not use this function directly, use SFA_STEP instead.
+
+   See also <a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">SFA_STEP</a></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="expansion.html" class="code" title="function DATA=expansion(hdl, DATA)">expansion</a>	EXPANSION Expand a signal in the space of polynomials of degree 2.</li><li><a href="sfa1_create.html" class="code" title="function handle=sfa1_create(sfa_range, ax_type, reg_ct)">sfa1_create</a>	SFA1_CREATE Create a linear SFA object.</li><li><a href="sfa_clear.html" class="code" title="function sfa_clear(hdl)">sfa_clear</a>	SFA_CLEAR Clear a SFA object.</li><li><a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">sfa_step</a>	SFA_STEP Update a step of the SFA algorithm.</li><li><a href="timediff.html" class="code" title="function DATA=timediff(DATA, ax_type)">timediff</a>	TIMEDIFF Compute the derivative of a signal</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">sfa_step</a>	SFA_STEP Update a step of the SFA algorithm.</li></ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function sfa2_step(hdl, arg, step)</a>
+0002 <span class="comment">% SFA2_STEP a step in the SFA2 algorithm.</span>
+0003 <span class="comment">%   SFA2_STEP(HDL, ARG, STEPNAME)</span>
+0004 <span class="comment">%   Do not use this function directly, use SFA_STEP instead.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%   See also SFA_STEP</span>
+0007   
+0008   <span class="keyword">global</span> SFA_STRUCTS
+0009   
+0010   <span class="keyword">if</span> nargin&gt;2,
+0011     old_step=SFA_STRUCTS{hdl}.step;
+0012     <span class="comment">%%% check step is init-&gt;preprocessing-&gt;expansion-&gt;sfa</span>
+0013     <span class="comment">%%% clear step variables</span>
+0014     
+0015     <span class="comment">%%% init-&gt;preprocessing</span>
+0016     <span class="keyword">if</span> strcmp(old_step,<span class="string">'init'</span>) &amp; strcmp(step,<span class="string">'preprocessing'</span>),
+0017       fprintf(<span class="string">'init preprocessing\n'</span>);
+0018       <span class="keyword">if</span> strcmpi(SFA_STRUCTS{hdl}.pp_type, <span class="string">'PCA'</span>),
+0019     SFA_STRUCTS{hdl}.lcov_hdl=lcov_create(size(arg,2));
+0020       <span class="keyword">else</span> <span class="comment">% SFA1</span>
+0021     SFA_STRUCTS{hdl}.sfa1_hdl=<a href="sfa1_create.html" class="code" title="function handle=sfa1_create(sfa_range, ax_type, reg_ct)">sfa1_create</a>(SFA_STRUCTS{hdl}.pp_range);
+0022       <span class="keyword">end</span>
+0023       
+0024     <span class="comment">%%% preprocessing-&gt;expansion</span>
+0025     <span class="keyword">elseif</span> strcmp(old_step,<span class="string">'preprocessing'</span>) &amp; strcmp(step,<span class="string">'expansion'</span>),
+0026       <span class="comment">% close preprocessing step</span>
+0027       fprintf(<span class="string">'close preprocessing\n'</span>);
+0028       
+0029       <span class="keyword">if</span> strcmpi(SFA_STRUCTS{hdl}.pp_type, <span class="string">'PCA'</span>),
+0030     <span class="keyword">global</span> LCOV_STRUCTS
+0031     cvhdl=SFA_STRUCTS{hdl}.lcov_hdl;
+0032       
+0033     lcov_fix(cvhdl);
+0034     fprintf(<span class="string">'whitening and dimensionality reduction\n'</span>);
+0035     [SFA_STRUCTS{hdl}.W0,SFA_STRUCTS{hdl}.DW0,SFA_STRUCTS{hdl}.D0]= <span class="keyword">...</span>
+0036         lcov_pca(cvhdl,SFA_STRUCTS{hdl}.pp_range);
+0037     SFA_STRUCTS{hdl}.avg0=LCOV_STRUCTS{cvhdl}.avg;
+0038     SFA_STRUCTS{hdl}.tlen0=LCOV_STRUCTS{cvhdl}.tlen;
+0039     
+0040     <span class="comment">%clean up</span>
+0041     lcov_clear(cvhdl);
+0042     SFA_STRUCTS{hdl}=rmfield(SFA_STRUCTS{hdl},<span class="string">'lcov_hdl'</span>);
+0043     
+0044       <span class="keyword">else</span> <span class="comment">%SFA1</span>
+0045     sfa1_hdl=SFA_STRUCTS{hdl}.sfa1_hdl;
+0046     <a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">sfa_step</a>(sfa1_hdl, [], <span class="string">'sfa'</span>);
+0047 
+0048     SFA_STRUCTS{hdl}.W0=SFA_STRUCTS{sfa1_hdl}.SF;
+0049     SFA_STRUCTS{hdl}.D0=SFA_STRUCTS{sfa1_hdl}.DSF;
+0050     SFA_STRUCTS{hdl}.avg0=SFA_STRUCTS{sfa1_hdl}.avg0;
+0051     SFA_STRUCTS{hdl}.tlen0=SFA_STRUCTS{sfa1_hdl}.tlen0;
+0052     
+0053     <span class="comment">%clean up</span>
+0054     <a href="sfa_clear.html" class="code" title="function sfa_clear(hdl)">sfa_clear</a>(sfa1_hdl);
+0055     SFA_STRUCTS{hdl}=rmfield(SFA_STRUCTS{hdl},<span class="string">'sfa1_hdl'</span>);
+0056       <span class="keyword">end</span>
+0057       
+0058       <span class="comment">% init expansion step</span>
+0059       fprintf(<span class="string">'init expansion step\n'</span>);
+0060       insize=SFA_STRUCTS{hdl}.pp_range;
+0061       <span class="keyword">if</span> length(insize)==2, insize=insize(2)-insize(1)+1; <span class="keyword">end</span>
+0062       xpsize=SFA_STRUCTS{hdl}.xp_range; <span class="comment">%xp_dim(insize);</span>
+0063       SFA_STRUCTS{hdl}.xp_hdl=lcov_create(xpsize);
+0064       SFA_STRUCTS{hdl}.diff_hdl=lcov_create(xpsize);
+0065 
+0066     <span class="comment">%%% expansion-&gt;sfa</span>
+0067     <span class="keyword">elseif</span> strcmp(old_step,<span class="string">'expansion'</span>) &amp; strcmp(step,<span class="string">'sfa'</span>),
+0068       <span class="comment">% close expansion step</span>
+0069       fprintf(<span class="string">'close expansion step\n'</span>);
+0070       <span class="keyword">global</span> LCOV_STRUCTS
+0071       
+0072       <span class="comment">% expanded data</span>
+0073       xphdl=SFA_STRUCTS{hdl}.xp_hdl;
+0074       lcov_fix(xphdl)
+0075       SFA_STRUCTS{hdl}.avg1=LCOV_STRUCTS{xphdl}.avg;
+0076       SFA_STRUCTS{hdl}.tlen1=LCOV_STRUCTS{xphdl}.tlen;
+0077 
+0078       dfhdl=SFA_STRUCTS{hdl}.diff_hdl;
+0079 
+0080       <span class="comment">% perform sfa step</span>
+0081       fprintf(<span class="string">'perform slow feature analysis\n'</span>);
+0082             
+0083       sfa_range=SFA_STRUCTS{hdl}.sfa_range;
+0084       <span class="keyword">if</span> length(sfa_range)==1, sfa_int=1:sfa_range;
+0085       <span class="keyword">else</span> sfa_int=sfa_range(1):sfa_range(2); <span class="keyword">end</span>
+0086       
+0087       
+0088       [SFA_STRUCTS{hdl}.SF,D]= <span class="keyword">...</span>
+0089       eig(LCOV_STRUCTS{dfhdl}.COV_MTX,LCOV_STRUCTS{xphdl}.COV_MTX);
+0090       
+0091       D=diag(D);
+0092       [tmp,idx]=sort(D);
+0093       SFA_STRUCTS{hdl}.DSF=D(idx(sfa_int));
+0094       SFA_STRUCTS{hdl}.SF=SFA_STRUCTS{hdl}.SF(:,idx(sfa_int))';
+0095 
+0096       lcov_clear(xphdl);
+0097       SFA_STRUCTS{hdl}=rmfield(SFA_STRUCTS{hdl},<span class="string">'xp_hdl'</span>);
+0098       lcov_clear(dfhdl);
+0099       SFA_STRUCTS{hdl}=rmfield(SFA_STRUCTS{hdl},<span class="string">'diff_hdl'</span>);
+0100 
+0101       fprintf(<span class="string">'SFA2 closed\n'</span>);
+0102     <span class="keyword">elseif</span> ~strcmp(step,old_step),
+0103       warning <span class="string">'unknown step sequence'</span>
+0104       <span class="keyword">return</span>
+0105     <span class="keyword">end</span>
+0106       
+0107     SFA_STRUCTS{hdl}.step=step;
+0108   <span class="keyword">end</span>
+0109 
+0110   <span class="keyword">switch</span> SFA_STRUCTS{hdl}.step,
+0111    <span class="keyword">case</span> <span class="string">'preprocessing'</span>,
+0112     <span class="keyword">if</span> strcmpi(SFA_STRUCTS{hdl}.pp_type, <span class="string">'PCA'</span>),
+0113       lcov_update(SFA_STRUCTS{hdl}.lcov_hdl, arg);
+0114     <span class="keyword">else</span> <span class="comment">%SFA1</span>
+0115       <a href="sfa_step.html" class="code" title="function sfa_step(hdl, arg, step)">sfa_step</a>(SFA_STRUCTS{hdl}.sfa1_hdl, arg, <span class="string">'preprocessing'</span>);
+0116     <span class="keyword">end</span>
+0117     
+0118    <span class="keyword">case</span> <span class="string">'expansion'</span>,
+0119     <span class="keyword">if</span> isempty(arg), <span class="keyword">return</span>, <span class="keyword">end</span>
+0120     <span class="comment">% project data and reduce dimensionality</span>
+0121     arg=arg-repmat(SFA_STRUCTS{hdl}.avg0, size(arg,1), 1);
+0122     arg=<a href="expansion.html" class="code" title="function DATA=expansion(hdl, DATA)">expansion</a>(hdl, arg*SFA_STRUCTS{hdl}.W0');
+0123     lcov_update(SFA_STRUCTS{hdl}.xp_hdl, arg)
+0124     
+0125     lcov_update(SFA_STRUCTS{hdl}.diff_hdl, <a href="timediff.html" class="code" title="function DATA=timediff(DATA, ax_type)">timediff</a>(arg, SFA_STRUCTS{hdl}.ax_type));
+0126     
+0127   <span class="keyword">end</span>
+0128</pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

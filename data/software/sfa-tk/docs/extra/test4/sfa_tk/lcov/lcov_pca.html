@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of lcov_pca</title>
+  <meta name="keywords" content="lcov_pca">
+  <meta name="description" content="LCOV_PCA Principal Component Analysis on a covariance object.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2003 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">extra</a> &gt; <a href="#">test4</a> &gt; <a href="#">sfa_tk</a> &gt; <a href="#">lcov</a> &gt; lcov_pca.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for /extra/test4/sfa_tk/lcov&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>lcov_pca
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>LCOV_PCA Principal Component Analysis on a covariance object.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function [W,DW,D]=lcov_pca(handle, dim_range) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> LCOV_PCA Principal Component Analysis on a covariance object.
+   [W,DW,D] = LCOV_PCA(HANDLE[, DIM_RANGE]) performs PCA _and_ whitening
+   on the covariance object referenced by HANDLE.
+   W is the whitening matrix, DW the dewhitening matrix and D an array
+   containing a list of the eigenvalues.
+
+   ! LCOV_FIX must have been called _before_ you call this function.
+  
+   If DIM_RANGE is specified, only the first DIM_RANGE components are keeped
+   or the components in the range DIM_RANGE(1)..DIM_RANGE(2).
+
+   See also <a href="lcov_fix.html" class="code" title="function lcov_fix(handle)">LCOV_FIX</a>.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [W,DW,D]=lcov_pca(handle, dim_range)</a>
+0002 <span class="comment">% LCOV_PCA Principal Component Analysis on a covariance object.</span>
+0003 <span class="comment">%   [W,DW,D] = LCOV_PCA(HANDLE[, DIM_RANGE]) performs PCA _and_ whitening</span>
+0004 <span class="comment">%   on the covariance object referenced by HANDLE.</span>
+0005 <span class="comment">%   W is the whitening matrix, DW the dewhitening matrix and D an array</span>
+0006 <span class="comment">%   containing a list of the eigenvalues.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   ! LCOV_FIX must have been called _before_ you call this function.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%   If DIM_RANGE is specified, only the first DIM_RANGE components are keeped</span>
+0011 <span class="comment">%   or the components in the range DIM_RANGE(1)..DIM_RANGE(2).</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   See also LCOV_FIX.</span>
+0014   
+0015   <span class="keyword">global</span> LCOV_STRUCTS
+0016 
+0017   <span class="keyword">if</span> nargin&lt;2, dim_range=length(LCOV_STRUCTS{handle}.COV_MTX); <span class="keyword">end</span>
+0018   <span class="keyword">if</span> length(dim_range)==1, dim_int=1:dim_range;
+0019   <span class="keyword">else</span> dim_int=dim_range(1):dim_range(2); <span class="keyword">end</span>
+0020 
+0021   [tmp,D,PC]=svd(LCOV_STRUCTS{handle}.COV_MTX);
+0022   <span class="comment">%[PC,D]=eig(LCOV_STRUCTS{handle}.COV_MTX);</span>
+0023   
+0024   <span class="comment">%reduce the dimensionality</span>
+0025   <span class="comment">%[D,idx]=sort(-diag(D));</span>
+0026   <span class="comment">%D=real( (-D(dim_int)).^(-0.5) );</span>
+0027   <span class="comment">% svd sorts the eigenvalues by itself</span>
+0028   D=diag(D);
+0029   D=D(dim_int).^(-0.5);
+0030   Dmtx=diag(D);
+0031     
+0032   <span class="comment">%PC=PC(:,idx(dim_int))';</span>
+0033   PC=PC(:,dim_int)';
+0034    
+0035   W=Dmtx*PC;
+0036   DW=PC'*inv(Dmtx);
+0037   D=D.^-2;</pre></div>
+<hr><address>Generated on Tue 10-Feb-2004 14:26:33 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/">m2html</a></strong> &copy; 2003</address>
+</body>
+</html>

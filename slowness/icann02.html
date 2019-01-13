@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Icann02</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+
+<h1>Applying Slow Feature Analysis to Image Sequences Yields a Rich Repertoire of Complex Cell Properties - Additional Material</h1>
+<HR>
+
+
+<P>
+
+<p>In the paper
+
+  <p>Berkes, P. and Wiskott, L. (2002).<BR>
+  <B>Applying Slow Feature Analysis to Image Sequences Yields a Rich
+     Repertoire of Complex Cell Properties.</B>,<BR>
+     in <EM>Artificial Neural Networks - ICANN 2002</EM>,<BR>
+     ed. José R. Dorronsoro, Springer Verlag, pp. 81-86
+     <BR>
+  (<A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2002a.bib">bibtex</A>,
+   <A HREF="http://itb.biologie.hu-berlin.de/~wiskott/Abstracts/BerkWisk2002a.html">abstract</A>,
+   <A HREF="https://pberkes.github.io/data/papers/BerWis_ICANN02.ps">.ps</A>)
+
+<p>we extracted slow varying signals out of input image sequences. In
+order to characterize the learned units, we computed the optimal
+excitatory and inhibitory stimuli (S+ resp. S-) and the invariances,
+i.e. those variations of S+ to which the unit is most insensitive.
+
+<p><IMG ALT="Overview of the optimal stimuli" WIDTH="750" HEIGHT="500" SRC="https://pberkes.github.io/images/slowness/icann02/overview.jpg">
+
+<p>The above image gives an overview of the optimal stimuli for the
+first (the slowest) 48 units resulting from one typical
+simulation. Most S+ (left patch) look like Gabor wavelets (in
+agreement with physiological data), i.e. the units respond best to
+oriented edges. Since inhibition plays an important role in our model,
+S- (right patch) is usually structured and is similar to a Gabor
+wavelet. All the units shown in the image but the first two have
+been classified as complex cells from their response characteristics.
+
+<p>The following animations show two examples units for each of the
+main classes of invariances found in our simulations. For each
+invariance we modify S+ until the response of the considered component
+drops under 80% of its maximal output. Each frame shown is thus a
+stimulus which elicits a response near to the optimum one.
+
+<P> For further informations please refer to the cited paper or mail to
+<img alt="berkes_AT_gatsby_DOT_ucl_DOT_ac_DOT_uk" src="https://pberkes.github.io/images/email_address.png">
+
+<p><I>If your browser fails to show looping animations, please reload the page or open the images one by one (e.g. in "Netscape" right-click and select "View Image") </I>
+
+<P>
+
+<TABLE WIDTH="100%" BORDER="0" cellspacing=50>
+<TR>
+<TD BGCOLOR="#eeeeee" ALIGN="center">
+  <h3>Phase shift invariance</h3>
+
+  <table cellspacing=30 align="center">
+  <tr>
+  <TD> <IMG ALT="Phase invariance - 1" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/phaseinv1.gif"> </TD>
+  <TD> <IMG ALT="Phase invariance - 3" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/phaseinv3.gif"> </TD>
+  </tr>
+  </table>
+</TD><TD BGCOLOR="#E0E0E0" ALIGN="center">
+  <h3>Frequency change invariance</h3>
+
+  <table cellspacing=30 align="center">
+  <tr>
+  <TD> <IMG ALT="Frequency invariance - 3" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/frinv3.gif"> </TD>
+  <TD> <IMG ALT="Frequency invariance - 1" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/frinv1.gif"> </TD>
+  </tr>
+  </table>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#E0E0E0" ALIGN="center">
+    <h3>Position change invariance</h3>
+
+    <table cellspacing=30 align="center">
+    <tr>
+    <TD> <IMG ALT="Position invariance - 2" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/posinv2.gif"> </TD>
+    <TD> <IMG ALT="Position invariance - 3" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/posinv3.gif"> </TD>
+    </tr>
+    </table>
+</TD><TD BGCOLOR="#E0E0E0" ALIGN="center">
+    <h3>Orientation change invariance</h3>
+
+    <table cellspacing=30 align="center">
+    <tr>
+    <TD> <IMG ALT="Orientation invariance - 1" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/orinv1.gif"> </TD>
+    <TD> <IMG ALT="Orientation invariance - 3" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/orinv3.gif"> </TD>
+    </tr>
+    </table>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#E0E0E0" ALIGN="center">
+    <h3>Size change invariance</h3>
+
+    <table cellspacing=30 align="center">
+    <tr>
+    <TD> <IMG ALT="Size invariance - 1" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/sizeinv1.gif"> </TD>
+    <TD> <IMG ALT="Size invariance - 3" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/sizeinv3.gif"> </TD>
+    </tr>
+    </table>
+</TD><TD BGCOLOR="#E0E0E0" ALIGN="center">
+
+    <h3>Curvature invariance</h3>
+
+    <table cellspacing=30 align="center">
+    <tr>
+    <TD> <IMG ALT="Curvature invariance - 2" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/curvinv2.gif"> </TD>
+    <TD> <IMG ALT="Curvature invariance - 3" WIDTH="75" HEIGHT="75" SRC="https://pberkes.github.io/images/slowness/icann02/curvinv3.gif"> </TD>
+    </tr>
+    </table>
+</TD>
+</TR>
+
+</TABLE>
+
+<P align="right">
+<A HREF="https://pberkes.github.io/slowness/index.html" CLASS="news">slowness project index page</A>
+<BR>
+
+
+</div>
+
+</body>
+</html>

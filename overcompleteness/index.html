@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>Index</TITLE>
+<META NAME="Author" CONTENT="Pietro Berkes">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="https://pberkes.github.io/stylesheet/main_styles.css" TITLE="Main Styles">
+
+<script language="javascript" type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose;
+</script>
+</HEAD>
+
+<body>
+<DIV class="header">
+
+<ul id="ddmenu">
+  <li>
+    <A HREF="https://pberkes.github.io/index.html">home</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/publications.html">publications</A>
+  </li>
+  <li>
+    <A HREF="https://pberkes.github.io/software.html">software</A>
+  </li>
+  <li>
+    <A HREF="#" onmouseover="mopen('mlinks')" 
+        onmouseout="mclosetime()">links &#9662;</a>
+        <div id="mlinks" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://github.com/pberkes">Github</a>
+        <a href="https://www.linkedin.com/in/pietroberkes/">LinkedIn</a>
+        <a
+  href="https://scholar.google.ch/citations?user=Xbh1cHoAAAAJ">Google Scholar</a>
+        <a href="http://www.masterbaboon.com">masterbaboon.com</a>
+        </div>
+  </li>
+</ul>
+</DIV>
+
+<div style="clear:both"></div>
+
+<div class='content'>
+<CENTER>
+  <H2>On sparsity and overcompleteness in image models</H2>
+
+  <A HREF="https://pberkes.github.io">Pietro Berkes</A>*,
+  <A HREF="http://www.gatsby.ucl.ac.uk/~turner/">Richard Turner</A>*, and
+  <A HREF="http://www.gatsby.ucl.ac.uk/~maneesh/">Maneesh Sahani</A>
+</CENTER><BR>
+<i class="smaller_font">*: These authors contributed equally to the project</i>
+<HR>
+
+
+<p>
+<b>Docs:</b>
+<ul>
+<li>
+<b>Cosyne08 abstract and poster:</b> Turner, R., Berkes, P., and Sahani, M. (2008).<BR>
+  <i>Finding the optimal sparse, overcomplete model for natural images by model selection.</i>
+  Cosyne 2008, Salt Lake City (abstract).<BR>
+  (<A HREF="https://pberkes.github.io/data/papers/TurnBerkSaha_Cosyne2008.pdf">abstract.pdf</A>, 
+  <A HREF="https://pberkes.github.io/data/papers/TurnBerkSaha_Cosyne2008_poster.pdf">poster.pdf</A>)
+
+<li>
+<b>NIPS07 paper:</b> Berkes, P., Turner, T., and Sahani, M. (2008).<BR>
+ <i> On Sparsity and Overcompleteness in Image Models</i>,
+ Advances in Neural Information Processing Systems, 20.<BR>
+ (<a href="https://pberkes.github.io/data/papers/BerkTurnSaha2008.pdf">.pdf</a>)
+
+<li>
+<b>Research talk</b> given at Gatsby, October 2007: <a
+href="https://pberkes.github.io/data/presentations/overcompleteness_research_talk_10_2007.pdf">.pdf</a>
+
+<li>
+<b><a href="http://www.gatsby.ucl.ac.uk/~turner">Rich</a>'s presentation</b> at the
+"Workshop on generative models in vision", Budapest, June 2007:
+<a
+href="http://www.gatsby.ucl.ac.uk/~turner/ENSandBudapest/Budapest.pdf">.pdf</a>
+
+</ul>
+
+<p>
+<b>Abstract:</b>
+<p>
+The principles that underlie the structure of receptive fields in the
+primary visual cortex are not well understood.  One theory is that
+they emerge from information processing constraints, and that two
+basic principles in particular play a key role. The first principle is
+that of <i>sparsity</i>. Both neural firing rates and visual
+statistics are sparsely distributed, and sparse models for images have
+been successful in reproducing some of the characteristics of simple
+cell receptive fields (RFs) in V1 [1,2]. The second principle is
+<i>overcompleteness</i>. The number of neurons in V1 is 100--300 times
+larger than the number of neurons in the LGN.  It has often been
+assumed that sparse, overcomplete codes might lend some computational
+advantage in the processing of visual information [3,4]. The goal of
+this work is to investigate this claim.
+
+<p>
+Many different sparse-overcomplete models for visual processing have
+been proposed.  These have largely been evaluated on the basis of
+their correspondance with neural properties (RF frequency,
+orientation, and aspect ratio after learning), on their effectiveness
+in denoising natural images, or on the efficiency with which they can
+be used to encode natural images.  However, only rarely have the
+questions about the degree of sparsity, the form of the sparsity, as
+well as the overcompleteness level, been addressed.
+
+<p>
+Here we formalise such questions of optimality in the context of
+Bayesian model selection, treating both the degree of sparsity and the
+extent of overcompleteness as parameters within a probabilistic model,
+that must be learnt from natural image data.  In the Bayesian
+framework, models are compared based on their marginal likelihoods, a
+measure which reflects their ability to fit the data, but also
+incoporates a Bayesian equivalent of Occam's razor by automatically
+penalizing models with more parameters than are supported by the data.
+We compare different sparse coding models and show that the optimal
+model seems to be indeed very sparse but, perhaps surprisingly, only
+modestly overcomplete. Thus, according to our results, linear sparse
+coding models are not sufficient to explain the presence of an
+overcomplete code in the primary visual cortex.
+
+<p>
+<b>References</b>
+<br>[1] B.A. Olshausen and D.J. Field (1996) Emergence of Simple-Cell Receptive Field Properties by Learning a Sparse Code for Natural Images. <i>Nature</i>, 381, 607--609.
+
+<br>[2] A.J. Bell and T.J. Sejnowski (1997) The 'Independent Components' of natural scenes are edge filters. <i>Vision Research</i>, 37, 3327--3338.
+
+<br>[3] B.A. Olshausen and D.J. Field (1997) Sparse Coding with an Overcomplete Basis Set: A Strategy Employed by V1? <i>Vision Research</i>, 37, 3311--3325.
+
+<br>[4] H. Lee, A. Battle, R. Rajat, and A.Y. Ng (2007) Efficient sparse coding algorithms. In <i>NIPS</i> 19.
+
+</div>
+
+</body>
+</html>
